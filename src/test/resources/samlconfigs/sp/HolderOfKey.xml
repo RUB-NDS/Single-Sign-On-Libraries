@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.rub.nds.saml.samllib.builder.SAMLProfileStorage>
+    <authnrequestHeaderDecorators>
+        <authnrequestHeaderDecorator name="default">
+            <issuerStr>http://skidentitySP.com/index.html/saml/acs</issuerStr>
+            <destination>http://skidentityIdP.com/index.html/saml/acs</destination>
+            <assertionConsumerServiceURL>http://skidentitySP.com/index.html/saml/acs</assertionConsumerServiceURL>
+            <forceAuthn>true</forceAuthn>
+        </authnrequestHeaderDecorator>
+    </authnrequestHeaderDecorators>
+    <samlRequestProfiles>
+        <samlRequestProfile name="default">
+            <authnrequestHeaderDec>default</authnrequestHeaderDec>
+            <entityID>http://skidentity.de/IdentityProvider</entityID>
+            <relayState>http://skidentitySP.com/index.html/saml/authenticated</relayState>
+            <samlVerifierStr>test</samlVerifierStr>
+        </samlRequestProfile>
+    </samlRequestProfiles>
+    <samlVerifierProfiles>
+        <samlVerifierProfile name="test">
+            <hokverification>true</hokverification>
+        </samlVerifierProfile>
+    </samlVerifierProfiles>
+</org.rub.nds.saml.samllib.builder.SAMLProfileStorage>

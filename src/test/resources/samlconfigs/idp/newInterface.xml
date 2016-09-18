@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAMLProfileStorage 
+	xmlns="http://www.api.saml.sso.elearning.nds.rub.org" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.api.saml.sso.elearning.nds.rub.org samlIdPConfig.xsd">
+    <registeredSPs>
+        <registeredSP>
+            <issuer>http://carbon.cloud.nds.rub.de:8080/sp/index.html</issuer>
+            <acsURL>http://carbon.cloud.nds.rub.de:8080/sp/xmlsec/index.html</acsURL>
+            <certificateX509></certificateX509>
+            <metadataFilePath></metadataFilePath>
+            <preferredTokenPprofile>default</preferredTokenPprofile>
+        </registeredSP>
+    </registeredSPs>
+    <samlTokenProfiles>
+        <samlTokenProfile name="default">
+            <responseHeaderDecorator>
+                <issuerStr>eLearning SAML SSO IdP</issuerStr>
+                <statusCodeURI>urn:oasis:names:tc:SAML:2.0:status:Success</statusCodeURI>
+                <addInResponseTo>true</addInResponseTo>
+                <addDestination>true</addDestination>
+            </responseHeaderDecorator>
+            <assertionHeaderDecorator>
+                <issuerStr>eLearning SAML SSO IdP</issuerStr>
+            </assertionHeaderDecorator>
+            <assertionConditionsDecorator>
+                <setNotBefore>true</setNotBefore>
+                <setNotAfter>true</setNotAfter>
+                <timestampDuration>20</timestampDuration>
+            </assertionConditionsDecorator>
+            <assertionSubjectDecorator>
+                <nameIDformat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</nameIDformat>
+                <sbjConfirmMethod>urn:oasis:names:tc:SAML:2.0:cm:bearer</sbjConfirmMethod>
+                <timestampDuration>20</timestampDuration>
+            </assertionSubjectDecorator>
+            <assertionAuthnStatementDecorator>
+                <authnContextClassRefStr>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</authnContextClassRefStr>
+            </assertionAuthnStatementDecorator>
+            <tokenSignatureDecorator>
+            	<signAssertion>true</signAssertion>
+            </tokenSignatureDecorator>
+        </samlTokenProfile>
+    </samlTokenProfiles>
+</SAMLProfileStorage>
+

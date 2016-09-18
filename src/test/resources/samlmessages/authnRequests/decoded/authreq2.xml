@@ -1,0 +1,34 @@
+<saml2p:AuthnRequest xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
+                     AssertionConsumerServiceURL="http://cryptochallenge.nds.rub.de:8080/SkIDentitySP"
+                     ForceAuthn="true"
+                     ID="_8ba94b9615689e0c30ad63a3e1f797aa"
+                     IsPassive="false"
+                     IssueInstant="2013-09-20T20:37:51.002Z"
+                     ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                     Version="2.0"
+                     >
+    <saml2:Issuer xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">RUB-NDS Service Provider</saml2:Issuer>
+    <saml2:Subject xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">
+        <saml2:NameID>Test123@web.de</saml2:NameID>
+        <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:holder-of-key">
+            <saml2:SubjectConfirmationData NotOnOrAfter="2013-09-20T21:07:51.003Z">
+                <saml2:Attribute FriendlyName="http://www.skidentity.de/policy/eGK-IS"
+                                 Name="http://www.skidentity.de/policy/eGK-IS"
+                                 />
+                <saml2:Attribute Name="http://www.skidentity.de/att/email" />
+                <saml2:Attribute Name="http://www.skidentity.de/att/eIdentifier" />
+            </saml2:SubjectConfirmationData>
+        </saml2:SubjectConfirmation>
+    </saml2:Subject>
+    <saml2p:NameIDPolicy AllowCreate="false"
+                         Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+                         />
+    <saml2:Conditions xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+                      NotBefore="2013-09-20T20:37:51.003Z"
+                      NotOnOrAfter="2013-09-20T21:07:51.003Z"
+                      >
+        <saml2:AudienceRestriction>
+            <saml2:Audience>http://cryptochallenge.nds.rub.de:8080/SkIDentitySP</saml2:Audience>
+        </saml2:AudienceRestriction>
+    </saml2:Conditions>
+</saml2p:AuthnRequest> 
