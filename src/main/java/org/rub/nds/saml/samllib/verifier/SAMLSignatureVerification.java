@@ -68,25 +68,25 @@ public class SAMLSignatureVerification implements SAMLVerifierInterface {
     @Override
     public void verify(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
 
-        if (profile.getSamlTokenVerificationChecks().isVerifyXSW())
+        if (profile.getSamlTokenVerificationChecks().isVerifyXSW()!=null && profile.getSamlTokenVerificationChecks().isVerifyXSW())
         {
             verifyStructure((SignableSAMLObject) samlObject);
         }
         
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature()!= null && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature()) {
             verifyUntrustedKeys((Response) samlObject);
         }
 
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted()!= null && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted()) {
             verifyTrustedKeys((Response) samlObject);
         }
 
         for (Assertion assertion : ((Response) samlObject).getAssertions()) {
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature()!=null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature()) {
                 verifyUntrustedKeys(assertion);
             }
             
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted()!=null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted()) {
                 verifyTrustedKeys(assertion);
             }
         }

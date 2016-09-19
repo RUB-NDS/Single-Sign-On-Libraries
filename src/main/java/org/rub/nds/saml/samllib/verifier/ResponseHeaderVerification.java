@@ -50,7 +50,7 @@ public class ResponseHeaderVerification implements SAMLVerifierInterface {
     }
 
     private void verifyIDs(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseID()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseID()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLResponseID()) {
             try {
                 Response response;
 
@@ -73,7 +73,7 @@ public class ResponseHeaderVerification implements SAMLVerifierInterface {
 
     private void verifyTimestamp(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
 
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseIssueInstant()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseIssueInstant()!= null && profile.getSamlTokenVerificationChecks().isVerifySAMLResponseIssueInstant()) {
             Response response = ((Response) samlObject);
             if (!response.getIssueInstant().isBeforeNow()) {
                 _log.error("Timestamp in the Response is not valid. Timestamp is BeforeNow: " + response.getIssueInstant().toString());
@@ -83,7 +83,7 @@ public class ResponseHeaderVerification implements SAMLVerifierInterface {
     }
 
     private void verifyInResponseTo(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseInResponseTo()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseInResponseTo()!= null && profile.getSamlTokenVerificationChecks().isVerifySAMLResponseInResponseTo()) {
             try {
                 Response response = ((Response) samlObject);
                 if (!response.getInResponseTo().equalsIgnoreCase(authnRequest.getID())) {

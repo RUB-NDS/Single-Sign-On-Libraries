@@ -89,7 +89,7 @@ public class SAMLSecurityFactory implements SAMLBuilderInterface {
 
             _log.info("Start signing the token!");
 
-            if (decorator.isSignAssertion()) {
+            if (decorator.isSignAssertion()!= null && decorator.isSignAssertion()) {
                 Signature tempSig = SecurityUtils.copySignature(signature);
                 _log.debug("Signing the assertion!");
                 Assertion samlAssertion = ((Response) samlToken).getAssertions().get(0);
@@ -101,7 +101,7 @@ public class SAMLSecurityFactory implements SAMLBuilderInterface {
                 Signer.signObject(tempSig);
             }
 
-            if (decorator.isSignResponse()) {
+            if (decorator.isSignResponse()!=null && decorator.isSignResponse()) {
                 Signature tempSig = SecurityUtils.copySignature(signature);
                 _log.debug("Signing the response!");
                 Response samlResponse = (Response) samlToken;

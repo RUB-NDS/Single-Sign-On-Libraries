@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
  */
 
 @RunWith(Suite.class)
-@Suite.SuiteClasses({II_TokenGenerationTestSuite.class, II_TokenVerificationTestSuite.class, II_UtilsTestSuite.class})
+@Suite.SuiteClasses({II_TokenGenerationTestSuite.class,  II_TokenVerificationTestSuite.class, II_UtilsTestSuite.class})
 public class I_MainTestSuite {
     private static final Logger _log = LoggerFactory.getLogger(II_UtilsTestSuite.class);
     private static final I_MainTestSuite instance = new I_MainTestSuite();

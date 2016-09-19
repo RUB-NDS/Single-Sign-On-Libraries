@@ -29,12 +29,14 @@ import org.junit.Test;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.ConfigurationException;
+import org.rub.nds.futuretrust.cvs.sso.api.SamlTokenVerificationChecksType;
+import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 import org.rub.nds.saml.samllib.exceptions.SAMLProfileException;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.exceptions.WrongInputException;
 import org.rub.nds.saml.samllib.testsuites.III_ReplayAttacksTestSuite;
-import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
+import org.rub.nds.saml.samllib.testsuites.III_SignatureTestSuite;
 
 /**
  *
@@ -61,67 +63,77 @@ public class Replay_InResponseToTest {
     public void tearDown() {
     }
 
-//    @Test(expected = SAMLVerifyException.class)
-//    public void ResponseInResponseToError() throws SAMLVerifyException {
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile profile;
-//
-//        samlVerifier = new SAMLVerifierImpl();
-//        profile = new SAMLVerifierProfile();
-//
-//        profile.setResponseInResponseTo(true);
-//
-//        for (Response token : III_ReplayAttacksTestSuite.tokens.values()) {
-//            samlVerifier.verify(token, profile);
-//        }
-//    }
-//
-//    @Test
-//    public void ResponseInResponseTo() throws SAMLVerifyException, SAMLBuildException, IOException, SAMLProfileException, WrongInputException {
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile verifyProfile;
-//
-//        verifyProfile = new SAMLVerifierProfile();
-//
-//        verifyProfile.setResponseInResponseTo(true);
-//
-//        for ( Iterator<Entry<AuthnRequest, Response>> iterator = III_ReplayAttacksTestSuite.tokens.entrySet().iterator(); iterator.hasNext(); )
-//        {
-//            Entry<AuthnRequest, Response> entry = iterator.next();
-//            samlVerifier = new SAMLVerifierImpl(entry.getKey());
-//            samlVerifier.verify(entry.getValue(), verifyProfile);
-//        }
-//    }
-//
-//    @Test(expected = SAMLVerifyException.class)
-//    public void AssertionInResponseToError() throws SAMLVerifyException {
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile profile;
-//
-//        samlVerifier = new SAMLVerifierImpl();
-//        profile = new SAMLVerifierProfile();
-//
-//        profile.setSubjectInResponseTo(true);
-//
-//        for (Response token : III_ReplayAttacksTestSuite.tokens.values()) {
-//            samlVerifier.verify(token, profile);
-//        }
-//    }
-//    
-//    @Test
-//    public void AssertionInResponseTo() throws SAMLVerifyException {
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile verifyProfile;
-//
-//        verifyProfile = new SAMLVerifierProfile();
-//
-//        verifyProfile.setSubjectInResponseTo(true);
-//
-//        for ( Iterator<Entry<AuthnRequest, Response>> iterator = III_ReplayAttacksTestSuite.tokens.entrySet().iterator(); iterator.hasNext(); )
-//        {
-//            Entry<AuthnRequest, Response> entry = iterator.next();
-//            samlVerifier = new SAMLVerifierImpl(entry.getKey());
-//            samlVerifier.verify(entry.getValue(), verifyProfile);
-//        }
-//    }
+    @Test(expected = SAMLVerifyException.class)
+    public void ResponseInResponseToError() throws SAMLVerifyException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+        
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifySAMLResponseInResponseTo(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+        
+        for (Response token : III_SignatureTestSuite.tokens.values()) {
+            samlVerifier.verify(token, profile);
+        }
+    }
+
+    @Test(expected = SAMLVerifyException.class)
+    public void ResponseInResponseTo() throws SAMLVerifyException, SAMLBuildException, IOException, SAMLProfileException, WrongInputException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifySAMLResponseInResponseTo(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+
+        for ( Iterator<Entry<AuthnRequest, Response>> iterator = III_ReplayAttacksTestSuite.tokens.entrySet().iterator(); iterator.hasNext(); )
+        {
+            Entry<AuthnRequest, Response> entry = iterator.next();
+            samlVerifier = new SAMLVerifierImpl(entry.getKey());
+            samlVerifier.verify(entry.getValue(), profile);
+        }
+    }
+
+    @Test(expected = SAMLVerifyException.class)
+    public void AssertionInResponseToError() throws SAMLVerifyException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifySAMLAssertionSbjInResponseTo(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+
+        for (Response token : III_SignatureTestSuite.tokens.values()) {
+            samlVerifier.verify(token, profile);
+        }
+    }
+    
+    @Test(expected = SAMLVerifyException.class)
+    public void AssertionInResponseTo() throws SAMLVerifyException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+        
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifySAMLAssertionSbjInResponseTo(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+
+        for ( Iterator<Entry<AuthnRequest, Response>> iterator = III_ReplayAttacksTestSuite.tokens.entrySet().iterator(); iterator.hasNext(); )
+        {
+            Entry<AuthnRequest, Response> entry = iterator.next();
+            samlVerifier = new SAMLVerifierImpl(entry.getKey());
+            samlVerifier.verify(entry.getValue(), profile);
+        }
+    }
 }

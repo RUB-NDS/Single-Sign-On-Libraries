@@ -55,7 +55,7 @@ public class SubjectVerification implements SAMLVerifierInterface {
     }
 
     private void verifyTimestamp(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationTimestamps()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationTimestamps()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationTimestamps()) {
             try {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (SubjectConfirmation sbjConfirmation : assertion.getSubject().getSubjectConfirmations()) {
@@ -88,7 +88,7 @@ public class SubjectVerification implements SAMLVerifierInterface {
 
     private void verifyRecipient(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         try {
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination()!= null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination()) {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (SubjectConfirmation sbjConfirmation : assertion.getSubject().getSubjectConfirmations()) {
 
@@ -107,7 +107,7 @@ public class SubjectVerification implements SAMLVerifierInterface {
 //
     private void veridyInResponseTo(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         try {
-            if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjInResponseTo()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjInResponseTo()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjInResponseTo()) {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (SubjectConfirmation sbjConfirmation : assertion.getSubject().getSubjectConfirmations()) {
 

@@ -18,6 +18,7 @@
  */
 package org.rub.nds.saml.samllib.builder;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.opensaml.common.SAMLObject;
 import org.rub.nds.elearning.sso.saml.api.RegisteredIdPType;
@@ -33,11 +34,12 @@ import org.slf4j.LoggerFactory;
  *
  * @author vmladenov
  */
-public class RequestBuildFactory implements SAMLBuilderInterface{
+public class RequestBuildFactory implements SAMLBuilderInterface {
+
     private static final Logger _log = LoggerFactory.getLogger(RequestBuildFactory.class);
     SamlRequestProfileType profileType;
     RegisteredIdPType idp;
-    List<SAMLDecorator> decorators;
+    List<SAMLDecorator> decorators = new ArrayList<>();
 
     public RequestBuildFactory(SamlRequestProfileType profileType) {
         this.profileType = profileType;
@@ -51,17 +53,20 @@ public class RequestBuildFactory implements SAMLBuilderInterface{
     @Override
     public SAMLObject build() throws SAMLBuildException {
         SAMLObject samlToken = (SAMLObject) new DefaultAuthnRequest().build(null);
-        
-        _log.debug("Decorates the AuthnRequest Header information!");
-        if (profileType.getAuthnrequestHeaderDec()!= null) {
-            AuthnRequestHeaderDecorator decorator = new AuthnRequestHeaderDecorator(profileType);
-            decorator.build(samlToken);
+
+        if (profileType != null) {
+            _log.debug("Decorates the AuthnRequest Header information!");
+            if (profileType.getAuthnrequestHeaderDec() != null) {
+                AuthnRequestHeaderDecorator decorator = new AuthnRequestHeaderDecorator(profileType);
+                decorator.build(samlToken);
+            }
         }
         
-        for (SAMLDecorator decorator : decorators){
-            samlToken = decorator.build(samlToken);
-        }
-        
+        _log.debug("Further Decorate the AuthnRequest!");
+        for (SAMLDecorator decorator : decorators) {
+                samlToken = decorator.build(samlToken);
+            }
+
         return samlToken;
     }
 }

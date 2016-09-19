@@ -21,10 +21,15 @@ package org.rub.nds.saml.samllib.testsuites;
 import com.thoughtworks.xstream.XStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,12 +39,16 @@ import org.junit.runners.Suite;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.signature.Signature;
+import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
+import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
+import org.rub.nds.elearning.sso.saml.api.TokenSignatureDecoratorType;
 
 import org.rub.nds.saml.samllib.builder.SAMLBuilderInterface;
 
 import org.rub.nds.saml.samllib.builder.SAMLSecurityFactory;
 
 import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
+import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
 import org.rub.nds.saml.samllib.exceptions.ConfigurationException;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
@@ -56,47 +65,47 @@ import org.rub.nds.saml.samllib.verifier.Signature_UntrustedVerificationTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({Signature_UntrustedVerificationTest.class})
 public class III_SignatureTestSuite {
+
     private static final III_SignatureTestSuite instance = new III_SignatureTestSuite();
     private static Signature signature;
     public static Map<String, Response> tokens;
 
     private III_SignatureTestSuite() {
-//        try {
-//            tokens = new HashMap<>();
-//            String filePath = I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("key_filepath"));
-//            String keyStore_pass = I_MainTestSuite.properties.getProperty("key_keystore_password");
-//            String keyStore_alias = I_MainTestSuite.properties.getProperty("key_alias");
-//            String keyStoreTrust_pass = I_MainTestSuite.properties.getProperty("key_truststore_password");
-//            XStream xstream = new XStream();
-//            xstream.setClassLoader(SAMLProfileStorage.class.getClassLoader());
-//            xstream.processAnnotations(SAMLProfileStorage.class);
-//            
-//            signature = SecurityUtils.getSignatureFromFileJKS(new File(filePath), keyStore_pass.toCharArray(), keyStoreTrust_pass.toCharArray(), keyStore_alias);
-//            
-//            buildNormalTokens(xstream);
-//        } catch (KeyException ex) {
-//            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SAMLBuildException ex) {
-//            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (IOException ex) {
-//            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SAMLProfileException ex) {
-//            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (ConfigurationException ex) {
-//            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
+        try {
+            tokens = new HashMap<>();
+            String filePath = I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("key_filepath"));
+            String keyStore_pass = I_MainTestSuite.properties.getProperty("key_keystore_password");
+            String keyStore_alias = I_MainTestSuite.properties.getProperty("key_alias");
+            String keyStoreTrust_pass = I_MainTestSuite.properties.getProperty("key_truststore_password");
+
+            signature = SecurityUtils.getSignatureFromFileJKS(new File(filePath), keyStore_pass.toCharArray(), keyStoreTrust_pass.toCharArray(), keyStore_alias);
+            buildNormalTokens();
+        } catch (KeyException ex) {
+            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAMLBuildException ex) {
+            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAMLProfileException ex) {
+            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ConfigurationException ex) {
+            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
+            Logger.getLogger(III_SignatureTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-    
+
     public static III_SignatureTestSuite getInstance() throws org.opensaml.xml.ConfigurationException, IOException {
-        if (instance == null) { throw new RuntimeException("Cannot start JUNit Tests!"); }  
+        if (instance == null) {
+            throw new RuntimeException("Cannot start JUNit Tests!");
+        }
         return instance;
     }
-    
-    
+
     @BeforeClass
-    public static void setUpClass()  throws KeyException, SAMLBuildException, IOException, SAMLProfileException, ConfigurationException {
-        
+    public static void setUpClass() throws KeyException, SAMLBuildException, IOException, SAMLProfileException, ConfigurationException {
+
     }
 
     @AfterClass
@@ -104,32 +113,35 @@ public class III_SignatureTestSuite {
     }
 
     @Before
-    public void setUp(){
-        
+    public void setUp() {
+
     }
 
     @After
     public void tearDown() {
     }
 
-    private static void buildNormalTokens(XStream xstream) throws IOException, SAMLBuildException, SAMLProfileException, ConfigurationException {
-//        SAMLSecurityInterface samlSecFactory;
-//        SAMLBuilderInterface samlBuildFactory;
-//        SAMLObject samlToken;
-//
-//        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
-//            SAMLProfileStorage storage = (SAMLProfileStorage) xstream.fromXML(s);
-//            storage.initialize();
-//
-//            for (SAMLTokenProfile samlProfile : storage.getSamlTokenProfiles()) {
-//                samlBuildFactory = new SAMLBuildFactory();
-//                samlToken = samlBuildFactory.build(samlProfile);
-//                
-//                samlSecFactory = new SAMLSecurityFactory(samlToken, SecurityUtils.copySignature(signature));
-//                samlToken = samlSecFactory.build(samlProfile);
-//                tokens.put(samlProfile.getName(), (Response) samlToken);
-//            }
-//        }
+    private static void buildNormalTokens() throws IOException, SAMLBuildException, SAMLProfileException, ConfigurationException, JAXBException {
+        SAMLSecurityFactory samlSecFactory;
+        SAMLObject samlToken;
+
+        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
+            JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.elearning.sso.saml.api");
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            JAXBElement<SAMLProfileStorageType> samlStorage = (JAXBElement<SAMLProfileStorageType>) unmarshaller.unmarshal(new StringReader(s));
+            SAMLProfileStorageType storage = samlStorage.getValue();
+
+            for (SamlTokenProfileType samlProfile : storage.getSamlTokenProfiles().getSamlTokenProfile()) {
+                TokenBuildFactory samlFactory;
+                samlFactory = new TokenBuildFactory(samlProfile);
+                samlToken = samlFactory.build();
+                
+                TokenSignatureDecoratorType decorator = new TokenSignatureDecoratorType();
+                samlSecFactory = new SAMLSecurityFactory(samlToken, SecurityUtils.copySignature(signature), samlProfile.getTokenSignatureDecorator());
+                samlToken = samlSecFactory.build();
+                tokens.put(samlProfile.getName(), (Response) samlToken);
+            }
+        }
     }
-    
+
 }

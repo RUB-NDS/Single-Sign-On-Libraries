@@ -26,10 +26,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.ConfigurationException;
+import org.rub.nds.futuretrust.cvs.sso.api.SamlTokenVerificationChecksType;
+import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
-import org.rub.nds.saml.samllib.testsuites.III_ReplayAttacksTestSuite;
 import org.rub.nds.saml.samllib.testsuites.III_SignatureTestSuite;
-import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
 
 /**
  *
@@ -39,55 +39,54 @@ public class Signature_UntrustedVerificationTest {
 
     public Signature_UntrustedVerificationTest() {
     }
-    
-    
+
     @BeforeClass
     public static void setUpClass() throws ConfigurationException, IOException {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
-//    @Test
-//    public void testSignatureVerification() throws SAMLVerifyException{
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile profile;
-//
-//        samlVerifier = new SAMLVerifierImpl();
-//        profile = new SAMLVerifierProfile();
-//        
-//        profile.setAssertionSignature(true);
-//        
-//        
-//        for (Response token : III_SignatureTestSuite.tokens.values())
-//        {
-//            samlVerifier.verify(token, profile);
-//        }
-//    }
-//    
-//    @Test (expected = SAMLVerifyException.class)
-//    public void testSignatureVerificationError() throws SAMLVerifyException{
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile profile;
-//
-//        samlVerifier = new SAMLVerifierImpl();
-//        profile = new SAMLVerifierProfile();
-//        
-//        profile.setAssertionSignature(true);
-//        
-//        
-//        for (Response token : III_ReplayAttacksTestSuite.tokens.values())
-//        {
-//            samlVerifier.verify(token, profile);
-//        }
-//    }
+    @Test
+    public void testSignatureVerification() throws SAMLVerifyException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifiySAMLAssertionSignature(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+
+        for (Response token : III_SignatureTestSuite.tokens.values()) {
+            samlVerifier.verify(token, profile);
+        }
+    }
+
+    @Test
+    public void testSignatureVerificationError() throws SAMLVerifyException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifiySAMLAssertionSignature(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+
+        for (Response token : III_SignatureTestSuite.tokens.values()) {
+            samlVerifier.verify(token, profile);
+        }
+    }
 }

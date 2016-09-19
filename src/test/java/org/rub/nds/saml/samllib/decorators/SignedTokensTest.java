@@ -18,22 +18,29 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
 import org.rub.nds.saml.samllib.builder.SAMLSecurityFactory;
-import com.thoughtworks.xstream.XStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.Unmarshaller;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opensaml.common.SAMLObject;
+import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.ConfigurationException;
 import org.opensaml.xml.signature.Signature;
-import org.rub.nds.saml.samllib.builder.SAMLBuilderInterface;
+import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
+import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
+import org.rub.nds.elearning.sso.saml.api.TokenSignatureDecoratorType;
+import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
+import static org.rub.nds.saml.samllib.testsuites.III_SignatureTestSuite.tokens;
 import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
 import org.rub.nds.saml.samllib.utils.FileUtils;
 import org.rub.nds.saml.samllib.utils.SecurityUtils;
@@ -72,9 +79,9 @@ public class SignedTokensTest {
     public void tearDown() {
     }
 
-//    /**
-//     * Test of build method, of class DefaultResponse.
-//     */
+    /**
+     * Test of build method, of class DefaultResponse.
+     */
 //    @Test
 //    public void createTokens() throws Exception {
 //        _log.debug("Read config files containing SAML Profiles!");
@@ -101,4 +108,31 @@ public class SignedTokensTest {
 //            }
 //        }
 //    }
+    
+    @Test
+    public void createTokens () throws Exception{
+        SAMLSecurityFactory samlSecFactory;
+        SAMLObject samlToken;
+
+        _log.debug("Read config files containing SAML Profiles!");
+        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
+            JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.elearning.sso.saml.api");
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            JAXBElement<SAMLProfileStorageType> samlStorage = (JAXBElement<SAMLProfileStorageType>) unmarshaller.unmarshal(new StringReader(s));
+            SAMLProfileStorageType storage = samlStorage.getValue();
+
+            for (SamlTokenProfileType samlProfile : storage.getSamlTokenProfiles().getSamlTokenProfile()) {
+                _log.debug("Create token");
+                TokenBuildFactory samlFactory;
+                samlFactory = new TokenBuildFactory(samlProfile);
+                samlToken = samlFactory.build();
+                
+                _log.debug("Sign Token");
+                TokenSignatureDecoratorType decorator = new TokenSignatureDecoratorType();
+                samlSecFactory = new SAMLSecurityFactory(samlToken, SecurityUtils.copySignature(signature), samlProfile.getTokenSignatureDecorator());
+                samlToken = samlSecFactory.build();
+                tokens.put(samlProfile.getName(), (Response) samlToken);
+            }
+        }
+    }
 }

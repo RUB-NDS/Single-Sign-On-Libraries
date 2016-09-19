@@ -48,7 +48,7 @@ public class ConditionsVerification implements SAMLVerifierInterface {
     }
 
     private void verifyTimestamp(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsTimestamps()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsTimestamps()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsTimestamps()) {
             try {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     DateTime notBefore = assertion.getConditions().getNotBefore();
@@ -80,7 +80,7 @@ public class ConditionsVerification implements SAMLVerifierInterface {
     private void verifyAudience(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         List<String> audienceStrings = new ArrayList<>();
 
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsAudience()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsAudience()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsAudience()) {
             try {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (AudienceRestriction restrict : assertion.getConditions().getAudienceRestrictions()) {

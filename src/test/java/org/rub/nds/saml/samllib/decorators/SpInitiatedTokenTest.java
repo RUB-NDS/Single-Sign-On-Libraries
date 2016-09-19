@@ -21,19 +21,33 @@ package org.rub.nds.saml.samllib.decorators;
 import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
 import com.thoughtworks.xstream.XStream;
 import java.io.IOException;
+import java.io.StringReader;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.Unmarshaller;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opensaml.common.SAMLObject;
 import org.opensaml.saml2.core.AuthnRequest;
+import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.ConfigurationException;
 import org.opensaml.xml.signature.Signature;
+import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
+import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
+import org.rub.nds.elearning.sso.saml.api.TokenSignatureDecoratorType;
+import org.rub.nds.saml.samllib.builder.RequestBuildFactory;
+import org.rub.nds.saml.samllib.builder.SAMLSecurityFactory;
+import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
+import static org.rub.nds.saml.samllib.testsuites.III_SignatureTestSuite.tokens;
 import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
 import org.rub.nds.saml.samllib.utils.FileUtils;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
+import org.rub.nds.saml.samllib.utils.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -62,35 +76,30 @@ public class SpInitiatedTokenTest {
     public void tearDown() {
     }
 
-//    /**
-//     * Test of build method, of class DefaultResponse.
-//     */
-//    @Test
-//    public void createTokens() throws Exception {
-//        _log.debug("Read config files containing SAML Profiles!");
-//        SAMLDecorator spinitiDecorator;
-//        SAMLBuildFactory samlFactory;
-//        AuthnRequest authnRequest;
-//        String authnReqStr;
-//        
-//        authnReqStr = FileUtils.readFile(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("authnRequestsDecoded")).concat("/authreq2.xml"));
-//        authnRequest = (AuthnRequest) SAMLUtils.buildObjectfromString(authnReqStr);
-//
-//        XStream xstream = new XStream();
-//        xstream.setClassLoader(SAMLProfileStorage.class.getClassLoader());
-//        xstream.processAnnotations(SAMLProfileStorage.class);
-//
-//        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
-//            SAMLProfileStorage storage = (SAMLProfileStorage) xstream.fromXML(s);
-//            storage.initialize();
-//            
-//            for (SAMLTokenProfile samlProfile : storage.getSamlTokenProfiles()) {
-//
-//                samlFactory = new SAMLBuildFactory();
-//                spinitiDecorator = new SPInitiatedSSODecorator(authnRequest);
-//                samlFactory = new SAMLBuildFactory();
-//                samlFactory.addDecorator(spinitiDecorator);
-//            }
-//        }
-//    }
+    /**
+     * Test of build method, of class DefaultResponse.
+     */
+    @Test
+    public void createTokens() throws Exception {
+        SAMLSecurityFactory samlSecFactory;
+        SAMLObject samlToken;
+
+        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
+            JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.elearning.sso.saml.api");
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            JAXBElement<SAMLProfileStorageType> samlStorage = (JAXBElement<SAMLProfileStorageType>) unmarshaller.unmarshal(new StringReader(s));
+            SAMLProfileStorageType storage = samlStorage.getValue();
+
+            for (SamlTokenProfileType samlProfile : storage.getSamlTokenProfiles().getSamlTokenProfile()) {
+                TokenBuildFactory samlFactory;
+                samlFactory = new TokenBuildFactory(samlProfile);
+                
+                RequestBuildFactory reqBuilder = new RequestBuildFactory(null);
+                SPInitiatedSSODecorator decorator = new SPInitiatedSSODecorator((AuthnRequest)reqBuilder.build());
+                samlFactory.addDecorator(decorator);
+                
+                samlToken = samlFactory.build();
+            }
+        }
+    }
 }

@@ -26,8 +26,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.ConfigurationException;
+import org.rub.nds.futuretrust.cvs.sso.api.SamlTokenVerificationChecksType;
+import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.testsuites.III_ReplayAttacksTestSuite;
+import org.rub.nds.saml.samllib.testsuites.III_SignatureTestSuite;
 import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
 
 /**
@@ -55,36 +58,37 @@ public class Replay_IDsTest {
     public void tearDown() {
     }
 
-//    @Test
-//    public void ResponseID() throws SAMLVerifyException {
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile profile;
-//
-//        samlVerifier = new SAMLVerifierImpl();
-//        profile = new SAMLVerifierProfile();
-//        
-//        profile.setResponseID(true);
-//        
-//        
-//        for (Response token : III_ReplayAttacksTestSuite.tokens.values())
-//        {
-//            samlVerifier.verify(token, profile);
-//        }
-//    }
-//    
-//    @Test
-//    public void AssertionID() throws SAMLVerifyException {
-//        SAMLVerifierInterface samlVerifier;
-//        SAMLVerifierProfile profile;
-//
-//        samlVerifier = new SAMLVerifierImpl();
-//        profile = new SAMLVerifierProfile();
-//        
-//        profile.setAssertionID(true);
-//        
-//        for (Response token : III_ReplayAttacksTestSuite.tokens.values())
-//        {
-//            samlVerifier.verify(token, profile);
-//        }
-//    }
+    @Test
+    public void ResponseID() throws SAMLVerifyException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifySAMLResponseID(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+
+        for (Response token : III_SignatureTestSuite.tokens.values()) {
+            samlVerifier.verify(token, profile);
+        }
+    }
+    
+    @Test
+    public void AssertionID() throws SAMLVerifyException {
+        SAMLVerifierInterface samlVerifier;
+        VerificationProfileType profile;
+
+        samlVerifier = new SAMLVerifierImpl();
+        profile = new VerificationProfileType();
+
+        SamlTokenVerificationChecksType check = new SamlTokenVerificationChecksType();
+        check.setVerifiySAMLAssertionID(Boolean.TRUE);
+        profile.setSamlTokenVerificationChecks(check);
+
+        for (Response token : III_SignatureTestSuite.tokens.values()) {
+            samlVerifier.verify(token, profile);
+        }
+    }
 }

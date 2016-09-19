@@ -18,12 +18,16 @@
  */
 package org.rub.nds.saml.samllib.testsuites;
 
-import com.thoughtworks.xstream.XStream;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -32,7 +36,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
-import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
+import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
+import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
+import org.rub.nds.saml.samllib.builder.RequestBuildFactory;
+import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
 import org.rub.nds.saml.samllib.decorators.SAMLDecorator;
 import org.rub.nds.saml.samllib.decorators.SPInitiatedSSODecorator;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
@@ -50,37 +57,37 @@ import org.rub.nds.saml.samllib.verifier.SAMLIDCache;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({Replay_IDsTest.class, Replay_InResponseToTest.class, Replay_TimestampsTest.class})
 public class III_ReplayAttacksTestSuite {
+
     private static final III_ReplayAttacksTestSuite instance = new III_ReplayAttacksTestSuite();
     public static Map<AuthnRequest, Response> tokens;
 
     private III_ReplayAttacksTestSuite() {
-//        try {
-//            SAMLIDCache.initialize();
-//            tokens = new HashMap<>();
-//            
-//            XStream xstream = new XStream();
-//            xstream.setClassLoader(SAMLProfileStorage.class.getClassLoader());
-//            xstream.processAnnotations(SAMLProfileStorage.class);
-//            
-//            buildNormalTokens(xstream);
-//        } catch (IOException ex) {
-//            Logger.getLogger(III_ReplayAttacksTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SAMLBuildException ex) {
-//            Logger.getLogger(III_ReplayAttacksTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (SAMLProfileException ex) {
-//            Logger.getLogger(III_ReplayAttacksTestSuite.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            SAMLIDCache.initialize();
+            tokens = new HashMap<>();
+            buildNormalTokens();
+        } catch (IOException ex) {
+            Logger.getLogger(III_ReplayAttacksTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAMLBuildException ex) {
+            Logger.getLogger(III_ReplayAttacksTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAMLProfileException ex) {
+            Logger.getLogger(III_ReplayAttacksTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
+            Logger.getLogger(III_ReplayAttacksTestSuite.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public static III_ReplayAttacksTestSuite getInstance() throws org.opensaml.xml.ConfigurationException, IOException {
-        if (instance == null) { throw new RuntimeException("Cannot start JUNit Tests!"); }  
+        if (instance == null) {
+            throw new RuntimeException("Cannot start JUNit Tests!");
+        }
         return instance;
     }
-    
+
     @BeforeClass
     public static void setUpClass() throws IOException, SAMLProfileException, SAMLBuildException {
-        
+
     }
 
     @AfterClass
@@ -96,25 +103,26 @@ public class III_ReplayAttacksTestSuite {
     public void tearDown() {
     }
 
-//    private static void buildNormalTokens(XStream xstream) throws IOException, SAMLBuildException, SAMLProfileException {
-//        SAMLBuildFactory samlFactory;
-//        
-//        samlFactory = new SAMLBuildFactory();
-//        
-//        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
-//            SAMLProfileStorage storage = (SAMLProfileStorage) xstream.fromXML(s);
-//            storage.initialize();
-//
-//            for (SAMLTokenProfile samlProfile : storage.getSamlTokenProfiles()) {
-//                SAMLDecorator spinitiatedDecorator;
-//                AuthnRequest authnRequest;
-//                
-//                authnRequest = (AuthnRequest) new SAMLBuildFactory().build(storage.getRequestProfile("default"));
-//                
-//                spinitiatedDecorator = new SPInitiatedSSODecorator(authnRequest);
-//                samlFactory.addDecorator(spinitiatedDecorator);
-//                tokens.put(authnRequest, (Response) samlFactory.build(samlProfile));
-//            }
-//        }
-//    }
+    private static void buildNormalTokens() throws IOException, SAMLBuildException, SAMLProfileException, JAXBException {
+        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
+            JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.elearning.sso.saml.api");
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            JAXBElement<SAMLProfileStorageType> samlStorage = (JAXBElement<SAMLProfileStorageType>) unmarshaller.unmarshal(new StringReader(s));
+            SAMLProfileStorageType storage = samlStorage.getValue();
+            
+            for (SamlTokenProfileType samlProfile : storage.getSamlTokenProfiles().getSamlTokenProfile()) {
+                SAMLDecorator spinitiatedDecorator;
+                AuthnRequest authnRequest;
+                TokenBuildFactory samlFactory;
+
+                samlFactory = new TokenBuildFactory(samlProfile);
+
+                authnRequest = (AuthnRequest) new RequestBuildFactory(null).build();
+
+                spinitiatedDecorator = new SPInitiatedSSODecorator(authnRequest);
+                samlFactory.addDecorator(spinitiatedDecorator);                
+                tokens.put(authnRequest, (Response) samlFactory.build());
+            }
+        }
+    }
 }

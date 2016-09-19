@@ -18,17 +18,21 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
-import com.thoughtworks.xstream.XStream;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
+import java.io.StringReader;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.Unmarshaller;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.opensaml.common.SAMLObject;
 import org.opensaml.xml.ConfigurationException;
+import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
+import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
+import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
@@ -60,24 +64,26 @@ public class SimpleTokenTests{
     public void tearDown() {
     }
 
-//    /**
-//     * Test of build method, of class DefaultResponse.
-//     */
-//    @Test
-//    public void createTokens() throws Exception {
-//        _log.debug("Read config files containing SAML Profiles!");
-//
-//        XStream xstream = new XStream();
-//        xstream.setClassLoader(SAMLProfileStorage.class.getClassLoader());
-//        xstream.processAnnotations(SAMLProfileStorage.class);
-//
-//        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
-//            SAMLProfileStorage storage = (SAMLProfileStorage) xstream.fromXML(s);
-//            storage.initialize();
-//
-//            for (SAMLTokenProfile samlProfile : storage.getSamlTokenProfiles()) {
-//                new SAMLBuildFactory().build(samlProfile);
-//            }
-//        }
-//    }
+    /**
+     * Test of build method, of class DefaultResponse.
+     */
+    @Test
+    public void createTokens() throws Exception {
+        _log.debug("Read config files containing SAML Profiles!");
+
+        _log.debug("Read config files containing SAML Profiles!");
+
+        JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.elearning.sso.saml.api");
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        for (String s : FileUtils.readFilesFromDir(I_MainTestSuite.prefix.concat(I_MainTestSuite.properties.getProperty("samlConfigIdP")), "xml")) {
+            JAXBElement<SAMLProfileStorageType> samlStorage = (JAXBElement<SAMLProfileStorageType>) unmarshaller.unmarshal(new StringReader(s));
+            SAMLProfileStorageType storage = samlStorage.getValue();
+            
+            for (SamlTokenProfileType profile : storage.getSamlTokenProfiles().getSamlTokenProfile())
+            {
+                TokenBuildFactory factory = new TokenBuildFactory(profile, storage.getRegisteredSPs().getRegisteredSP().get(0));
+                SAMLObject samlObj = factory.build();
+            }
+        }
+    }
 }

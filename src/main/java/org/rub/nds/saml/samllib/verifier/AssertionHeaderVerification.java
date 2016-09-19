@@ -45,7 +45,7 @@ public class AssertionHeaderVerification implements SAMLVerifierInterface {
     }
 
     private void verifyIDs(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID()!=null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID()) {
             for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                 try {
                     if (!SAMLIDCache.getHandler().get(assertion.getID()).equals("Recently used!")) {
@@ -66,7 +66,7 @@ public class AssertionHeaderVerification implements SAMLVerifierInterface {
     private void verifyTimestamp (SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException
     {
         
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionIssueInstant())
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionIssueInstant()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionIssueInstant())
         {
             for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                 if (!assertion.getIssueInstant().isBeforeNow())
