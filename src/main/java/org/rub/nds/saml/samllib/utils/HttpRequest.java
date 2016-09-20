@@ -36,15 +36,20 @@ public class HttpRequest {
     public HttpRequest(HttpServletRequest request) {
         params = new HashMap<>();
         
-        params.put(HttpRequestConstants.JAVAXSERVLETREQUEST_X509_CERTIFICATE,request.getAttribute(HttpRequestConstants.JAVAXSERVLETREQUEST_X509_CERTIFICATE));
-        params.put(HttpRequestConstants.SAML_REQUEST,request.getSession().getAttribute(HttpRequestConstants.SAML_REQUEST));
-        params.put(HttpRequestConstants.TEMPLATE,request.getSession().getAttribute(HttpRequestConstants.TEMPLATE));
-        params.put(HttpRequestConstants.BROKER_TEMPLATE,request.getSession().getAttribute(HttpRequestConstants.BROKER_TEMPLATE));
-        params.put(HttpRequestConstants.SECURITY_TOKEN,request.getSession().getAttribute(HttpRequestConstants.SECURITY_TOKEN));
-        params.put(HttpRequestConstants.RELAY_STATE, request.getSession().getAttribute(HttpRequestConstants.RELAY_STATE));
-        params.put(HttpRequestConstants.ERROR_URL, request.getSession().getAttribute(HttpRequestConstants.ERROR_URL));
-        params.put(HttpRequestConstants.HttpParamTLSUnique, request.getHeader(HttpRequestConstants.HttpParamTLSUnique));
+        params.put(HttpRequestConstants.PROFILE, request.getParameter((HttpRequestConstants.PROFILE)));
+        params.put(HttpRequestConstants.SAML_REQUEST,request.getParameter((HttpRequestConstants.SAML_REQUEST)));
+        params.put(HttpRequestConstants.RELAY_STATE, request.getParameter(HttpRequestConstants.RELAY_STATE));
         
+        if (request.getParameter(HttpRequestConstants.SECURITY_BINDING) != null && !request.getParameter(HttpRequestConstants.SECURITY_BINDING).isEmpty())
+        {
+            String binding = request.getParameter(HttpRequestConstants.SECURITY_BINDING);
+            switch (binding){
+                case HttpRequestConstants.hok : params.put(HttpRequestConstants.JAVAXSERVLETREQUEST_X509_CERTIFICATE,request.getAttribute(HttpRequestConstants.JAVAXSERVLETREQUEST_X509_CERTIFICATE)); break;
+                case HttpRequestConstants.TokenBinding : break; // not implemented yet
+                case HttpRequestConstants.tlsUnique : break; //not implemented yet
+            }
+            
+        }        
     }
     
     

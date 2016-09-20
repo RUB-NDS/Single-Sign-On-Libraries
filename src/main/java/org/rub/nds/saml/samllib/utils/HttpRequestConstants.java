@@ -24,24 +24,13 @@ package org.rub.nds.saml.samllib.utils;
  */
 public class HttpRequestConstants 
 {
-    public static final String SECURITY_TOKEN = "security_token";
-    public static final String TEMPLATE = "template";
-    public static final String BROKER_TEMPLATE = "broker_template";
+    public static final String PROFILE = "profile";
     public static final String SAML_REQUEST = "SAMLRequest";
-    public static final String JAVAXSERVLETREQUEST_X509_CERTIFICATE = "javax.servlet.request.X509Certificate";
-    public static final String RELAY_STATE = "RelayState"; 
-    public static final String ERROR_URL = "error_url";
-    public static final String AS_TYPE = "as_type"; // it is not a part of the new Broker
+    public static final String SECURITY_BINDING = "sec_binding";
+    public static final String RELAY_STATE = "RelayState";
     
-    public static final String HttpParamTLSUnique = "tlsunique";
-    public static final String HttpParamURIHoK = "holderofkey";
-    public static final String HttpParamHoK = "hok";
-    public static final String HttpParamNormal = "normal";
-    public static final String HttpParamTest = "test";
-    public static final String HttpParamXmlsec = "xmlsec";
-    public static final String HttpParamSamlsec = "samlsec";
-    public static final String HttpParamWebapps = "webapps";
-    public static final String HttpParamNPA = "npa";
-    public static final String HttpParamCert = "cert";
-    public static final String HttpParamInProcess = "&authentication=inprocess";
+    public static final String JAVAXSERVLETREQUEST_X509_CERTIFICATE = "javax.servlet.request.X509Certificate";
+    public static final String tlsUnique = "tlsunique";
+    public static final String hok = "holderofkey";
+    public static final String TokenBinding = "tokenbinding";
 }
