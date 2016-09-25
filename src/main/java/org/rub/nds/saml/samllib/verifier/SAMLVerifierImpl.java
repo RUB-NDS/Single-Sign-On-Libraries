@@ -82,7 +82,8 @@ public class SAMLVerifierImpl implements SAMLVerifierInterface{
         new SAMLSignatureVerification(metadata).verify(samlObject, profile);
         new ConditionsVerification().verify(samlObject, profile);
         new SubjectVerification(authnRequest).verify(samlObject, profile);
-        new HolderOfKeyVerification(certifficate).verify(samlObject, profile);
+        HolderOfKeyVerification hok = new HolderOfKeyVerification(certifficate);
+        hok.verify(samlObject, profile);
     }
     
 }
