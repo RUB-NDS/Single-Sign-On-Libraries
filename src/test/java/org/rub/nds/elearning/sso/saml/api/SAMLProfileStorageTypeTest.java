@@ -69,4 +69,13 @@ public class SAMLProfileStorageTypeTest {
          SAMLProfileStorageType storage = samlStorage.getValue();
          Assert.assertEquals("http://carbon.cloud.nds.rub.de:8080/sp/index.html", storage.getRegisteredSPs().getRegisteredSP().get(0).issuer);
     }    
+    
+    @Test
+    public void testGetRegisteredIdPs() throws IOException, JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance ("org.rub.nds.elearning.sso.saml.api");
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+         JAXBElement<SAMLProfileStorageType> samlStorage = (JAXBElement<SAMLProfileStorageType>) unmarshaller.unmarshal( 
+                 new File("src/test/resources/samlconfigs/sp/samlSPConfig.xml"));
+         SAMLProfileStorageType storage = samlStorage.getValue();
+    }
 }

@@ -37,7 +37,10 @@ public class HttpRequest {
         params = new HashMap<>();
         
         params.put(HttpRequestConstants.PROFILE, request.getParameter((HttpRequestConstants.PROFILE)));
+        params.put(HttpRequestConstants.IDP, request.getParameter((HttpRequestConstants.IDP)));
+        params.put(HttpRequestConstants.Verifier, request.getParameter((HttpRequestConstants.Verifier)));
         params.put(HttpRequestConstants.SAML_REQUEST,request.getParameter((HttpRequestConstants.SAML_REQUEST)));
+        params.put(HttpRequestConstants.SAML_RESPONSE,request.getParameter((HttpRequestConstants.SAML_RESPONSE)));
         params.put(HttpRequestConstants.RELAY_STATE, request.getParameter(HttpRequestConstants.RELAY_STATE));
         
         if (request.getParameter(HttpRequestConstants.SECURITY_BINDING) != null && !request.getParameter(HttpRequestConstants.SECURITY_BINDING).isEmpty())

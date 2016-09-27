@@ -25,7 +25,10 @@ package org.rub.nds.saml.samllib.utils;
 public class HttpRequestConstants 
 {
     public static final String PROFILE = "profile";
+    public static final String Verifier = "verifier";
+    public static final String IDP = "idp";
     public static final String SAML_REQUEST = "SAMLRequest";
+    public static final String SAML_RESPONSE = "SAMLResponse";
     public static final String SECURITY_BINDING = "sec_binding";
     public static final String RELAY_STATE = "RelayState";
     
