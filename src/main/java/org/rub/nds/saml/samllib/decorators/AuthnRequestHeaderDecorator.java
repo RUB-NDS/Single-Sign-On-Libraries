@@ -21,6 +21,7 @@ package org.rub.nds.saml.samllib.decorators;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.common.SAMLVersion;
+import org.opensaml.common.xml.SAMLConstants;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Issuer;
 import org.rub.nds.elearning.sso.saml.api.SamlRequestProfileType;
@@ -44,11 +45,11 @@ public class AuthnRequestHeaderDecorator extends SAMLDecorator {
     private String protocolBinding;
     private String providerName;
     private String schemaLocation;
+    private SamlRequestProfileType profile;
+    
 
     public AuthnRequestHeaderDecorator(SamlRequestProfileType profile) {
-        assertionConsumerServiceURL = profile.getAssertionConsumerServiceURL();
-        destination = profile.getDestination();
-        forceAuthn = profile.isForceAuthn();
+        this.profile = profile;
     }
     
     
@@ -59,23 +60,17 @@ public class AuthnRequestHeaderDecorator extends SAMLDecorator {
         Issuer issuer;
         
         authnRequest = (AuthnRequest) samlToken;
-        authnRequest.setAssertionConsumerServiceURL(assertionConsumerServiceURL);
-        authnRequest.setAssertionConsumerServiceIndex(assertionConsumerServiceIndex);
-        authnRequest.setAttributeConsumingServiceIndex(attributeConsumingServiceIndex);
-        authnRequest.setConsent(consent);
-        authnRequest.setDestination(destination);
-        authnRequest.setForceAuthn(forceAuthn);
+        authnRequest.setAssertionConsumerServiceURL(profile.getAssertionConsumerServiceURL());
+        authnRequest.setDestination(profile.getDestination());
+        authnRequest.setForceAuthn(profile.isForceAuthn());
         authnRequest.setID(SAMLUtils.getID());
-        authnRequest.setIsPassive(isPassive);
         authnRequest.setIssueInstant(SAMLUtils.getDateTime());
         
         issuer = (Issuer) SAMLUtils.getSAMLBuilder(Issuer.DEFAULT_ELEMENT_NAME).buildObject();
-        issuer.setValue(issuerStr);
+        issuer.setValue(profile.getIssuer());
         authnRequest.setIssuer(issuer);
         
-        authnRequest.setProtocolBinding(protocolBinding);
-        authnRequest.setProviderName(providerName);
-        authnRequest.setSchemaLocation(schemaLocation);
+        authnRequest.setProtocolBinding(SAMLConstants.SAML2_REDIRECT_BINDING_URI);        
         authnRequest.setVersion(SAMLVersion.VERSION_20);
         
         return authnRequest;

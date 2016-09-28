@@ -40,9 +40,9 @@ import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
         return null;
     }
 
-    public static RegisteredIdPType getRegisteredIdPType(SAMLProfileStorageType samlstorage, String name) {
+    public static RegisteredIdPType getRegisteredIdPType(SAMLProfileStorageType samlstorage, String ID) {
         for (RegisteredIdPType p : samlstorage.getRegisteredIdPs().getRegisteredIdP()) {
-            if (p.getIssuer().equalsIgnoreCase(name)) {
+            if (p.getId().equalsIgnoreCase(ID)) {
                 return p;
             }
         }
@@ -58,9 +58,9 @@ import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
         return null;
     }
     
-    public static SamlRequestProfileType getSamlRequestProfileType(SAMLProfileStorageType samlstorage, String name) {
+    public static SamlRequestProfileType getSamlRequestProfileType(SAMLProfileStorageType samlstorage, String ID) {
         for (SamlRequestProfileType p : samlstorage.getSamlRequestProfiles().getSamlRequestProfile()) {
-            if (p.getIssuer().equalsIgnoreCase(name)) {
+            if (p.getID().equalsIgnoreCase(ID)) {
                 return p;
             }
         }

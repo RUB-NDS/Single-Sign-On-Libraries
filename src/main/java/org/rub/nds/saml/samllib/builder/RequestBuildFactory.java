@@ -56,16 +56,14 @@ public class RequestBuildFactory implements SAMLBuilderInterface {
 
         if (profileType != null) {
             _log.debug("Decorates the AuthnRequest Header information!");
-            if (profileType.getAuthnrequestHeaderDec() != null) {
-                AuthnRequestHeaderDecorator decorator = new AuthnRequestHeaderDecorator(profileType);
-                decorator.build(samlToken);
-            }
+            AuthnRequestHeaderDecorator decorator = new AuthnRequestHeaderDecorator(profileType);
+            samlToken = decorator.build(samlToken);
         }
-        
+
         _log.debug("Further Decorate the AuthnRequest!");
         for (SAMLDecorator decorator : decorators) {
-                samlToken = decorator.build(samlToken);
-            }
+            samlToken = decorator.build(samlToken);
+        }
 
         return samlToken;
     }
