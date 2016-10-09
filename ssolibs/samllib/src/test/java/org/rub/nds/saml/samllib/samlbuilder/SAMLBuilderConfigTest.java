@@ -18,20 +18,11 @@
  */
 package org.rub.nds.saml.samllib.samlbuilder;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.converters.ConversionException;
-import com.thoughtworks.xstream.io.StreamException;
-import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
-import org.rub.nds.saml.samllib.exceptions.SAMLProfileException;
-import org.rub.nds.saml.samllib.utils.FileUtils;
 
 /**
  *
@@ -40,7 +31,6 @@ import org.rub.nds.saml.samllib.utils.FileUtils;
 public class SAMLBuilderConfigTest {
 
     public static final String prefix = "src/test/resources/";
-    XStream xstream;
     public SAMLBuilderConfigTest() {
     }
 

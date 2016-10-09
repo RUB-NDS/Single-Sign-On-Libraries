@@ -18,16 +18,12 @@
  */
 package org.rub.nds.saml.samllib.verifier;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
-
 /**
  *
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
-@XStreamAlias("samlVerifierProfile")
+
 public class SAMLVerifierProfile {
-    @XStreamAsAttribute
     protected String name;
     
     private boolean schemaValidation;

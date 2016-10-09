@@ -19,7 +19,6 @@
 package org.rub.nds.saml.samllib.decorators;
 
 
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import org.opensaml.common.SAMLObject;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 
@@ -29,10 +28,6 @@ import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
  */
 public abstract class SAMLDecorator {
     
-    /**
-     *
-     */
-    @XStreamAsAttribute
     protected String name;
       
     /**

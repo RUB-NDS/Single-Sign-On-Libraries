@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.builder;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.rub.nds.saml.samllib.decorators.AssertionAttributeStatementDecorator;
 import org.rub.nds.saml.samllib.decorators.AssertionAuthnStatementDecorator;
 import org.rub.nds.saml.samllib.decorators.AssertionHeaderDecorator;
@@ -31,7 +30,6 @@ import org.rub.nds.saml.samllib.decorators.SubjectDecorator;
  * 
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
-@XStreamAlias("assertionProfile")
 public class AssertionProfile {
 
     //Decorators of the assertion

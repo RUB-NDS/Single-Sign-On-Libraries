@@ -18,8 +18,6 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
-import com.thoughtworks.xstream.XStream;
 import java.io.IOException;
 import java.io.StringReader;
 import javax.xml.bind.JAXBContext;
@@ -32,22 +30,17 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.saml2.core.AuthnRequest;
-import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.ConfigurationException;
 import org.opensaml.xml.signature.Signature;
 import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
 import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
-import org.rub.nds.elearning.sso.saml.api.TokenSignatureDecoratorType;
 import org.rub.nds.saml.samllib.builder.RequestBuildFactory;
 import org.rub.nds.saml.samllib.builder.SAMLSecurityFactory;
 import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
-import static org.rub.nds.saml.samllib.testsuites.III_SignatureTestSuite.tokens;
 import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
 import org.rub.nds.saml.samllib.utils.FileUtils;
-import org.rub.nds.saml.samllib.utils.SAMLUtils;
-import org.rub.nds.saml.samllib.utils.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

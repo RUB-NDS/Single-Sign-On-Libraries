@@ -18,8 +18,6 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import java.util.List;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.saml2.core.Assertion;

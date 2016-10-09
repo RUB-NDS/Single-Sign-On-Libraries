@@ -18,8 +18,6 @@
  */
 package org.rub.nds.saml.samllib.builder;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
@@ -33,10 +31,8 @@ import org.rub.nds.saml.samllib.decorators.SignatureDecorator;
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
 
-@XStreamAlias("samlTokenProfile")
 public class SAMLTokenProfile {
     
-    @XStreamAsAttribute
     private String name;
     
     private String responseHeaderDec;

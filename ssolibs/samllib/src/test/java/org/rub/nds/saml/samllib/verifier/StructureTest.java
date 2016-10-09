@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.verifier;
 
-import com.thoughtworks.xstream.XStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -34,7 +33,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opensaml.common.SAMLObject;
-import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.signature.Signature;
 import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
@@ -42,21 +40,15 @@ import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
 import org.rub.nds.elearning.sso.saml.api.TokenSignatureDecoratorType;
 import org.rub.nds.futuretrust.cvs.sso.api.SamlTokenVerificationChecksType;
 import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
-import org.rub.nds.saml.samllib.builder.RequestBuildFactory;
-import org.rub.nds.saml.samllib.builder.SAMLBuilderInterface;
 
 import org.rub.nds.saml.samllib.builder.SAMLSecurityFactory;
 
-import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
 import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
-import org.rub.nds.saml.samllib.decorators.SPInitiatedSSODecorator;
-import org.rub.nds.saml.samllib.decorators.SignedTokensTest;
 import org.rub.nds.saml.samllib.exceptions.ConfigurationException;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 import org.rub.nds.saml.samllib.exceptions.SAMLProfileException;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
-import org.rub.nds.saml.samllib.testsuites.III_SignatureTestSuite;
 import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
 import org.rub.nds.saml.samllib.utils.FileUtils;
 import org.rub.nds.saml.samllib.utils.SecurityUtils;

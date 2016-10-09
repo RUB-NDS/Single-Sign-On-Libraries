@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import com.sun.xml.bind.v2.util.DataSourceSource;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -26,12 +25,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.util.JAXBSource;
-import javax.xml.transform.Source;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamSource;
-import org.codehaus.stax2.io.Stax2CharArraySource;
-import org.codehaus.stax2.io.Stax2StringSource;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

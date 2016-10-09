@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.testsuites;
 
-import com.thoughtworks.xstream.XStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
@@ -43,11 +42,9 @@ import org.rub.nds.elearning.sso.saml.api.SAMLProfileStorageType;
 import org.rub.nds.elearning.sso.saml.api.SamlTokenProfileType;
 import org.rub.nds.elearning.sso.saml.api.TokenSignatureDecoratorType;
 
-import org.rub.nds.saml.samllib.builder.SAMLBuilderInterface;
 
 import org.rub.nds.saml.samllib.builder.SAMLSecurityFactory;
 
-import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
 import org.rub.nds.saml.samllib.builder.TokenBuildFactory;
 import org.rub.nds.saml.samllib.exceptions.ConfigurationException;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
@@ -55,7 +52,6 @@ import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 import org.rub.nds.saml.samllib.exceptions.SAMLProfileException;
 import org.rub.nds.saml.samllib.utils.FileUtils;
 import org.rub.nds.saml.samllib.utils.SecurityUtils;
-import org.rub.nds.saml.samllib.verifier.Signature_TrustedVerificationTest;
 import org.rub.nds.saml.samllib.verifier.Signature_UntrustedVerificationTest;
 
 /**

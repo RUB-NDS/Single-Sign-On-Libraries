@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.opensaml.common.SAMLObject;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 import org.slf4j.Logger;
@@ -28,7 +27,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
-@XStreamAlias("tokenSignatureDecorator")
+
 public class SignatureDecorator extends SAMLDecorator{
     private boolean assertionSigned;
     private boolean responseSigned;

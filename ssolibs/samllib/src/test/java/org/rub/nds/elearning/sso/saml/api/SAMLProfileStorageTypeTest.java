@@ -20,7 +20,6 @@ package org.rub.nds.elearning.sso.saml.api;
 
 import java.io.File;
 import java.io.IOException;
-import javax.validation.constraints.AssertTrue;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;

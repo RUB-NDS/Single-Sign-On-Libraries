@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.common.SAMLVersion;
 import org.opensaml.saml2.core.Assertion;
@@ -36,7 +35,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
-@XStreamAlias("assertionHeaderDecorator")
+
 public class AssertionHeaderDecorator extends SAMLDecorator {
 
     private static Logger _log = LoggerFactory.getLogger(AssertionHeaderDecorator.class);

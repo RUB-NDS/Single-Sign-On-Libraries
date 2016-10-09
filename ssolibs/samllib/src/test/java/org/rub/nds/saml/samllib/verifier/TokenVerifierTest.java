@@ -18,11 +18,7 @@
  */
 package org.rub.nds.saml.samllib.verifier;
 
-import com.thoughtworks.xstream.XStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -33,26 +29,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.opensaml.common.SAMLObject;
-import org.opensaml.saml2.core.Response;
-import org.opensaml.saml2.metadata.provider.AbstractMetadataProvider;
-import org.opensaml.saml2.metadata.provider.FilesystemMetadataProvider;
 import org.opensaml.xml.ConfigurationException;
-import org.opensaml.xml.parse.BasicParserPool;
 import org.opensaml.xml.signature.Signature;
-import org.rub.nds.saml.samllib.builder.SAMLBuilderInterface;
-
-import org.rub.nds.saml.samllib.builder.SAMLSecurityFactory;
-
-import org.rub.nds.saml.samllib.builder.SAMLTokenProfile;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 import org.rub.nds.saml.samllib.exceptions.SAMLProfileException;
-import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
-import org.rub.nds.saml.samllib.exceptions.WrongInputException;
-import org.rub.nds.saml.samllib.utils.FileUtils;
-import org.rub.nds.saml.samllib.utils.HTTPUtils;
-import org.rub.nds.saml.samllib.utils.SAMLUtils;
-import org.rub.nds.saml.samllib.utils.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

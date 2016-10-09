@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import com.thoughtworks.xstream.XStream;
 import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -29,9 +28,6 @@ import org.junit.Test;
 import org.opensaml.xml.ConfigurationException;
 import org.rub.nds.saml.samllib.exceptions.KeyException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
-import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
-import org.rub.nds.saml.samllib.utils.FileUtils;
-import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

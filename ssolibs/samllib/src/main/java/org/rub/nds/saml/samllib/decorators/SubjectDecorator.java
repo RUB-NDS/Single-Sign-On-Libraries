@@ -18,7 +18,6 @@
  */
 package org.rub.nds.saml.samllib.decorators;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import org.opensaml.common.SAMLObject;
 import org.opensaml.saml2.core.*;
