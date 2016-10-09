@@ -1,0 +1,15 @@
+<samlp:AuthnRequest AssertionConsumerServiceURL="https://mladevbb.cloudseal.com/admin/cloudseal_acs"
+                    Destination="https://mladevbb.cloudseal.com/admin/cloudseal_acs"
+                    ID="_3a60fedff9a4c81e533b48e4dfcbae9c"
+                    IsPassive="false"
+                    IssueInstant="2012-12-12T08:54Z"
+                    ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                    ProviderName="CloudSeal"
+                    Version="2.0"
+                    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+                    >
+    <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">http://mladevbb.cloudseal.com/saml/sp</saml:Issuer>
+    <samlp:NameIDPolicy AllowCreate="true"
+                        Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+                        />
+</samlp:AuthnRequest> 

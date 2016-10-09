@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAMLProfileStorage 
+	xmlns="http://www.api.saml.sso.elearning.nds.rub.org" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.api.saml.sso.elearning.nds.rub.org samlIdPConfig.xsd" 
+ xmlns:ns1="http://www.api.sso.cvs.futuretrust.nds.rub.org">
+    <registeredIdPs>
+        <registeredIdP id="1">
+            <issuer>eLearning SAML SSO IdP</issuer>
+            <URL>http://localhost:8080/idp</URL>
+            <certificateX509></certificateX509>
+            <metadataFilePath>idpMetadata.xml</metadataFilePath>
+        </registeredIdP>
+    </registeredIdPs>
+    <samlRequestProfiles>
+        <samlRequestProfile ID="default">
+            <issuer>http://www.honestsp.de/1</issuer>
+            <relayState>http://localhost:8080/sp/secure/index.html</relayState>
+            <assertionConsumerServiceURL>http://localhost:8080/sp/index.html</assertionConsumerServiceURL>
+        </samlRequestProfile>
+        <samlRequestProfile ID="signResponse">
+            <issuer>http://www.honestsp.de/2</issuer>
+            <relayState>http://localhost:8080/sp/secure/index.html</relayState>
+            <assertionConsumerServiceURL>http://localhost:8080/sp/index.html</assertionConsumerServiceURL>
+        </samlRequestProfile>
+        <samlRequestProfile ID="signAll">
+            <issuer>http://www.honestsp.de/3</issuer>
+            <relayState>http://localhost:8080/sp/secure/index.html</relayState>
+            <assertionConsumerServiceURL>http://localhost:8080/sp/index.html</assertionConsumerServiceURL>
+        </samlRequestProfile>
+    </samlRequestProfiles>
+    <samlVerificationProfiles>
+        <samlVerificationProfile ID="verifier1">
+            <ns1:samlTokenVerificationChecks>
+                <ns1:verifySchema>true</ns1:verifySchema>
+                <ns1:verifyXSW>false</ns1:verifyXSW>
+                <ns1:verifiySAMLAssertionID>false</ns1:verifiySAMLAssertionID>
+                <ns1:verifiySAMLAssertionSignature>false</ns1:verifiySAMLAssertionSignature>
+                <ns1:verifiySAMLAssertionInResponseTo>false</ns1:verifiySAMLAssertionInResponseTo>
+                <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
+            </ns1:samlTokenVerificationChecks>
+        </samlVerificationProfile>
+        <samlVerificationProfile ID="verifier2">
+            <ns1:samlTokenVerificationChecks>
+                <ns1:verifySchema>true</ns1:verifySchema>
+                <ns1:verifyXSW>false</ns1:verifyXSW>
+                <ns1:verifySAMLResponseID>true</ns1:verifySAMLResponseID>
+                <ns1:verifiySAMLAssertionSignature>true</ns1:verifiySAMLAssertionSignature>
+                <ns1:verifiySAMLAssertionInResponseTo>false</ns1:verifiySAMLAssertionInResponseTo>
+                <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
+            </ns1:samlTokenVerificationChecks>
+        </samlVerificationProfile>
+        <samlVerificationProfile ID="verifier3">
+            <ns1:samlTokenVerificationChecks>
+                <ns1:verifySchema>true</ns1:verifySchema>
+                <ns1:verifyXSW>false</ns1:verifyXSW>
+                <ns1:verifiySAMLResponseSignature>true</ns1:verifiySAMLResponseSignature>
+                <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
+            </ns1:samlTokenVerificationChecks>
+        </samlVerificationProfile>
+        <samlVerificationProfile ID="verifier4">
+            <ns1:samlTokenVerificationChecks>
+                <ns1:verifySchema>true</ns1:verifySchema>
+                <ns1:verifyXSW>false</ns1:verifyXSW>
+                <ns1:verifiySAMLResponseSignature>true</ns1:verifiySAMLResponseSignature>
+                <ns1:verifiySAMLAssertionSignature>true</ns1:verifiySAMLAssertionSignature>
+                <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
+            </ns1:samlTokenVerificationChecks>
+        </samlVerificationProfile>
+        <samlVerificationProfile ID="verifier5">
+            <ns1:samlTokenVerificationChecks>
+                <ns1:verifySchema>true</ns1:verifySchema>
+                <ns1:verifyXSW>false</ns1:verifyXSW>
+                <ns1:verifiySAMLAssertionSignature>true</ns1:verifiySAMLAssertionSignature>
+                <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
+                <ns1:verifiyHolderOfKey>true</ns1:verifiyHolderOfKey>
+            </ns1:samlTokenVerificationChecks>
+        </samlVerificationProfile>
+    </samlVerificationProfiles>
+</SAMLProfileStorage>
+
