@@ -291,6 +291,11 @@ public class ObjectFactory {
     public JAXBElement<ConfigurationRequestType> createConfigurationRequest(ConfigurationRequestType value) {
         return new JAXBElement<ConfigurationRequestType>(_ConfigurationRequest_QNAME, ConfigurationRequestType.class, null, value);
     }
+    
+    @XmlElementDecl(namespace = "", name = "org.rub.nds.futuretrust.cvs.sso.api.Configuration")
+    public JAXBElement<ConfigurationType> createConfiguration(ConfigurationType value) {
+        return new JAXBElement<ConfigurationType>(_ConfigurationRequest_QNAME, ConfigurationType.class, null, value);
+    }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link oasis.names.tc.dss._1_0.core.schema.RequestBaseType }{@code >}}

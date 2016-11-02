@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.rub.nds.futuretrust.cvs.sso.api.Configuration>
+  <id>42</id>
+  <authentication>
+      <method>saml</method>
+  </authentication>
+  <verificationProfile>
+      <id>43</id>
+  </verificationProfile>
+</org.rub.nds.futuretrust.cvs.sso.api.Configuration>
