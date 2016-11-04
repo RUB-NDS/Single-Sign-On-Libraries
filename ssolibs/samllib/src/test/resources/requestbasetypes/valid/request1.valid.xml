@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VerifyRequest
+        xmlns="http://www.api.sso.cvs.futuretrust.nds.rub.org"> 
+    <RequestID>23</RequestID>
+    <Profile>42</Profile>
+    <OptionalInputs>
+        <cvs_verification_request>
+            <sso_protocol></sso_protocol>
+            <authentication></authentication>
+        </cvs_verification_request>
+    </OptionalInputs>
+    <InputDocuments></InputDocuments>
+</VerifyRequest>
