@@ -19,8 +19,8 @@
 package org.rub.nds.saml.samllib.verifier;
 
 import org.opensaml.common.SAMLObject;
-import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
+import org.rub.nds.sso.api.VerificationProfileType;
 
 /**
  *

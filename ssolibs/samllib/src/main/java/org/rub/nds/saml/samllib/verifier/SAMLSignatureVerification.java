@@ -40,10 +40,10 @@ import org.opensaml.xml.signature.SignatureTrustEngine;
 import org.opensaml.xml.signature.SignatureValidator;
 import org.opensaml.xml.signature.impl.ExplicitKeySignatureTrustEngine;
 import org.opensaml.xml.validation.ValidationException;
-import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.exceptions.WrongInputException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
+import org.rub.nds.sso.api.VerificationProfileType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

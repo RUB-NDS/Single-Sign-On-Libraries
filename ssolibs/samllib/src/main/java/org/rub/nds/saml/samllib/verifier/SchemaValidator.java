@@ -22,8 +22,8 @@ import java.util.logging.Level;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.xml.validation.ValidationException;
 import org.opensaml.xml.validation.ValidatorSuite;
-import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
+import org.rub.nds.sso.api.VerificationProfileType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

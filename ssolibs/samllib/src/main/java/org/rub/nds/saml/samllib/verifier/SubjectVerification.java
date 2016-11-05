@@ -24,8 +24,8 @@ import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.saml2.core.SubjectConfirmation;
-import org.rub.nds.futuretrust.cvs.sso.api.VerificationProfileType;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
+import org.rub.nds.sso.api.VerificationProfileType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

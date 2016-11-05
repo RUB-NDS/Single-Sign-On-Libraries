@@ -36,7 +36,6 @@ import org.opensaml.saml2.core.Subject;
 import org.opensaml.xml.ConfigurationException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
 import org.rub.nds.saml.samllib.exceptions.WrongInputException;
-import org.rub.nds.saml.samllib.testsuites.I_MainTestSuite;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
