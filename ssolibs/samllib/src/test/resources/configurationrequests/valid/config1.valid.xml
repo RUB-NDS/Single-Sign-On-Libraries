@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConfigurationRequest
+        xmlns="http://www.api.sso.cvs.futuretrust.nds.rub.org"> 
+    <mode>
+        test
+    </mode>
+    <Authentication>
+        test
+    </Authentication>
+    <Configuration>
+        <id>42</id>
+        <authentication>
+            <method>saml</method>
+        </authentication>
+        <verificationProfile>
+            <id>43</id>
+        </verificationProfile>
+    </Configuration>
+</ConfigurationRequest>
