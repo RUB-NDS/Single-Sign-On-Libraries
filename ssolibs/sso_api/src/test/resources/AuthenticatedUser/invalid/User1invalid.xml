@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<authenticatedUser
+xmlns="http://www.api.sso.nds.rub.org">
+    <userInfo>
+        <type>age</type>
+        <value>42</value>
+    </userInfo>
+        <userInfo>
+        <type>name</type>
+        <value>Alex</value>
+    </userInfo>
+</authenticatedUser>
