@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saml
+xmlns="http://www.api.sso.nds.rub.org">
+    <foo>
+        <type>age</type>
+        <value>23</value>
+    </foo>
+</saml>
