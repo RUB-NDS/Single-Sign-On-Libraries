@@ -6,11 +6,15 @@
 package org.rub.nds.sso.api;
 
 import java.io.IOException;
+import java.io.File;
 import java.io.StringReader;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.XMLConstants;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -47,10 +51,13 @@ public class AuthenticatedUserTypeTest {
      * Test of getUserID method, of class AuthenticatedUserType.
      */
     @Test
-    public void testAuthenticatedUserType() throws JAXBException, IOException{
+    public void testAuthenticatedUserType() throws JAXBException, IOException, Exception{
         JAXBContext jaxbContext = JAXBContext.newInstance ("org.rub.nds.sso.api");
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<AuthenticatedUserType> AuthenticatedUserType;
+        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI); 
+        Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd")); 
+        unmarshaller.setSchema(schema);
         for (String s : FileUtils.readFilesFromDir("src/test/resources/AuthenticatedUser/valid", "xml")){
             StringReader reader = new StringReader(s);
             AuthenticatedUserType = (JAXBElement<AuthenticatedUserType>) unmarshaller.unmarshal(reader);
@@ -58,10 +65,13 @@ public class AuthenticatedUserTypeTest {
     }
     
     @Test(expected = Exception.class)  
-    public void testInvalidAuthenticatedUserType() throws JAXBException, IOException{
+    public void testInvalidAuthenticatedUserType() throws JAXBException, IOException, Exception{
         JAXBContext jaxbContext = JAXBContext.newInstance ("org.rub.nds.sso.api");
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<AuthenticatedUserType> AuthenticatedUserType;
+        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI); 
+        Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd")); 
+        unmarshaller.setSchema(schema);
         for (String s : FileUtils.readFilesFromDir("src/test/resources/AuthenticatedUser/invalid", "xml")){
             StringReader reader = new StringReader(s);
             AuthenticatedUserType = (JAXBElement<AuthenticatedUserType>) unmarshaller.unmarshal(reader);
