@@ -22,23 +22,21 @@ package org.rub.nds.saml.samllib.exceptions;
  *
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
-public class SAMLProfileException extends SAMLException{
+public class SAMLProfileException extends SAMLException {
     /**
      * 
      * @param message
      */
-    public SAMLProfileException(final String message) 
-    {
+    public SAMLProfileException(final String message) {
         super(message);
     }
-    
+
     /**
      * 
      * @param message
      * @param throwable
      */
-    public SAMLProfileException(final String message, final Throwable throwable)
-    {
+    public SAMLProfileException(final String message, final Throwable throwable) {
         super(message, throwable);
     }
 }

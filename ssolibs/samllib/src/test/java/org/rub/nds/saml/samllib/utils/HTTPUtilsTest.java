@@ -30,7 +30,7 @@ import org.opensaml.DefaultBootstrap;
 import org.opensaml.common.SAMLObject;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.ConfigurationException;
-import org.rub.nds.saml.samllib.exceptions.WrongInputException;
+import org.rub.nds.sso.exceptions.WrongInputException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,13 +42,12 @@ public class HTTPUtilsTest {
 
     private static Logger _log = LoggerFactory.getLogger(HTTPUtilsTest.class);
 
-
     public HTTPUtilsTest() {
     }
 
     @BeforeClass
     public static void setUpClass() throws ConfigurationException {
-	DefaultBootstrap.bootstrap();
+        DefaultBootstrap.bootstrap();
     }
 
     @AfterClass
@@ -78,12 +77,9 @@ public class HTTPUtilsTest {
                 + "<body onload=\"document.forms[0].submit()\">"
                 + "<noscript>"
                 + "<p><strong>Note:</strong> Since your browser does not support JavaScript, you must press the button below once to proceed.</p>"
-                + "</noscript>"
-                + "<form method=\"post\" action=\"" + destination + "\">"
+                + "</noscript>" + "<form method=\"post\" action=\"" + destination + "\">"
                 + "<input type=\"hidden\" name=\"SAMLResponse\" value=\"" + encodedResponse + "\" />"
-                + "<noscript><input type=\"submit\" value=\"Submit\" /></noscript>"
-                + "</form></body></html>";
-
+                + "<noscript><input type=\"submit\" value=\"Submit\" /></noscript>" + "</form></body></html>";
 
         assertNotNull(HTTPUtils.getHttpPostResponse(null, null, null));
         assertNotNull(HTTPUtils.getHttpPostResponse("", "", ""));
@@ -102,12 +98,12 @@ public class HTTPUtilsTest {
         assertEquals(text, HTTPUtils.encodeSamlObject(samlObject, false));
         assertEquals(URLEncoder.encode(text, "UTF-8"), HTTPUtils.encodeSamlObject(samlObject, true));
 
-        //Invalid input
+        // Invalid input
         try {
             assertNotNull(HTTPUtils.encodeSamlObject(null, true));
             assertNotNull(HTTPUtils.encodeSamlObject(null, false));
         } catch (WrongInputException ex) {
-        } //expected exceptions
+        } // expected exceptions
     }
 
     /**
@@ -119,7 +115,7 @@ public class HTTPUtilsTest {
             assertNotNull(HTTPUtils.decodeSamlObject(null));
             assertNotNull(HTTPUtils.decodeSamlObject(""));
         } catch (WrongInputException ex) {
-        } //expected ex
+        } // expected ex
     }
 
     /**
@@ -133,7 +129,7 @@ public class HTTPUtilsTest {
 
         assertTrue(!HTTPUtils.isURLEncoded(enc));
         assertTrue(HTTPUtils.isURLEncoded(enc2));
-        //assertTrue(!HTTPUtils.isURLEncoded(notEnc));
+        // assertTrue(!HTTPUtils.isURLEncoded(notEnc));
     }
 
     /**
@@ -165,14 +161,14 @@ public class HTTPUtilsTest {
         assertEquals(result, HTTPUtils.inflateSamlObject(encodedAuthnReqURLenc, true));
         assertEquals(result, HTTPUtils.inflateSamlObject(encodedAuthnReq, false));
 
-        //invalid input
+        // invalid input
         try {
             assertNotNull(HTTPUtils.inflateSamlObject(null, true));
             assertNotNull(HTTPUtils.inflateSamlObject("", true));
             assertNotNull(HTTPUtils.inflateSamlObject(null, false));
             assertNotNull(HTTPUtils.inflateSamlObject("", true));
         } catch (WrongInputException ex) {
-        } //expected ex
+        } // expected ex
     }
 
     /**
@@ -180,12 +176,13 @@ public class HTTPUtilsTest {
      */
     @Test
     public void testDeflateSamlObject() throws Exception {
-        //invalid input
+        // invalid input
 
         try {
             assertNotNull(HTTPUtils.deflateSamlObject(null));
-            assertNotNull(HTTPUtils.deflateSamlObject(SAMLUtils.getSAMLBuilder(Response.DEFAULT_ELEMENT_NAME).buildObject()));
+            assertNotNull(HTTPUtils.deflateSamlObject(SAMLUtils.getSAMLBuilder(Response.DEFAULT_ELEMENT_NAME)
+                    .buildObject()));
         } catch (WrongInputException ex) {
-        } //expected ex
+        } // expected ex
     }
 }

@@ -5,7 +5,6 @@
 // Generiert: 2016.11.04 um 11:43:03 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für userInfoType complex type.
+ * <p>
+ * Java-Klasse für userInfoType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="userInfoType">
@@ -35,10 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "userInfoType", propOrder = {
-    "type",
-    "value"
-})
+@XmlType(name = "userInfoType", propOrder = { "type", "value" })
 public class UserInfoType {
 
     @XmlElement(required = true)
@@ -49,10 +47,8 @@ public class UserInfoType {
     /**
      * Ruft den Wert der type-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getType() {
         return type;
@@ -62,9 +58,8 @@ public class UserInfoType {
      * Legt den Wert der type-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setType(String value) {
         this.type = value;
@@ -73,10 +68,8 @@ public class UserInfoType {
     /**
      * Ruft den Wert der value-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getValue() {
         return value;
@@ -86,9 +79,8 @@ public class UserInfoType {
      * Legt den Wert der value-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setValue(String value) {
         this.value = value;

@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package org.rub.nds.saml.samllib.utils;
+package org.rub.nds.sso.utils;
 
 import java.io.IOException;
 import org.junit.After;
@@ -25,7 +25,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.opensaml.xml.ConfigurationException;
+import org.rub.nds.sso.exceptions.ConfigurationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,22 +36,21 @@ import org.slf4j.LoggerFactory;
 public class FileUtilsTest {
     private static Logger _log = LoggerFactory.getLogger(FileUtilsTest.class);
 
-    
     public FileUtilsTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() throws ConfigurationException, IOException {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -62,13 +61,12 @@ public class FileUtilsTest {
     @Test
     public void testReadFilesFromDir() throws Exception {
         _log.debug("Test FileUtils:readFilesFromDir()");
-        
-        //Test with invalid arguments
-        try
-        {
+
+        // Test with invalid arguments
+        try {
             assertNotNull(FileUtils.readFilesFromDir(null, null));
             assertNotNull(FileUtils.readFilesFromDir("", ""));
-        }
-        catch (IOException ex){} //expected Exception
+        } catch (IOException ex) {
+        } // expected Exception
     }
 }

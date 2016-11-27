@@ -5,7 +5,6 @@
 // Generiert: 2016.11.04 um 11:43:03 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,11 +14,13 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-
 /**
- * <p>Java-Klasse für oidcVerificationParametersType complex type.
+ * <p>
+ * Java-Klasse für oidcVerificationParametersType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="oidcVerificationParametersType">
@@ -46,19 +47,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "oidcVerificationParametersType", propOrder = {
-    "x509Certificate",
-    "audience",
-    "oidcMetadata",
-    "oidcMetadataUrl",
-    "timeLimitation",
-    "pkceParameters",
-    "clientSecret",
-    "cnf",
-    "code",
-    "accessToken",
-    "subClaims"
-})
+@XmlType(name = "oidcVerificationParametersType", propOrder = { "x509Certificate", "audience", "oidcMetadata",
+        "oidcMetadataUrl", "timeLimitation", "pkceParameters", "clientSecret", "cnf", "code", "accessToken",
+        "subClaims" })
 public class OidcVerificationParametersType {
 
     @XmlElement(name = "x509certificate")
@@ -85,10 +76,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der x509Certificate-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getX509Certificate() {
         return x509Certificate;
@@ -98,9 +87,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der x509Certificate-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setX509Certificate(String value) {
         this.x509Certificate = value;
@@ -109,10 +97,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der audience-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAudience() {
         return audience;
@@ -122,9 +108,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der audience-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAudience(String value) {
         this.audience = value;
@@ -133,10 +118,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der oidcMetadata-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getOidcMetadata() {
         return oidcMetadata;
@@ -146,9 +129,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der oidcMetadata-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setOidcMetadata(String value) {
         this.oidcMetadata = value;
@@ -157,10 +139,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der oidcMetadataUrl-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getOidcMetadataUrl() {
         return oidcMetadataUrl;
@@ -170,9 +150,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der oidcMetadataUrl-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setOidcMetadataUrl(String value) {
         this.oidcMetadataUrl = value;
@@ -181,10 +160,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der timeLimitation-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     * @return possible object is {@link XMLGregorianCalendar }
+     * 
      */
     public XMLGregorianCalendar getTimeLimitation() {
         return timeLimitation;
@@ -194,9 +171,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der timeLimitation-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *            allowed object is {@link XMLGregorianCalendar }
+     * 
      */
     public void setTimeLimitation(XMLGregorianCalendar value) {
         this.timeLimitation = value;
@@ -205,10 +181,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der pkceParameters-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link PkceParametersType }
-     *     
+     * @return possible object is {@link PkceParametersType }
+     * 
      */
     public PkceParametersType getPkceParameters() {
         return pkceParameters;
@@ -218,9 +192,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der pkceParameters-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link PkceParametersType }
-     *     
+     *            allowed object is {@link PkceParametersType }
+     * 
      */
     public void setPkceParameters(PkceParametersType value) {
         this.pkceParameters = value;
@@ -229,10 +202,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der clientSecret-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getClientSecret() {
         return clientSecret;
@@ -242,9 +213,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der clientSecret-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setClientSecret(String value) {
         this.clientSecret = value;
@@ -253,10 +223,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der cnf-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link ProofOfPossessionType }
-     *     
+     * @return possible object is {@link ProofOfPossessionType }
+     * 
      */
     public ProofOfPossessionType getCnf() {
         return cnf;
@@ -266,9 +234,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der cnf-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link ProofOfPossessionType }
-     *     
+     *            allowed object is {@link ProofOfPossessionType }
+     * 
      */
     public void setCnf(ProofOfPossessionType value) {
         this.cnf = value;
@@ -277,10 +244,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der code-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getCode() {
         return code;
@@ -290,9 +255,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der code-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setCode(String value) {
         this.code = value;
@@ -301,10 +265,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der accessToken-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAccessToken() {
         return accessToken;
@@ -314,9 +276,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der accessToken-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAccessToken(String value) {
         this.accessToken = value;
@@ -325,10 +286,8 @@ public class OidcVerificationParametersType {
     /**
      * Ruft den Wert der subClaims-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSubClaims() {
         return subClaims;
@@ -338,9 +297,8 @@ public class OidcVerificationParametersType {
      * Legt den Wert der subClaims-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSubClaims(String value) {
         this.subClaims = value;

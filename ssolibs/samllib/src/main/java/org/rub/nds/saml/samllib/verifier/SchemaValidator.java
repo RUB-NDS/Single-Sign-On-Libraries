@@ -41,7 +41,8 @@ public class SchemaValidator implements SAMLVerifierInterface {
             _log.debug("Verify the XML-Schema ...");
 
             if (profile.getSamlTokenVerificationChecks().isVerifySchema()) {
-                ValidatorSuite schemaValidators = org.opensaml.Configuration.getValidatorSuite("saml2-core-schema-validator");
+                ValidatorSuite schemaValidators = org.opensaml.Configuration
+                        .getValidatorSuite("saml2-core-schema-validator");
                 schemaValidators.validate(samlObject);
                 schemaValidators = org.opensaml.Configuration.getValidatorSuite("saml2-core-spec-validator");
                 schemaValidators.validate(samlObject);

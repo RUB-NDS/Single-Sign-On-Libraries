@@ -48,7 +48,8 @@ public class ConditionsVerification implements SAMLVerifierInterface {
     }
 
     private void verifyTimestamp(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsTimestamps()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsTimestamps()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsTimestamps() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsTimestamps()) {
             try {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     DateTime notBefore = assertion.getConditions().getNotBefore();
@@ -63,16 +64,20 @@ public class ConditionsVerification implements SAMLVerifierInterface {
 
                     if (!notBefore.isAfterNow()) {
                     } else {
-                        throw new SAMLVerifyException("Timestamp NotBefore in the Conditions is not valid! Timestamp: " + notBefore.toString());
+                        throw new SAMLVerifyException("Timestamp NotBefore in the Conditions is not valid! Timestamp: "
+                                + notBefore.toString());
                     }
 
                     if (!notAfter.isBeforeNow()) {
                     } else {
-                        throw new SAMLVerifyException("Timestamp NotOnOrAfter in the Conditions is not valid! Timestamp: " + notAfter.toString());
+                        throw new SAMLVerifyException(
+                                "Timestamp NotOnOrAfter in the Conditions is not valid! Timestamp: "
+                                        + notAfter.toString());
                     }
                 }
             } catch (NullPointerException ex) {
-                throw new SAMLVerifyException("Some Conditions-timestamp element is missing. NullPointerException: ", ex);
+                throw new SAMLVerifyException("Some Conditions-timestamp element is missing. NullPointerException: ",
+                        ex);
             }
         }
     }
@@ -80,7 +85,8 @@ public class ConditionsVerification implements SAMLVerifierInterface {
     private void verifyAudience(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         List<String> audienceStrings = new ArrayList<>();
 
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsAudience()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsAudience()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsAudience() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionConditionsAudience()) {
             try {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (AudienceRestriction restrict : assertion.getConditions().getAudienceRestrictions()) {
@@ -91,7 +97,8 @@ public class ConditionsVerification implements SAMLVerifierInterface {
                 }
 
                 if (!audienceStrings.contains(profile.getSamlTokenVerificationParameters().getAudience().get(0))) {
-                    throw new SAMLVerifyException("Audience element was nto found in the token! Expected Audience: " + profile.getSamlTokenVerificationParameters().getAudience().get(0));
+                    throw new SAMLVerifyException("Audience element was nto found in the token! Expected Audience: "
+                            + profile.getSamlTokenVerificationParameters().getAudience().get(0));
                 }
             } catch (NullPointerException ex) {
                 throw new SAMLVerifyException("Some element is missing. NullPointerException: ", ex);

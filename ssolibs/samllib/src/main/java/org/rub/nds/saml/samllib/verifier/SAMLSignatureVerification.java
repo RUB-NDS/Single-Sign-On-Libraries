@@ -41,7 +41,7 @@ import org.opensaml.xml.signature.SignatureValidator;
 import org.opensaml.xml.signature.impl.ExplicitKeySignatureTrustEngine;
 import org.opensaml.xml.validation.ValidationException;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
-import org.rub.nds.saml.samllib.exceptions.WrongInputException;
+import org.rub.nds.sso.exceptions.WrongInputException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.sso.api.VerificationProfileType;
 import org.slf4j.Logger;
@@ -62,31 +62,33 @@ public class SAMLSignatureVerification implements SAMLVerifierInterface {
     public SAMLSignatureVerification(AbstractMetadataProvider metaData) {
         this.metaData = metaData;
     }
-    
-    
 
     @Override
     public void verify(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
 
-        if (profile.getSamlTokenVerificationChecks().isVerifyXSW()!=null && profile.getSamlTokenVerificationChecks().isVerifyXSW())
-        {
+        if (profile.getSamlTokenVerificationChecks().isVerifyXSW() != null
+                && profile.getSamlTokenVerificationChecks().isVerifyXSW()) {
             verifyStructure((SignableSAMLObject) samlObject);
         }
-        
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature()!= null && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature()) {
+
+        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature() != null
+                && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature()) {
             verifyUntrustedKeys((Response) samlObject);
         }
 
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted()!= null && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted() != null
+                && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted()) {
             verifyTrustedKeys((Response) samlObject);
         }
 
         for (Assertion assertion : ((Response) samlObject).getAssertions()) {
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature()!=null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature() != null
+                    && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature()) {
                 verifyUntrustedKeys(assertion);
             }
-            
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted()!=null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted()) {
+
+            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted() != null
+                    && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted()) {
                 verifyTrustedKeys(assertion);
             }
         }
@@ -108,13 +110,13 @@ public class SAMLSignatureVerification implements SAMLVerifierInterface {
         SignatureTrustEngine sigTrustEngine;
         MetadataProvider mdProvider = metaData;
         MetadataCredentialResolver mdCredResolver = new MetadataCredentialResolver(mdProvider);
-        KeyInfoCredentialResolver keyInfoCredResolver = Configuration.getGlobalSecurityConfiguration().getDefaultKeyInfoCredentialResolver();
+        KeyInfoCredentialResolver keyInfoCredResolver = Configuration.getGlobalSecurityConfiguration()
+                .getDefaultKeyInfoCredentialResolver();
 
         try {
             sigTrustEngine = new ExplicitKeySignatureTrustEngine(mdCredResolver, keyInfoCredResolver);
-            
-            if (!sigTrustEngine.validate(obj.getSignature(), setCriteriaSet(obj)))
-            {
+
+            if (!sigTrustEngine.validate(obj.getSignature(), setCriteriaSet(obj))) {
                 _log.error("Trusted verification FAILED! ");
                 throw new SAMLVerifyException("Trusted verification FAILED! ");
             }
@@ -127,13 +129,10 @@ public class SAMLSignatureVerification implements SAMLVerifierInterface {
     private void verifyStructure(final SignableSAMLObject obj) throws SAMLVerifyException {
         try {
             SAMLSignatureProfileValidator profileValidator = new SAMLSignatureProfileValidator();
-            if (obj instanceof Response && obj.isSigned())
-            {
+            if (obj instanceof Response && obj.isSigned()) {
                 profileValidator.validate(obj.getSignature());
-                for (Assertion ass : ((Response)obj).getAssertions())
-                {
-                    if (ass.isSigned())
-                    {
+                for (Assertion ass : ((Response) obj).getAssertions()) {
+                    if (ass.isSigned()) {
                         profileValidator.validate(ass.getSignature());
                     }
                 }

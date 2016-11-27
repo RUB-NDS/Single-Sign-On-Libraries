@@ -16,36 +16,36 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package org.rub.nds.saml.samllib.exceptions;
+package org.rub.nds.sso.exceptions;
 
 /**
- * Defines exceptions thrown by the managers
+ * Defines exceptions thrown because of wrong configuration regarding the Keys
+ * 
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
-public class ManagerException extends Exception
-{
+public class KeyException extends ConfigurationException {
+
+    /**
+     * 
+     */
+    public KeyException() {
+    }
+
+    /**
+     * 
+     * @param message
+     */
+    public KeyException(final String message) {
+        super(message);
+    }
 
     /**
      * 
      * @param message
      * @param cause
      */
-    public ManagerException(final String message, final Throwable cause) {
+    public KeyException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    /**
-     * 
-     * @param message
-     */
-    public ManagerException(final String message) {
-        super(message);
-    }
-
-    /**
-     * 
-     */
-    public ManagerException() {
-    }
-    
 }

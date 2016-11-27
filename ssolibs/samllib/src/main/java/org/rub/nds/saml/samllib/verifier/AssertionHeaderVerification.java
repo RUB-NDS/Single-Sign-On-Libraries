@@ -45,15 +45,17 @@ public class AssertionHeaderVerification implements SAMLVerifierInterface {
     }
 
     private void verifyIDs(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID()!=null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID() != null
+                && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID()) {
             for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                 try {
                     if (!SAMLIDCache.getHandler().get(assertion.getID()).equals("Recently used!")) {
-                        //Apparently it's a new one, so cache it and return true:
+                        // Apparently it's a new one, so cache it and return
+                        // true:
                         SAMLIDCache.getHandler().put(assertion.getID(), "Recently used!");
-                    }
-                    else{
-                        throw new SAMLVerifyException("Verification of the ID in Assertion-Header FAILED! ID was recently used!");
+                    } else {
+                        throw new SAMLVerifyException(
+                                "Verification of the ID in Assertion-Header FAILED! ID was recently used!");
                     }
                 } catch (ExecutionException ex) {
                     _log.error("ExecutionException in SAMLIDCache!");
@@ -62,16 +64,15 @@ public class AssertionHeaderVerification implements SAMLVerifierInterface {
             }
         }
     }
-    
-    private void verifyTimestamp (SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException
-    {
-        
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionIssueInstant()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionIssueInstant())
-        {
+
+    private void verifyTimestamp(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
+
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionIssueInstant() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionIssueInstant()) {
             for (Assertion assertion : ((Response) samlObject).getAssertions()) {
-                if (!assertion.getIssueInstant().isBeforeNow())
-                {
-                    throw new SAMLVerifyException("Timestamp in the Assertion is not valid. Timestamp is BeforeNow: " + assertion.getIssueInstant().toString());
+                if (!assertion.getIssueInstant().isBeforeNow()) {
+                    throw new SAMLVerifyException("Timestamp in the Assertion is not valid. Timestamp is BeforeNow: "
+                            + assertion.getIssueInstant().toString());
                 }
             }
         }

@@ -27,6 +27,6 @@ import org.rub.nds.sso.api.VerificationProfileType;
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
 public interface SAMLVerifierInterface {
-    
+
     public void verify(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException;
 }

@@ -5,7 +5,6 @@
 // Generiert: 2016.11.04 um 11:43:03 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import java.util.ArrayList;
@@ -15,11 +14,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für samlTokenProfilesType complex type.
+ * <p>
+ * Java-Klasse für samlTokenProfilesType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="samlTokenProfilesType">
@@ -36,9 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlTokenProfilesType", propOrder = {
-    "samlTokenProfile"
-})
+@XmlType(name = "samlTokenProfilesType", propOrder = { "samlTokenProfile" })
 public class SamlTokenProfilesType {
 
     @XmlElement(required = true)
@@ -48,15 +47,16 @@ public class SamlTokenProfilesType {
      * Gets the value of the samlTokenProfile property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the samlTokenProfile property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the samlTokenProfile property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getSamlTokenProfile().add(newItem);
+     * getSamlTokenProfile().add(newItem);
      * </pre>
      * 
      * 

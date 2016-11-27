@@ -20,27 +20,25 @@ package org.rub.nds.saml.samllib.exceptions;
 
 /**
  * Defines exceptions thrown during the verification
+ * 
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
-public class SAMLVerifyException extends SAMLException
-{
-    
+public class SAMLVerifyException extends SAMLException {
+
     /**
      * 
      * @param message
      */
-    public SAMLVerifyException(final String message) 
-    {
+    public SAMLVerifyException(final String message) {
         super(message);
     }
-    
+
     /**
      * 
      * @param message
      * @param throwable
      */
-    public SAMLVerifyException(final String message, final Throwable throwable)
-    {
+    public SAMLVerifyException(final String message, final Throwable throwable) {
         super(message, throwable);
     }
 }

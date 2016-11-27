@@ -22,8 +22,7 @@ package org.rub.nds.saml.samllib.utils;
  *
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
-public class HttpRequestConstants 
-{
+public class HttpRequestConstants {
     public static final String PROFILE = "profile";
     public static final String Verifier = "verifier";
     public static final String IDP = "idp";
@@ -31,7 +30,7 @@ public class HttpRequestConstants
     public static final String SAML_RESPONSE = "SAMLResponse";
     public static final String SECURITY_BINDING = "sec_binding";
     public static final String RELAY_STATE = "RelayState";
-    
+
     public static final String JAVAXSERVLETREQUEST_X509_CERTIFICATE = "javax.servlet.request.X509Certificate";
     public static final String tlsUnique = "tlsunique";
     public static final String hok = "holderofkey";

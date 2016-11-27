@@ -25,7 +25,7 @@ import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.xml.util.Base64;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
-import org.rub.nds.saml.samllib.exceptions.WrongInputException;
+import org.rub.nds.sso.exceptions.WrongInputException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.sso.api.VerificationProfileType;
 import org.w3c.dom.NodeList;
@@ -60,19 +60,23 @@ public class HolderOfKeyVerification implements SAMLVerifierInterface {
 
     @Override
     public void verify(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifiyHolderOfKey() != null && profile.getSamlTokenVerificationChecks().isVerifiyHolderOfKey()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifiyHolderOfKey() != null
+                && profile.getSamlTokenVerificationChecks().isVerifiyHolderOfKey()) {
             try {
                 NodeList results = SAMLUtils.getHokCertificate(samlObject, createXPathExpression(samlObject));
-                //Compare client certificate of SAML response with given TLS channel cert:
+                // Compare client certificate of SAML response with given TLS
+                // channel cert:
                 if (results.getLength() == 0) {
-                    throw new SAMLVerifyException("Verification of the Holder-of-Key was not successful! No certificates werre found!");
+                    throw new SAMLVerifyException(
+                            "Verification of the Holder-of-Key was not successful! No certificates werre found!");
                 }
 
                 for (int i = 0; i < results.getLength(); i++) {
                     String expected = results.item(i).getTextContent().replaceAll("\r", "").replaceAll("\n", "");
                     String current = Base64.encodeBytes(certificate.getEncoded(), Base64.DONT_BREAK_LINES);
                     if (!expected.contentEquals(current)) {
-                        throw new SAMLVerifyException("Certificate missmatch! \n\n Expected ceritifcate:" + expected + "\n\n Current certificate: " + current);
+                        throw new SAMLVerifyException("Certificate missmatch! \n\n Expected ceritifcate:" + expected
+                                + "\n\n Current certificate: " + current);
                     }
                 }
             } catch (WrongInputException ex) {

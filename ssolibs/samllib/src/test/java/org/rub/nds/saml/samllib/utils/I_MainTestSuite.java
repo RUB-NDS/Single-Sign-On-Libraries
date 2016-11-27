@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
 @RunWith(Suite.class)
 public class I_MainTestSuite {
     private static final I_MainTestSuite instance = new I_MainTestSuite();
-    
+
     public static final String prefix = "src/test/resources/";
     public static Properties properties;
     public final static String path_token_decoded = "tokensDecoded";
@@ -54,10 +54,10 @@ public class I_MainTestSuite {
     private I_MainTestSuite() {
         try {
             DefaultBootstrap.bootstrap();
-            
+
             properties = new Properties();
             properties.load(new FileInputStream(prefix.concat("testResources.properties")));
-            
+
         } catch (ConfigurationException ex) {
             java.util.logging.Logger.getLogger(I_MainTestSuite.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -65,13 +65,13 @@ public class I_MainTestSuite {
         }
     }
 
-    
     public static I_MainTestSuite getInstance() throws ConfigurationException, IOException {
-        if (instance == null) { throw new RuntimeException("Cannot start JUNit Tests!"); }  
+        if (instance == null) {
+            throw new RuntimeException("Cannot start JUNit Tests!");
+        }
         return instance;
     }
-    
-    
+
     @BeforeClass
     public static void setUpClass() throws Exception {
     }
@@ -82,11 +82,11 @@ public class I_MainTestSuite {
 
     @Before
     public void setUp() throws Exception {
-        
+
     }
 
     @After
     public void tearDown() throws Exception {
     }
-    
+
 }

@@ -50,9 +50,9 @@ import org.opensaml.xml.signature.KeyInfo;
 import org.opensaml.xml.signature.Signature;
 import org.opensaml.xml.signature.X509Data;
 import org.opensaml.xml.util.XMLHelper;
-import org.rub.nds.saml.samllib.exceptions.ManagerException;
+import org.rub.nds.sso.exceptions.ManagerException;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
-import org.rub.nds.saml.samllib.exceptions.WrongInputException;
+import org.rub.nds.sso.exceptions.WrongInputException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
@@ -66,11 +66,11 @@ import org.xml.sax.SAXException;
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
 public final class SAMLUtils {
-    
+
     private static final SAMLUtils INSTANCE = new SAMLUtils();
     private static XMLObjectBuilderFactory builderFactory = null;
     private static Logger _log = LoggerFactory.getLogger(SAMLUtils.class);
-    
+
     private SAMLUtils() {
     }
 
@@ -83,7 +83,7 @@ public final class SAMLUtils {
         if (INSTANCE == null) {
             throw new RuntimeException("No singleton instance available");
         }
-        
+
         return INSTANCE;
     }
 
@@ -118,14 +118,14 @@ public final class SAMLUtils {
         if (builderFactory != null) {
             return builderFactory;
         }
-        
+
         try {
             DefaultBootstrap.bootstrap();
             builderFactory = Configuration.getBuilderFactory();
         } catch (ConfigurationException ex) {
             throw new SAMLBuildException(ex.toString(), ex);
         }
-        
+
         return builderFactory;
     }
 
@@ -138,12 +138,12 @@ public final class SAMLUtils {
      */
     public static SAMLObjectBuilder getSAMLBuilder(final QName elementName) throws SAMLBuildException {
         SAMLObjectBuilder samlBuilder;
-        
+
         samlBuilder = (SAMLObjectBuilder) getSAMLBuilder().getBuilder(elementName);
         if (samlBuilder == null) {
             throw new SAMLBuildException("SAMLObjectBuilder is NULL");
         }
-        
+
         return samlBuilder;
     }
 
@@ -156,13 +156,13 @@ public final class SAMLUtils {
      */
     public static SAMLObjectBuilder getSAMLBuilder(final Element elementName) throws SAMLBuildException {
         SAMLObjectBuilder samlBuilder;
-        
+
         samlBuilder = (SAMLObjectBuilder) getSAMLBuilder().getBuilder(elementName);
-        
+
         if (samlBuilder == null) {
             throw new SAMLBuildException("SAMLObjectBuilder is NULL");
         }
-        
+
         return samlBuilder;
     }
 
@@ -178,39 +178,43 @@ public final class SAMLUtils {
             DocumentBuilder docBuilder;
             InputSource is2;
             Element samlElement;
-            
+
             dbf = DocumentBuilderFactory.newInstance();
             dbf.setNamespaceAware(true);
             docBuilder = dbf.newDocumentBuilder();
-            
+
             is2 = new InputSource();
             is2.setCharacterStream(new StringReader(decodedObject));
             samlElement = docBuilder.parse(is2).getDocumentElement();
-            return (SAMLObject) Configuration.getUnmarshallerFactory().getUnmarshaller(samlElement).unmarshall(samlElement);
-        } catch (UnmarshallingException | SAXException | IOException | ParserConfigurationException | NullPointerException ex) {
+            return (SAMLObject) Configuration.getUnmarshallerFactory().getUnmarshaller(samlElement)
+                    .unmarshall(samlElement);
+        } catch (UnmarshallingException | SAXException | IOException | ParserConfigurationException
+                | NullPointerException ex) {
             throw new WrongInputException(ex.getMessage(), ex);
         }
     }
 
     /**
      *
-     * @param authnRequest 
+     * @param authnRequest
      * @return a list of attributes requested in an AuthnRequest
      * @throws WrongInputException
      */
     public static List<String> getAuthnRequestAttributes(final AuthnRequest authnRequest) throws WrongInputException {
         List<String> attributes;
-        
+
         attributes = new ArrayList<>();
-        
+
         try {
             if (authnRequest.getExtensions() != null && !authnRequest.getExtensions().getUnknownXMLObjects().isEmpty()) {
-                List<XMLObject> xmlObjects = authnRequest.getExtensions().getUnknownXMLObjects(Attribute.DEFAULT_ELEMENT_NAME);
+                List<XMLObject> xmlObjects = authnRequest.getExtensions().getUnknownXMLObjects(
+                        Attribute.DEFAULT_ELEMENT_NAME);
                 for (int i = 0; i < xmlObjects.size(); i++) {
                     attributes.add(((Attribute) xmlObjects.get(i)).getName());
                 }
             } else {
-                List<XMLObject> xmlObjects = authnRequest.getSubject().getSubjectConfirmations().get(0).getSubjectConfirmationData().getUnknownXMLObjects(Attribute.DEFAULT_ELEMENT_NAME);
+                List<XMLObject> xmlObjects = authnRequest.getSubject().getSubjectConfirmations().get(0)
+                        .getSubjectConfirmationData().getUnknownXMLObjects(Attribute.DEFAULT_ELEMENT_NAME);
                 for (int i = 0; i < xmlObjects.size(); i++) {
                     attributes.add(((Attribute) xmlObjects.get(i)).getName());
                 }
@@ -218,7 +222,7 @@ public final class SAMLUtils {
         } catch (NullPointerException ex) {
             throw new WrongInputException("Cannot extract Attributes from AuthnRequest!");
         }
-        
+
         return attributes;
     }
 
@@ -226,11 +230,11 @@ public final class SAMLUtils {
      *
      * @param samlObject
      * @return the Issuer element of a SAMLObject
-     * @throws WrongInputException  
+     * @throws WrongInputException
      */
     public static String getIssuer(final SAMLObject samlObject) throws WrongInputException {
         String result = "";
-        
+
         try {
             if (samlObject instanceof Assertion) {
                 result = ((Assertion) samlObject).getIssuer().getValue();
@@ -242,7 +246,7 @@ public final class SAMLUtils {
         } catch (ClassCastException | NullPointerException ex) {
             throw new WrongInputException(ex.getMessage(), ex);
         }
-        
+
         return result;
     }
 
@@ -250,11 +254,11 @@ public final class SAMLUtils {
      *
      * @param signature
      * @return
-     * @throws WrongInputException  
+     * @throws WrongInputException
      */
     public static Credential getCredential(final Signature signature) throws WrongInputException {
         BasicCredential publicCredential = null;
-        
+
         try {
             // Get the KeyInfo node
             KeyInfo keyInfo = signature.getKeyInfo();
@@ -265,12 +269,13 @@ public final class SAMLUtils {
             // Pull out the first x509 data element
             X509Data x509Data = x509List.get(0);
 
-            //Get the current Issuer Signing certificate String of the current assertion and current x509Data:
+            // Get the current Issuer Signing certificate String of the current
+            // assertion and current x509Data:
             String base64BinaryCert = x509Data.getX509Certificates().get(0).getValue();
-            //Get decoded certificate:
+            // Get decoded certificate:
             byte[] decoded = org.apache.xml.security.utils.Base64.decode(base64BinaryCert);
             javax.security.cert.X509Certificate x509Certificate;
-            
+
             x509Certificate = javax.security.cert.X509Certificate.getInstance(decoded);
 
             // Validate the signature based on public key.
@@ -279,7 +284,7 @@ public final class SAMLUtils {
         } catch (NullPointerException | Base64DecodingException | CertificateException ex) {
             throw new WrongInputException(ex.getMessage(), ex);
         }
-        
+
         return publicCredential;
     }
 
@@ -290,7 +295,7 @@ public final class SAMLUtils {
      */
     public static boolean isSigned(final SAMLObject obj) {
         boolean issigned = false;
-        
+
         if (obj instanceof Response) {
             issigned = ((Response) obj).isSigned();
         } else if (obj instanceof Assertion) {
@@ -298,7 +303,7 @@ public final class SAMLUtils {
         } else if (obj instanceof AuthnRequest) {
             issigned = ((AuthnRequest) obj).isSigned();
         }
-        
+
         return issigned;
     }
 
@@ -306,12 +311,12 @@ public final class SAMLUtils {
      *
      * @param samlObjects
      * @return
-     * @throws WrongInputException  
+     * @throws WrongInputException
      */
     public static List<SignableSAMLObject> isSigned(final List<SAMLObject> samlObjects) throws WrongInputException {
         List<SignableSAMLObject> signObjects;
         signObjects = new ArrayList<>();
-        
+
         try {
             for (SAMLObject obj : samlObjects) {
                 if (isSigned(obj)) {
@@ -321,7 +326,7 @@ public final class SAMLUtils {
         } catch (NullPointerException ex) {
             throw new WrongInputException("The list is empty!");
         }
-        
+
         return signObjects;
     }
 
@@ -332,20 +337,23 @@ public final class SAMLUtils {
      * @return
      * @throws WrongInputException
      */
-    public static NodeList getHokCertificate(final SAMLObject obj, final String xpathExpression) throws WrongInputException {
-        
+    public static NodeList getHokCertificate(final SAMLObject obj, final String xpathExpression)
+            throws WrongInputException {
+
         XPathFactory factory = XPathFactory.newInstance();
         XPath xpath = factory.newXPath();
-        
+
         try {
             NamespaceContext nsContext = new SAMLNamespaceContext();
-//            nsContext.setPrefix(SAMLConstants.SAML20_PREFIX, SAMLConstants.SAML20_NS);
-//            nsContext.setPrefix(SAMLConstants.SAML20P_PREFIX, SAMLConstants.SAML20P_NS);
-//            nsContext.setPrefix("ds", "http://www.w3.org/2000/09/xmldsig#");
+            // nsContext.setPrefix(SAMLConstants.SAML20_PREFIX,
+            // SAMLConstants.SAML20_NS);
+            // nsContext.setPrefix(SAMLConstants.SAML20P_PREFIX,
+            // SAMLConstants.SAML20P_NS);
+            // nsContext.setPrefix("ds", "http://www.w3.org/2000/09/xmldsig#");
             xpath.setNamespaceContext(nsContext);
-            
+
             XPathExpression xpathExpr = xpath.compile(xpathExpression);
-            
+
             return ((NodeList) xpathExpr.evaluate(saml2xml(obj), XPathConstants.NODESET));
         } catch (XPathExpressionException | NullPointerException ex) {
             _log.error("Cannot extract HoK-certificate from SAMLObject", ex);
@@ -370,15 +378,17 @@ public final class SAMLUtils {
     }
 
     /**
-     * SAML Printer method<br><br>
+     * SAML Printer method<br>
+     * <br>
      *
      * @param toPrint
      * @return converted SAMLObject into String
-     * @throws WrongInputException  
+     * @throws WrongInputException
      */
     public static String samlObj2String(final SAMLObject toPrint) throws WrongInputException {
         try {
-            // Now we must build our representation to put into the html form to be submitted to the idp
+            // Now we must build our representation to put into the html form to
+            // be submitted to the idp
             Marshaller marshaller = org.opensaml.Configuration.getMarshallerFactory().getMarshaller(toPrint);
             org.w3c.dom.Element authDOM = marshaller.marshall(toPrint);
             StringWriter rspWrt = new StringWriter();
@@ -390,7 +400,7 @@ public final class SAMLUtils {
             throw new WrongInputException("Error converting SAMLObject -> String", ex);
         }
     }
-    
+
     /**
      *
      * @param authnRequest
@@ -406,7 +416,7 @@ public final class SAMLUtils {
             throw new WrongInputException("Cannot retrieve informations from the AuthnRequest");
         }
     }
-    
+
     /**
      *
      * @param authnRequest
@@ -423,16 +433,13 @@ public final class SAMLUtils {
             throw new WrongInputException("Cannot retrieve Issuer from the AuthnRequest");
         }
     }
-    
-    public static String getAuthenticatedUser (Response response) throws ManagerException
-    {
-        try{
+
+    public static String getAuthenticatedUser(Response response) throws ManagerException {
+        try {
             return response.getAssertions().get(0).getSubject().getNameID().getValue();
-        }
-        catch (NullPointerException ex)
-        {
+        } catch (NullPointerException ex) {
             _log.error("No authenticated user was found in the token!", ex);
             throw new ManagerException("No authenticated user was found in the token!");
         }
-    }    
+    }
 }

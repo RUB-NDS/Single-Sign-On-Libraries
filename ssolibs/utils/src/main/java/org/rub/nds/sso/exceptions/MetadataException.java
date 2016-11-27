@@ -16,26 +16,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package org.rub.nds.saml.samllib.exceptions;
+package org.rub.nds.sso.exceptions;
 
 /**
- * Defines exceptions thrown because of wrong configuration: wrong input files
+ * Defines exceptions thrown because of wrong metadata
+ * 
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
-public class WrongInputException extends ConfigurationException
-{
+public class MetadataException extends ConfigurationException {
 
     /**
      * 
      */
-    public WrongInputException() {
+    public MetadataException() {
     }
 
     /**
      * 
      * @param message
      */
-    public WrongInputException(final String message) {
+    public MetadataException(final String message) {
         super(message);
     }
 
@@ -44,8 +44,8 @@ public class WrongInputException extends ConfigurationException
      * @param message
      * @param cause
      */
-    public WrongInputException(final String message, final Throwable cause) {
+    public MetadataException(final String message, final Throwable cause) {
         super(message, cause);
     }
-    
+
 }

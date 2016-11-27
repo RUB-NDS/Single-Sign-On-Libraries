@@ -25,43 +25,41 @@ package org.rub.nds.saml.samllib.verifier;
 
 public class SAMLVerifierProfile {
     protected String name;
-    
+
     private boolean schemaValidation;
-    
+
     private boolean responseID;
     private boolean responseTimestamp;
     private boolean responseInResponseTo;
-    
-    
+
     private boolean assertionID;
     private boolean assertionTimestamp;
-    
+
     private boolean signatureStructure;
     private boolean responseSignature;
     private boolean responseTrustVerification;
     private boolean assertionSignature;
     private boolean assertionTrustVerification;
-    
-    
+
     private String conditionAudienceStr;
     private boolean conditionNotBefore;
     private boolean conditionsNotOnOrAfter;
     private int conditionsMaxDuration;
-    
+
     private String subjectRecipient;
     private boolean subjectNotBefore;
     private boolean subjectNotOnOrAfter;
     private boolean subjectInResponseTo;
     private int subjectMaxDuration;
-    
+
     private boolean authnStatementTimestamp;
-    
+
     private boolean hokverification;
 
     public boolean isSchemaValidation() {
         return schemaValidation;
     }
-    
+
     public boolean isResponseID() {
         return responseID;
     }
@@ -81,8 +79,7 @@ public class SAMLVerifierProfile {
     public boolean isResponseTrustVerification() {
         return responseTrustVerification;
     }
-    
-    
+
     public boolean isAssertionID() {
         return assertionID;
     }
@@ -99,8 +96,6 @@ public class SAMLVerifierProfile {
         return assertionTrustVerification;
     }
 
-    
-    
     public boolean isConditionNotBefore() {
         return conditionNotBefore;
     }
@@ -116,8 +111,6 @@ public class SAMLVerifierProfile {
     public int getConditionsMaxDuration() {
         return conditionsMaxDuration;
     }
-    
-    
 
     public boolean isSubjectNotBefore() {
         return subjectNotBefore;
@@ -134,8 +127,6 @@ public class SAMLVerifierProfile {
     public int getSubjectMaxDuration() {
         return subjectMaxDuration;
     }
-    
-    
 
     public boolean isAuthnStatementTimestamp() {
         return authnStatementTimestamp;
@@ -212,8 +203,6 @@ public class SAMLVerifierProfile {
     public void setConditionsMaxDuration(int conditionsMaxDuration) {
         this.conditionsMaxDuration = conditionsMaxDuration;
     }
-    
-    
 
     public void setSubjectRecipient(String subjectRecipient) {
         this.subjectRecipient = subjectRecipient;
@@ -234,8 +223,6 @@ public class SAMLVerifierProfile {
     public void setSubjectMaxDuration(int subjectMaxDuration) {
         this.subjectMaxDuration = subjectMaxDuration;
     }
-    
-    
 
     public void setAuthnStatementTimestamp(boolean authnStatementTimestamp) {
         this.authnStatementTimestamp = authnStatementTimestamp;
@@ -243,11 +230,10 @@ public class SAMLVerifierProfile {
 
     public void setHokverification(boolean hokverification) {
         this.hokverification = hokverification;
-    }   
+    }
 
     public String getName() {
         return name;
     }
-    
-    
+
 }

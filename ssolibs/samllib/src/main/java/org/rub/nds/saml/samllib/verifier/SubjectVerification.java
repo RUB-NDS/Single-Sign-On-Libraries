@@ -55,7 +55,8 @@ public class SubjectVerification implements SAMLVerifierInterface {
     }
 
     private void verifyTimestamp(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationTimestamps()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationTimestamps()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationTimestamps() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationTimestamps()) {
             try {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (SubjectConfirmation sbjConfirmation : assertion.getSubject().getSubjectConfirmations()) {
@@ -71,12 +72,16 @@ public class SubjectVerification implements SAMLVerifierInterface {
 
                         if (!notBefore.isAfterNow()) {
                         } else {
-                            throw new SAMLVerifyException("Timestamp NotBefore in the Subject is not valid! Timestamp: " + notBefore.toString());
+                            throw new SAMLVerifyException(
+                                    "Timestamp NotBefore in the Subject is not valid! Timestamp: "
+                                            + notBefore.toString());
                         }
 
                         if (!notAfter.isBeforeNow()) {
                         } else {
-                            throw new SAMLVerifyException("Timestamp NotOnOrAfter in the Subject is not valid! Timestamp: " + notAfter.toString());
+                            throw new SAMLVerifyException(
+                                    "Timestamp NotOnOrAfter in the Subject is not valid! Timestamp: "
+                                            + notAfter.toString());
                         }
                     }
                 }
@@ -88,13 +93,16 @@ public class SubjectVerification implements SAMLVerifierInterface {
 
     private void verifyRecipient(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         try {
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination()!= null && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination() != null
+                    && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination()) {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (SubjectConfirmation sbjConfirmation : assertion.getSubject().getSubjectConfirmations()) {
 
-                        if (profile.getSamlTokenVerificationParameters().getDestination().equalsIgnoreCase(sbjConfirmation.getSubjectConfirmationData().getRecipient())) {
+                        if (profile.getSamlTokenVerificationParameters().getDestination()
+                                .equalsIgnoreCase(sbjConfirmation.getSubjectConfirmationData().getRecipient())) {
                         } else {
-                            throw new SAMLVerifyException("Recipient in the Subject is not valid! Recipient: " + sbjConfirmation.getSubjectConfirmationData().getRecipient());
+                            throw new SAMLVerifyException("Recipient in the Subject is not valid! Recipient: "
+                                    + sbjConfirmation.getSubjectConfirmationData().getRecipient());
                         }
                     }
 
@@ -104,16 +112,20 @@ public class SubjectVerification implements SAMLVerifierInterface {
             throw new SAMLVerifyException("Some element is missing. NullPointerException: ", ex);
         }
     }
-//
+
+    //
     private void veridyInResponseTo(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         try {
-            if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjInResponseTo()!=null && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjInResponseTo()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjInResponseTo() != null
+                    && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjInResponseTo()) {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (SubjectConfirmation sbjConfirmation : assertion.getSubject().getSubjectConfirmations()) {
 
-                        if (authnRequest.getID().equalsIgnoreCase(sbjConfirmation.getSubjectConfirmationData().getInResponseTo())) {
+                        if (authnRequest.getID().equalsIgnoreCase(
+                                sbjConfirmation.getSubjectConfirmationData().getInResponseTo())) {
                         } else {
-                            throw new SAMLVerifyException("InResponseTo in the Subject is not valid! InResponseTo: " + sbjConfirmation.getSubjectConfirmationData().getInResponseTo());
+                            throw new SAMLVerifyException("InResponseTo in the Subject is not valid! InResponseTo: "
+                                    + sbjConfirmation.getSubjectConfirmationData().getInResponseTo());
                         }
                     }
                 }

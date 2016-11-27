@@ -56,23 +56,19 @@ public class SAMLIDCache {
      *
      */
     public static void initialize() {
-        SAMLIDCache.cachedIDs = CacheBuilder.newBuilder()
-                .maximumSize(1000)
+        SAMLIDCache.cachedIDs = CacheBuilder.newBuilder().maximumSize(1000)
                 .expireAfterWrite(SAMLIDCache.cacheDuration, TimeUnit.MINUTES)
-                .removalListener(
-                new RemovalListener<String, String>() {
-            @Override
-            public void onRemoval(RemovalNotification<String, String> rn) {
-                _log.debug("SAML Response ID " + rn.getKey() + " has been removed from the cache.");
-            }
-        })
-                .build(
-                new CacheLoader<String, String>() {
-            @Override
-            public String load(String key) {
-                return key;
-            }
-        });
+                .removalListener(new RemovalListener<String, String>() {
+                    @Override
+                    public void onRemoval(RemovalNotification<String, String> rn) {
+                        _log.debug("SAML Response ID " + rn.getKey() + " has been removed from the cache.");
+                    }
+                }).build(new CacheLoader<String, String>() {
+                    @Override
+                    public String load(String key) {
+                        return key;
+                    }
+                });
     }
 
     /**

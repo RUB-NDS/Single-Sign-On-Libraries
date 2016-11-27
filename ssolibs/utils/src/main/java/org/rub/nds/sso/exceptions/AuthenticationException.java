@@ -16,21 +16,33 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package org.rub.nds.saml.samllib.utils;
+package org.rub.nds.sso.exceptions;
 
 /**
  *
- * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
+ * @author vmladenov
  */
-public enum AuthServiceTypeEnum {
+public class AuthenticationException extends ConfigurationException {
+    /**
+     * 
+     */
+    public AuthenticationException() {
+    }
 
     /**
-     * TLS mutual authentication
-     * based on client certificates
+     * 
+     * @param message
      */
-    cert,
+    public AuthenticationException(final String message) {
+        super(message);
+    }
+
     /**
-     * German nPA based authentication
+     * 
+     * @param message
+     * @param cause
      */
-    npa
+    public AuthenticationException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
 }

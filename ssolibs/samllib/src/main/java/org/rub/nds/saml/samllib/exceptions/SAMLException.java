@@ -18,32 +18,31 @@
  */
 package org.rub.nds.saml.samllib.exceptions;
 
+import org.rub.nds.sso.exceptions.ManagerException;
 
 /**
  * Not used
+ * 
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
 
-public class SAMLException extends ManagerException
-{
-    //private static Log _log = LogFactory.getLog(SAMLException.class);
-    
+public class SAMLException extends ManagerException {
+    // private static Log _log = LogFactory.getLog(SAMLException.class);
+
     /**
      * 
      * @param message
      */
-    public SAMLException(final String message) 
-    {
+    public SAMLException(final String message) {
         super(message);
     }
-    
+
     /**
      * 
      * @param message
      * @param throwable
      */
-    public SAMLException(final String message, final Throwable throwable)
-    {
+    public SAMLException(final String message, final Throwable throwable) {
         super(message, throwable);
     }
 }

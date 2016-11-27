@@ -20,29 +20,29 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.rub.nds.saml.samllib.utils.FileUtils;
+import org.rub.nds.sso.utils.FileUtils;
 
 /**
  *
  * @author Ole Lemke <ole.lemke@rub.de>
  */
 public class AuthenticatedUserTypeTest {
-    
+
     public AuthenticatedUserTypeTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -51,31 +51,31 @@ public class AuthenticatedUserTypeTest {
      * Test of getUserID method, of class AuthenticatedUserType.
      */
     @Test
-    public void testAuthenticatedUserType() throws JAXBException, IOException, Exception{
-        JAXBContext jaxbContext = JAXBContext.newInstance ("org.rub.nds.sso.api");
+    public void testAuthenticatedUserType() throws JAXBException, IOException, Exception {
+        JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.sso.api");
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<AuthenticatedUserType> AuthenticatedUserType;
-        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI); 
-        Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd")); 
+        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd"));
         unmarshaller.setSchema(schema);
-        for (String s : FileUtils.readFilesFromDir("src/test/resources/AuthenticatedUser/valid", "xml")){
+        for (String s : FileUtils.readFilesFromDir("src/test/resources/AuthenticatedUser/valid", "xml")) {
             StringReader reader = new StringReader(s);
             AuthenticatedUserType = (JAXBElement<AuthenticatedUserType>) unmarshaller.unmarshal(reader);
         }
     }
-    
-    @Test(expected = Exception.class)  
-    public void testInvalidAuthenticatedUserType() throws JAXBException, IOException, Exception{
-        JAXBContext jaxbContext = JAXBContext.newInstance ("org.rub.nds.sso.api");
+
+    @Test(expected = Exception.class)
+    public void testInvalidAuthenticatedUserType() throws JAXBException, IOException, Exception {
+        JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.sso.api");
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<AuthenticatedUserType> AuthenticatedUserType;
-        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI); 
-        Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd")); 
+        SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd"));
         unmarshaller.setSchema(schema);
-        for (String s : FileUtils.readFilesFromDir("src/test/resources/AuthenticatedUser/invalid", "xml")){
+        for (String s : FileUtils.readFilesFromDir("src/test/resources/AuthenticatedUser/invalid", "xml")) {
             StringReader reader = new StringReader(s);
             AuthenticatedUserType = (JAXBElement<AuthenticatedUserType>) unmarshaller.unmarshal(reader);
         }
     }
-    
+
 }

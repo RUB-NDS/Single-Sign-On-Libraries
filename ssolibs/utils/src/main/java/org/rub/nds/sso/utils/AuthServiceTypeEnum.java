@@ -16,36 +16,20 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package org.rub.nds.saml.samllib.exceptions;
+package org.rub.nds.sso.utils;
 
 /**
- * Defines exceptions thrown because of wrong configuration
+ *
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
-public class ConfigurationException extends ManagerException
-{
+public enum AuthServiceTypeEnum {
 
     /**
-     * 
-     * @param message
-     * @param cause
+     * TLS mutual authentication based on client certificates
      */
-    public ConfigurationException(String message, final Throwable cause) {
-        super(message, cause);
-    }
-
+    cert,
     /**
-     * 
-     * @param message
+     * German nPA based authentication
      */
-    public ConfigurationException(final String message) {
-        super(message);
-    }
-
-    /**
-     * 
-     */
-    public ConfigurationException() {
-    }
-    
+    npa
 }

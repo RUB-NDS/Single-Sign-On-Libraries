@@ -31,6 +31,7 @@ import org.junit.BeforeClass;
 public class SAMLBuilderConfigTest {
 
     public static final String prefix = "src/test/resources/";
+
     public SAMLBuilderConfigTest() {
     }
 
@@ -44,54 +45,58 @@ public class SAMLBuilderConfigTest {
 
     @Before
     public void setUp() throws IOException {
-//        xstream = new XStream();
-//        xstream.setClassLoader(SAMLProfileStorage.class.getClassLoader());
-//        xstream.processAnnotations(SAMLProfileStorage.class);
+        // xstream = new XStream();
+        // xstream.setClassLoader(SAMLProfileStorage.class.getClassLoader());
+        // xstream.processAnnotations(SAMLProfileStorage.class);
     }
 
     @After
     public void tearDown() {
     }
 
-//    @Test(expected = StreamException.class)
-//    public void emptyInput() throws IOException, SAMLProfileException {
-//        String s = null;
-//        File file = null;
-//        
-//        SAMLProfileStorage samlStorage = (SAMLProfileStorage) xstream.fromXML("");
-//        samlStorage = (SAMLProfileStorage) xstream.fromXML(file);
-//        samlStorage.initialize();
-//    }
-//    
-//    @Test(expected = StreamException.class)
-//    public void emptyInput2() throws IOException, SAMLProfileException {
-//        String s = null;
-//        File file = null;
-//
-//        SAMLProfileStorage samlStorage = (SAMLProfileStorage) xstream.fromXML("");
-//        samlStorage = (SAMLProfileStorage) xstream.fromXML(new File(""));
-//        samlStorage.initialize();
-//    }
-//    
-//    @Test(expected = StreamException.class)
-//    public void emptyInput3() throws IOException, SAMLProfileException {
-//        String s = null;
-//        File file = null;
-//
-//        SAMLProfileStorage samlStorage = (SAMLProfileStorage) xstream.fromXML("");
-//        samlStorage = (SAMLProfileStorage) xstream.fromXML(s);
-//        samlStorage.initialize();
-//    }
-//
-//    @Test
-//    public void wrongFiles() throws IOException {
-//
-//        for (String s : FileUtils.readFilesFromDir(prefix.concat("wrongProfiles"), "xml")) {
-//            try {
-//                SAMLProfileStorage samlStorage = (SAMLProfileStorage) xstream.fromXML(s);
-//                samlStorage.initialize();
-//            } catch (ConversionException | SAMLProfileException ex) {
-//            }
-//        }
-//    }
+    // @Test(expected = StreamException.class)
+    // public void emptyInput() throws IOException, SAMLProfileException {
+    // String s = null;
+    // File file = null;
+    //
+    // SAMLProfileStorage samlStorage = (SAMLProfileStorage)
+    // xstream.fromXML("");
+    // samlStorage = (SAMLProfileStorage) xstream.fromXML(file);
+    // samlStorage.initialize();
+    // }
+    //
+    // @Test(expected = StreamException.class)
+    // public void emptyInput2() throws IOException, SAMLProfileException {
+    // String s = null;
+    // File file = null;
+    //
+    // SAMLProfileStorage samlStorage = (SAMLProfileStorage)
+    // xstream.fromXML("");
+    // samlStorage = (SAMLProfileStorage) xstream.fromXML(new File(""));
+    // samlStorage.initialize();
+    // }
+    //
+    // @Test(expected = StreamException.class)
+    // public void emptyInput3() throws IOException, SAMLProfileException {
+    // String s = null;
+    // File file = null;
+    //
+    // SAMLProfileStorage samlStorage = (SAMLProfileStorage)
+    // xstream.fromXML("");
+    // samlStorage = (SAMLProfileStorage) xstream.fromXML(s);
+    // samlStorage.initialize();
+    // }
+    //
+    // @Test
+    // public void wrongFiles() throws IOException {
+    //
+    // for (String s :
+    // FileUtils.readFilesFromDir(prefix.concat("wrongProfiles"), "xml")) {
+    // try {
+    // SAMLProfileStorage samlStorage = (SAMLProfileStorage) xstream.fromXML(s);
+    // samlStorage.initialize();
+    // } catch (ConversionException | SAMLProfileException ex) {
+    // }
+    // }
+    // }
 }

@@ -18,12 +18,14 @@
  */
 package org.rub.nds.saml.samllib.exceptions;
 
+import org.rub.nds.sso.exceptions.ManagerException;
+
 /**
  * Defines exceptions thrown during the generation of the SAML-messages
+ * 
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
-public class SAMLBuildException extends ManagerException
-{
+public class SAMLBuildException extends ManagerException {
 
     /**
      * 
@@ -47,5 +49,5 @@ public class SAMLBuildException extends ManagerException
     public SAMLBuildException(final String message, final Throwable cause) {
         super(message, cause);
     }
-    
+
 }

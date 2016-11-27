@@ -27,48 +27,48 @@ import org.opensaml.saml2.core.SubjectConfirmation;
  *
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
-public class SAMLDefaultConstants 
-{
+public class SAMLDefaultConstants {
     /**
      * 
      */
     public final static String ISSUER = "http://skidentity.de/IdentityProvider";
-    
+
     /**
      * 
      */
     public final static String SbjConfirmationMethod = SubjectConfirmation.METHOD_BEARER;
-    
+
     /**
      * 
      */
     public final static String NameIDFormat = NameIDType.TRANSIENT;
-    
+
     /**
      * 
      */
-    public final static String NameIDValue = "Test123@web.de";  //JK change
-    
+    public final static String NameIDValue = "Test123@web.de"; // JK change
+
     /**
      * 
      */
     public final static String AttrNameFormat = Attribute.URI_REFERENCE;
-    
+
     /**
      * 
      */
-    public final static String AttrName = "TestAttributName";   //JK change
-    
+    public final static String AttrName = "TestAttributName"; // JK change
+
     /**
      * 
      */
     public final static String AuthnContextClassRef = AuthnContext.PPT_AUTHN_CTX;
-    
+
     /**
      * 
      */
-    public final static String AuthnContextDeclRef = "http://skidentity.de/IdentityProvider";   //JK change
-    
+    public final static String AuthnContextDeclRef = "http://skidentity.de/IdentityProvider"; // JK
+                                                                                              // change
+
     public static final String MetadataProtocolSP = "urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol";
     public static final String MetadataPOSTBinding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST";
 }

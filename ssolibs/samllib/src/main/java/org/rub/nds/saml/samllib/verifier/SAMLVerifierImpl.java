@@ -32,12 +32,12 @@ import org.slf4j.LoggerFactory;
  * @author Vladislav Mladenov<vladislav.mladenov@rub.de>
  */
 
-public class SAMLVerifierImpl implements SAMLVerifierInterface{
+public class SAMLVerifierImpl implements SAMLVerifierInterface {
     private static Logger _log = LoggerFactory.getLogger(SAMLVerifierImpl.class);
     private AuthnRequest authnRequest;
     private X509Certificate certifficate;
     private AbstractMetadataProvider metadata;
-    
+
     public SAMLVerifierImpl() {
     }
 
@@ -45,11 +45,11 @@ public class SAMLVerifierImpl implements SAMLVerifierInterface{
         this.authnRequest = authnRequest;
         this.certifficate = certifficate;
     }
-    
+
     public SAMLVerifierImpl(AuthnRequest authnRequest) {
         this.authnRequest = authnRequest;
     }
-    
+
     public SAMLVerifierImpl(X509Certificate certifficate) {
         this.certifficate = certifficate;
     }
@@ -59,21 +59,20 @@ public class SAMLVerifierImpl implements SAMLVerifierInterface{
         this.certifficate = certifficate;
         this.metadata = metadata;
     }
-    
+
     public SAMLVerifierImpl(AuthnRequest authnRequest, AbstractMetadataProvider metadata) {
         this.authnRequest = authnRequest;
         this.metadata = metadata;
     }
-    
+
     public SAMLVerifierImpl(X509Certificate certifficate, AbstractMetadataProvider metadata) {
         this.certifficate = certifficate;
         this.metadata = metadata;
     }
-    
+
     public SAMLVerifierImpl(AbstractMetadataProvider metadata) {
         this.metadata = metadata;
     }
-    
 
     @Override
     public void verify(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
@@ -85,5 +84,5 @@ public class SAMLVerifierImpl implements SAMLVerifierInterface{
         HolderOfKeyVerification hok = new HolderOfKeyVerification(certifficate);
         hok.verify(samlObject, profile);
     }
-    
+
 }

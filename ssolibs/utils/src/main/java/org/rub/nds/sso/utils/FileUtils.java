@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package org.rub.nds.saml.samllib.utils;
+package org.rub.nds.sso.utils;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -36,6 +36,7 @@ import org.slf4j.LoggerFactory;
  */
 public class FileUtils {
     private static Logger _log = LoggerFactory.getLogger(FileUtils.class);
+
     /**
      *
      * @param dirPath
@@ -45,12 +46,11 @@ public class FileUtils {
      */
     public static List<String> readFilesFromDir(final String dirPath, final String sufixFiles) throws IOException {
         _log.debug("Reading directory: " + dirPath + " with files having the following suffix: " + sufixFiles);
-        
+
         List<String> files = new ArrayList<>();
 
         try {
             File folder = new File(dirPath);
-
 
             FilenameFilter filter = createFilenameFilter(sufixFiles);
 
@@ -96,7 +96,7 @@ public class FileUtils {
      *
      * @param suffix
      * @return
-     * @throws IOException  
+     * @throws IOException
      */
     public static FilenameFilter createFilenameFilter(final String suffix) throws IOException {
         FilenameFilter filter;

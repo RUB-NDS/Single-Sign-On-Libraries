@@ -5,18 +5,19 @@
 // Generiert: 2016.11.04 um 11:43:03 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für assertionAuthnStatementDecoratorType complex type.
+ * <p>
+ * Java-Klasse für assertionAuthnStatementDecoratorType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="assertionAuthnStatementDecoratorType">
@@ -38,14 +39,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "assertionAuthnStatementDecoratorType", propOrder = {
-    "timestamps",
-    "sbjLocalityAddress",
-    "sbjLocalityDNS",
-    "authnContextDeclStr",
-    "authnContextClassRefStr",
-    "authnContextDeclRefStr"
-})
+@XmlType(name = "assertionAuthnStatementDecoratorType", propOrder = { "timestamps", "sbjLocalityAddress",
+        "sbjLocalityDNS", "authnContextDeclStr", "authnContextClassRefStr", "authnContextDeclRefStr" })
 public class AssertionAuthnStatementDecoratorType {
 
     protected Integer timestamps;
@@ -58,10 +53,8 @@ public class AssertionAuthnStatementDecoratorType {
     /**
      * Ruft den Wert der timestamps-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     * @return possible object is {@link Integer }
+     * 
      */
     public Integer getTimestamps() {
         return timestamps;
@@ -71,9 +64,8 @@ public class AssertionAuthnStatementDecoratorType {
      * Legt den Wert der timestamps-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *            allowed object is {@link Integer }
+     * 
      */
     public void setTimestamps(Integer value) {
         this.timestamps = value;
@@ -82,10 +74,8 @@ public class AssertionAuthnStatementDecoratorType {
     /**
      * Ruft den Wert der sbjLocalityAddress-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSbjLocalityAddress() {
         return sbjLocalityAddress;
@@ -95,9 +85,8 @@ public class AssertionAuthnStatementDecoratorType {
      * Legt den Wert der sbjLocalityAddress-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSbjLocalityAddress(String value) {
         this.sbjLocalityAddress = value;
@@ -106,10 +95,8 @@ public class AssertionAuthnStatementDecoratorType {
     /**
      * Ruft den Wert der sbjLocalityDNS-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSbjLocalityDNS() {
         return sbjLocalityDNS;
@@ -119,9 +106,8 @@ public class AssertionAuthnStatementDecoratorType {
      * Legt den Wert der sbjLocalityDNS-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSbjLocalityDNS(String value) {
         this.sbjLocalityDNS = value;
@@ -130,10 +116,8 @@ public class AssertionAuthnStatementDecoratorType {
     /**
      * Ruft den Wert der authnContextDeclStr-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAuthnContextDeclStr() {
         return authnContextDeclStr;
@@ -143,9 +127,8 @@ public class AssertionAuthnStatementDecoratorType {
      * Legt den Wert der authnContextDeclStr-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAuthnContextDeclStr(String value) {
         this.authnContextDeclStr = value;
@@ -154,10 +137,8 @@ public class AssertionAuthnStatementDecoratorType {
     /**
      * Ruft den Wert der authnContextClassRefStr-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAuthnContextClassRefStr() {
         return authnContextClassRefStr;
@@ -167,9 +148,8 @@ public class AssertionAuthnStatementDecoratorType {
      * Legt den Wert der authnContextClassRefStr-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAuthnContextClassRefStr(String value) {
         this.authnContextClassRefStr = value;
@@ -178,10 +158,8 @@ public class AssertionAuthnStatementDecoratorType {
     /**
      * Ruft den Wert der authnContextDeclRefStr-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAuthnContextDeclRefStr() {
         return authnContextDeclRefStr;
@@ -191,9 +169,8 @@ public class AssertionAuthnStatementDecoratorType {
      * Legt den Wert der authnContextDeclRefStr-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAuthnContextDeclRefStr(String value) {
         this.authnContextDeclRefStr = value;

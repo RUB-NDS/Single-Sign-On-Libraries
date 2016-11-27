@@ -7,3 +7,4 @@
 
 @javax.xml.bind.annotation.XmlSchema(namespace = "http://www.api.sso.nds.rub.org", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package org.rub.nds.sso.api;
+

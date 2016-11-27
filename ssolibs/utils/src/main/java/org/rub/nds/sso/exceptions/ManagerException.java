@@ -16,36 +16,36 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package org.rub.nds.saml.samllib.exceptions;
+package org.rub.nds.sso.exceptions;
 
 /**
- * Defines exceptions thrown because of wrong metadata
+ * Defines exceptions thrown by the managers
+ * 
  * @author Vladislav Mladenov <vladislav.mladenov@rub.de>
  */
-public class MetadataException extends ConfigurationException
-{
-
-    /**
-     * 
-     */
-    public MetadataException() {
-    }
-
-    /**
-     * 
-     * @param message
-     */
-    public MetadataException(final String message) {
-        super(message);
-    }
+public class ManagerException extends Exception {
 
     /**
      * 
      * @param message
      * @param cause
      */
-    public MetadataException(final String message, final Throwable cause) {
+    public ManagerException(final String message, final Throwable cause) {
         super(message, cause);
     }
-    
+
+    /**
+     * 
+     * @param message
+     */
+    public ManagerException(final String message) {
+        super(message);
+    }
+
+    /**
+     * 
+     */
+    public ManagerException() {
+    }
+
 }
