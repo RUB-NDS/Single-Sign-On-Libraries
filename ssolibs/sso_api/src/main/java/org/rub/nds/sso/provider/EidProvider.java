@@ -6,16 +6,12 @@
 package org.rub.nds.sso.provider;
 
 import java.io.UnsupportedEncodingException;
-import java.util.UUID;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.saml.samllib.verifier.SAMLVerifierImpl;
-import org.rub.nds.sso.api.SamlAuthnRequestVerificationChecksType;
-import org.rub.nds.sso.api.SamlTokenVerificationChecksType;
 import org.rub.nds.sso.api.SamlType;
-import org.rub.nds.sso.api.SamlVerificationParametersType;
 import org.rub.nds.sso.api.VerificationProfileType;
 import org.rub.nds.sso.exceptions.WrongInputException;
 import org.rub.nds.sso.utils.DecoderUtils;
