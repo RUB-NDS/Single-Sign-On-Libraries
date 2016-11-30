@@ -51,7 +51,8 @@ public class EidProviderTest {
     /**
      * Test of verify method, of class EidProvider.
      */
-    @Test(expected = SAMLVerifyException.class)
+    @Test
+    // (expected = SAMLVerifyException.class)
     public void testVerify() throws Exception {
         SamlType samlType = new SamlType();
         VerificationProfileType verificationProfile = new VerificationProfileType();
@@ -74,7 +75,7 @@ public class EidProviderTest {
         verificationProfile.setSamlTokenVerificationChecks(checks);
         verificationProfile.setSamlTokenVerificationParameters(verificationParameters);
 
-        EidProvider instance = new EidProvider(samlType);
+        EidProvider instance = new EidProvider(samlType, verificationProfile);
         instance.verify();
     }
 
