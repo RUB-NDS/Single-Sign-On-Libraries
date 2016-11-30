@@ -5,6 +5,7 @@
  */
 package org.rub.nds.sso.provider;
 
+import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
@@ -17,6 +18,7 @@ import org.rub.nds.sso.api.SamlType;
 import org.rub.nds.sso.api.SamlVerificationParametersType;
 import org.rub.nds.sso.api.VerificationProfileType;
 import org.rub.nds.sso.exceptions.WrongInputException;
+import org.rub.nds.sso.utils.DecoderUtils;
 
 /**
  *
@@ -25,48 +27,42 @@ import org.rub.nds.sso.exceptions.WrongInputException;
 public class EidProvider {
 
     private SamlType samlType;
+    private VerificationProfileType verificationProfile;
 
-    public EidProvider(SamlType samlType) {
+    public EidProvider(SamlType samlType) throws SAMLVerifyException {
         this.samlType = samlType;
+        throw new SAMLVerifyException("Verification without Profile is useless");
     }
 
-    public void verify() throws WrongInputException, SAMLVerifyException {
+    public EidProvider(SamlType samlType, VerificationProfileType verificationProfile) {
+        this.samlType = samlType;
+        this.verificationProfile = verificationProfile;
+    }
+
+    public void verify() throws WrongInputException, SAMLVerifyException, UnsupportedEncodingException {
         Response samlResponse;
         AuthnRequest authRequest;
-        SamlVerificationParametersType verificationParameters;
-        String samlVerificationProfile;
-        SamlTokenVerificationChecksType samlTokenVerificationChecks;
-        SamlAuthnRequestVerificationChecksType samlAuthnRequestVerificationChecks;
 
         samlResponse = serializeSamlResponse();
         authRequest = serializeSamlAuthnRequest();
-        verificationParameters = samlType.getSamlVerificationParameters();
-        samlVerificationProfile = samlType.getSamlVerificationProfile();
-        samlTokenVerificationChecks = samlType.getSamlTokenVerificationChecks();
-        samlAuthnRequestVerificationChecks = samlType.getSamlAuthnReqVerificationChecks();
-
-        VerificationProfileType verificationProfile = new VerificationProfileType();
-        verificationProfile.setID(UUID.randomUUID().toString());
-        verificationProfile.setSamlAuthnReqVerificationChecks(samlAuthnRequestVerificationChecks);
-        verificationProfile.setSamlTokenVerificationChecks(samlTokenVerificationChecks);
-        verificationProfile.setSamlTokenVerificationParameters(verificationParameters);
 
         SAMLVerifierImpl verifier = new SAMLVerifierImpl();
         verifier.verify(samlResponse, verificationProfile);
     }
 
-    private Response serializeSamlResponse() throws WrongInputException {
+    private Response serializeSamlResponse() throws WrongInputException, UnsupportedEncodingException {
         Response samlResponse = null;
-        try{ 
+        try {
             if (samlType.getSamlResponse() == null || samlType.getSamlResponse().isEmpty()) {
-                //TODO: Warning Log
+                // TODO: Warning Log
             } else {
-                samlResponse = (Response) SAMLUtils.buildObjectfromString(samlType.getSamlResponse());
+                samlResponse = (Response) SAMLUtils.buildObjectfromString(DecoderUtils.decodeBase64Mime(samlType
+                        .getSamlResponse()));
             }
         } catch (WrongInputException ex) {
             throw new WrongInputException("Cannot parse SAML Response");
         } catch (NullPointerException ex) {
-            //TODO: Warning Log
+            // TODO: Warning Log
 
         }
         return samlResponse;
@@ -76,7 +72,7 @@ public class EidProvider {
         AuthnRequest samlRequest = null;
         try {
             if (samlType.getSamlRequest() == null || samlType.getSamlRequest().isEmpty()) {
-                //TODO: Warning Log
+                // TODO: Warning Log
             } else {
                 samlRequest = (AuthnRequest) SAMLUtils.buildObjectfromString(samlType.getSamlRequest());
             }

@@ -5,6 +5,7 @@
  */
 package org.rub.nds.sso.provider;
 
+import java.util.UUID;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,32 +15,35 @@ import static org.junit.Assert.*;
 import org.opensaml.DefaultBootstrap;
 import org.opensaml.xml.ConfigurationException;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
+import org.rub.nds.sso.api.SamlAuthnRequestVerificationChecksType;
 import org.rub.nds.sso.api.SamlTokenVerificationChecksType;
 import org.rub.nds.sso.api.SamlType;
+import org.rub.nds.sso.api.SamlVerificationParametersType;
+import org.rub.nds.sso.api.VerificationProfileType;
 
 /**
  *
  * @author vmladenov
  */
 public class EidProviderTest {
-    
+
     public EidProviderTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() throws ConfigurationException {
         DefaultBootstrap.bootstrap();
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        
+
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -47,57 +51,31 @@ public class EidProviderTest {
     /**
      * Test of verify method, of class EidProvider.
      */
-    @Test (expected = SAMLVerifyException.class)
+    @Test(expected = SAMLVerifyException.class)
     public void testVerify() throws Exception {
         SamlType samlType = new SamlType();
-        samlType.setSamlResponse("<samlp:Response xmlns:samlp=\"urn:oasis:names:tc:SAML:2.0:protocol\" xmlns:saml=\"urn:oasis:names:tc:SAML:2.0:assertion\" ID=\"_8e8dc5f69a98cc4c1ff3427e5ce34606fd672f91e6\" Version=\"2.0\" IssueInstant=\"2014-07-17T01:01:48Z\" Destination=\"http://sp.example.com/demo1/index.php?acs\" InResponseTo=\"ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685\">\n" +
-"  <saml:Issuer>http://idp.example.com/metadata.php</saml:Issuer>\n" +
-"  <samlp:Status>\n" +
-"    <samlp:StatusCode Value=\"urn:oasis:names:tc:SAML:2.0:status:Success\"/>\n" +
-"  </samlp:Status>\n" +
-"  <saml:Assertion xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" ID=\"pfx209f6685-5971-5225-aafd-5a619933a1b7\" Version=\"2.0\" IssueInstant=\"2014-07-17T01:01:48Z\">\n" +
-"    <saml:Issuer>http://idp.example.com/metadata.php</saml:Issuer><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\">\n" +
-"  <ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/>\n" +
-"    <ds:SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\"/>\n" +
-"  <ds:Reference URI=\"#pfx209f6685-5971-5225-aafd-5a619933a1b7\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\"/><ds:DigestValue>HYYH8QIVg+qjptGqnqTScdZBSlA=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>k5jyKq2mH/3uzhXBrIHY++lKw0p7LmpRATS7r4JvksdLeyluLmXYJ7xp/EOKgZEaaCKgn1ZYpKv3iwk/FxHrnaomX5W68tlc4oB1hkqiF/FEaa2DDc2EBUaGubACPDkxUJcuhfXYkKRyZmkMGD1EldwHEYEQqwK/X3crrIkdvcU=</ds:SignatureValue>\n" +
-"<ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIICajCCAdOgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBSMQswCQYDVQQGEwJ1czETMBEGA1UECAwKQ2FsaWZvcm5pYTEVMBMGA1UECgwMT25lbG9naW4gSW5jMRcwFQYDVQQDDA5zcC5leGFtcGxlLmNvbTAeFw0xNDA3MTcxNDEyNTZaFw0xNTA3MTcxNDEyNTZaMFIxCzAJBgNVBAYTAnVzMRMwEQYDVQQIDApDYWxpZm9ybmlhMRUwEwYDVQQKDAxPbmVsb2dpbiBJbmMxFzAVBgNVBAMMDnNwLmV4YW1wbGUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZx+ON4IUoIWxgukTb1tOiX3bMYzYQiwWPUNMp+Fq82xoNogso2bykZG0yiJm5o8zv/sd6pGouayMgkx/2FSOdc36T0jGbCHuRSbtia0PEzNIRtmViMrt3AeoWBidRXmZsxCNLwgIV6dn2WpuE5Az0bHgpZnQxTKFek0BMKU/d8wIDAQABo1AwTjAdBgNVHQ4EFgQUGHxYqZYyX7cTxKVODVgZwSTdCnwwHwYDVR0jBBgwFoAUGHxYqZYyX7cTxKVODVgZwSTdCnwwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0FAAOBgQByFOl+hMFICbd3DJfnp2Rgd/dqttsZG/tyhILWvErbio/DEe98mXpowhTkC04ENprOyXi7ZbUqiicF89uAGyt1oqgTUCD1VsLahqIcmrzgumNyTwLGWo17WDAa1/usDhetWAMhgzF/Cnf5ek0nK00m0YZGyc4LzgD0CROMASTWNg==</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature>\n" +
-"    <saml:Subject>\n" +
-"      <saml:NameID SPNameQualifier=\"http://sp.example.com/demo1/metadata.php\" Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:transient\">_ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7</saml:NameID>\n" +
-"      <saml:SubjectConfirmation Method=\"urn:oasis:names:tc:SAML:2.0:cm:bearer\">\n" +
-"        <saml:SubjectConfirmationData NotOnOrAfter=\"2024-01-18T06:21:48Z\" Recipient=\"http://sp.example.com/demo1/index.php?acs\" InResponseTo=\"ONELOGIN_4fee3b046395c4e751011e97f8900b5273d56685\"/>\n" +
-"      </saml:SubjectConfirmation>\n" +
-"    </saml:Subject>\n" +
-"    <saml:Conditions NotBefore=\"2014-07-17T01:01:18Z\" NotOnOrAfter=\"2024-01-18T06:21:48Z\">\n" +
-"      <saml:AudienceRestriction>\n" +
-"        <saml:Audience>http://sp.example.com/demo1/metadata.php</saml:Audience>\n" +
-"      </saml:AudienceRestriction>\n" +
-"    </saml:Conditions>\n" +
-"    <saml:AuthnStatement AuthnInstant=\"2014-07-17T01:01:48Z\" SessionNotOnOrAfter=\"2024-07-17T09:01:48Z\" SessionIndex=\"_be9967abd904ddcae3c0eb4189adbe3f71e327cf93\">\n" +
-"      <saml:AuthnContext>\n" +
-"        <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</saml:AuthnContextClassRef>\n" +
-"      </saml:AuthnContext>\n" +
-"    </saml:AuthnStatement>\n" +
-"    <saml:AttributeStatement>\n" +
-"      <saml:Attribute Name=\"uid\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:basic\">\n" +
-"        <saml:AttributeValue xsi:type=\"xs:string\">test</saml:AttributeValue>\n" +
-"      </saml:Attribute>\n" +
-"      <saml:Attribute Name=\"mail\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:basic\">\n" +
-"        <saml:AttributeValue xsi:type=\"xs:string\">test@example.com</saml:AttributeValue>\n" +
-"      </saml:Attribute>\n" +
-"      <saml:Attribute Name=\"eduPersonAffiliation\" NameFormat=\"urn:oasis:names:tc:SAML:2.0:attrname-format:basic\">\n" +
-"        <saml:AttributeValue xsi:type=\"xs:string\">users</saml:AttributeValue>\n" +
-"        <saml:AttributeValue xsi:type=\"xs:string\">examplerole1</saml:AttributeValue>\n" +
-"      </saml:Attribute>\n" +
-"    </saml:AttributeStatement>\n" +
-"  </saml:Assertion>\n" +
-"</samlp:Response>");
-        
+        VerificationProfileType verificationProfile = new VerificationProfileType();
         SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
+
         checks.setVerifiySAMLAssertionSignature(Boolean.TRUE);
         samlType.setSamlTokenVerificationChecks(checks);
+        samlType.setSamlResponse("PHNhbWxwOlJlc3BvbnNlIHhtbG5zOnNhbWxwPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6cHJvdG9jb2wiIHhtbG5zOnNhbWw9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDphc3NlcnRpb24iIElEPSJfOGU4ZGM1ZjY5YTk4Y2M0YzFmZjM0MjdlNWNlMzQ2MDZmZDY3MmY5MWU2IiBWZXJzaW9uPSIyLjAiIElzc3VlSW5zdGFudD0iMjAxNC0wNy0xN1QwMTowMTo0OFoiIERlc3RpbmF0aW9uPSJodHRwOi8vc3AuZXhhbXBsZS5jb20vZGVtbzEvaW5kZXgucGhwP2FjcyIgSW5SZXNwb25zZVRvPSJPTkVMT0dJTl80ZmVlM2IwNDYzOTVjNGU3NTEwMTFlOTdmODkwMGI1MjczZDU2Njg1Ij4NCiAgPHNhbWw6SXNzdWVyPmh0dHA6Ly9pZHAuZXhhbXBsZS5jb20vbWV0YWRhdGEucGhwPC9zYW1sOklzc3Vlcj4NCiAgPHNhbWxwOlN0YXR1cz4NCiAgICA8c2FtbHA6U3RhdHVzQ29kZSBWYWx1ZT0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOnN0YXR1czpTdWNjZXNzIi8+DQogIDwvc2FtbHA6U3RhdHVzPg0KICA8c2FtbDpBc3NlcnRpb24geG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6eHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiBJRD0icGZ4ZWYyMWU1MDItYmM1NC0wZjFmLTg5NzgtMjVhNDJjMTM0NWRlIiBWZXJzaW9uPSIyLjAiIElzc3VlSW5zdGFudD0iMjAxNC0wNy0xN1QwMTowMTo0OFoiPg0KICAgIDxzYW1sOklzc3Vlcj5odHRwOi8vaWRwLmV4YW1wbGUuY29tL21ldGFkYXRhLnBocDwvc2FtbDpJc3N1ZXI+PGRzOlNpZ25hdHVyZSB4bWxuczpkcz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+DQogIDxkczpTaWduZWRJbmZvPjxkczpDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8xMC94bWwtZXhjLWMxNG4jIi8+DQogICAgPGRzOlNpZ25hdHVyZU1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNyc2Etc2hhMSIvPg0KICA8ZHM6UmVmZXJlbmNlIFVSST0iI3BmeGVmMjFlNTAyLWJjNTQtMGYxZi04OTc4LTI1YTQyYzEzNDVkZSI+PGRzOlRyYW5zZm9ybXM+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIi8+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyIvPjwvZHM6VHJhbnNmb3Jtcz48ZHM6RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiLz48ZHM6RGlnZXN0VmFsdWU+bFpXZXNzWEFtRkwwRWZXMzI5S1NqS2V4RDFNPTwvZHM6RGlnZXN0VmFsdWU+PC9kczpSZWZlcmVuY2U+PC9kczpTaWduZWRJbmZvPjxkczpTaWduYXR1cmVWYWx1ZT5Oek9OWHZFZHEwcmQyTGt5ak8zVzhCYzJieTZPMEUyTnlQQ0lrMUVjUlF3MjN1S3dhSGVyZ3VMT25PRFhiWTNyb1Rkdm5OMjJxQTlvN29FNGpHcVJ6L0hoR3VrNVNDeTk2Z0NVUERkV0hhYllKMXozTU52aUhJeXlaMDllSHRnRFBFUU1BL0JYNVpMNmExVlBhNSt6aTFIemVUSmg3aHdaZE56MXhYQ3N3RGM9PC9kczpTaWduYXR1cmVWYWx1ZT4NCjxkczpLZXlJbmZvPjxkczpYNTA5RGF0YT48ZHM6WDUwOUNlcnRpZmljYXRlPk1JSUNhakNDQWRPZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRMEZBREJTTVFzd0NRWURWUVFHRXdKMWN6RVRNQkVHQTFVRUNBd0tRMkZzYVdadmNtNXBZVEVWTUJNR0ExVUVDZ3dNVDI1bGJHOW5hVzRnU1c1ak1SY3dGUVlEVlFRRERBNXpjQzVsZUdGdGNHeGxMbU52YlRBZUZ3MHhOREEzTVRjeE5ERXlOVFphRncweE5UQTNNVGN4TkRFeU5UWmFNRkl4Q3pBSkJnTlZCQVlUQW5Wek1STXdFUVlEVlFRSURBcERZV3hwWm05eWJtbGhNUlV3RXdZRFZRUUtEQXhQYm1Wc2IyZHBiaUJKYm1NeEZ6QVZCZ05WQkFNTURuTndMbVY0WVcxd2JHVXVZMjl0TUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FEWngrT040SVVvSVd4Z3VrVGIxdE9pWDNiTVl6WVFpd1dQVU5NcCtGcTgyeG9Ob2dzbzJieWtaRzB5aUptNW84enYvc2Q2cEdvdWF5TWdreC8yRlNPZGMzNlQwakdiQ0h1UlNidGlhMFBFek5JUnRtVmlNcnQzQWVvV0JpZFJYbVpzeENOTHdnSVY2ZG4yV3B1RTVBejBiSGdwWm5ReFRLRmVrMEJNS1UvZDh3SURBUUFCbzFBd1RqQWRCZ05WSFE0RUZnUVVHSHhZcVpZeVg3Y1R4S1ZPRFZnWndTVGRDbnd3SHdZRFZSMGpCQmd3Rm9BVUdIeFlxWll5WDdjVHhLVk9EVmdad1NUZENud3dEQVlEVlIwVEJBVXdBd0VCL3pBTkJna3Foa2lHOXcwQkFRMEZBQU9CZ1FCeUZPbCtoTUZJQ2JkM0RKZm5wMlJnZC9kcXR0c1pHL3R5aElMV3ZFcmJpby9ERWU5OG1YcG93aFRrQzA0RU5wck95WGk3WmJVcWlpY0Y4OXVBR3l0MW9xZ1RVQ0QxVnNMYWhxSWNtcnpndW1OeVR3TEdXbzE3V0RBYTEvdXNEaGV0V0FNaGd6Ri9DbmY1ZWswbkswMG0wWVpHeWM0THpnRDBDUk9NQVNUV05nPT08L2RzOlg1MDlDZXJ0aWZpY2F0ZT48L2RzOlg1MDlEYXRhPjwvZHM6S2V5SW5mbz48L2RzOlNpZ25hdHVyZT4NCiAgICA8c2FtbDpTdWJqZWN0Pg0KICAgICAgPHNhbWw6TmFtZUlEIFNQTmFtZVF1YWxpZmllcj0iaHR0cDovL3NwLmV4YW1wbGUuY29tL2RlbW8xL21ldGFkYXRhLnBocCIgRm9ybWF0PSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6bmFtZWlkLWZvcm1hdDp0cmFuc2llbnQiPl9jZTNkMjk0OGI0Y2YyMDE0NmRlZTBhMGIzZGQ2ZjY5YjZjZjg2ZjYyZDc8L3NhbWw6TmFtZUlEPg0KICAgICAgPHNhbWw6U3ViamVjdENvbmZpcm1hdGlvbiBNZXRob2Q9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpjbTpiZWFyZXIiPg0KICAgICAgICA8c2FtbDpTdWJqZWN0Q29uZmlybWF0aW9uRGF0YSBOb3RPbk9yQWZ0ZXI9IjIwMjQtMDEtMThUMDY6MjE6NDhaIiBSZWNpcGllbnQ9Imh0dHA6Ly9zcC5leGFtcGxlLmNvbS9kZW1vMS9pbmRleC5waHA/YWNzIiBJblJlc3BvbnNlVG89Ik9ORUxPR0lOXzRmZWUzYjA0NjM5NWM0ZTc1MTAxMWU5N2Y4OTAwYjUyNzNkNTY2ODUiLz4NCiAgICAgIDwvc2FtbDpTdWJqZWN0Q29uZmlybWF0aW9uPg0KICAgIDwvc2FtbDpTdWJqZWN0Pg0KICAgIDxzYW1sOkNvbmRpdGlvbnMgTm90QmVmb3JlPSIyMDE0LTA3LTE3VDAxOjAxOjE4WiIgTm90T25PckFmdGVyPSIyMDI0LTAxLTE4VDA2OjIxOjQ4WiI+DQogICAgICA8c2FtbDpBdWRpZW5jZVJlc3RyaWN0aW9uPg0KICAgICAgICA8c2FtbDpBdWRpZW5jZT5odHRwOi8vc3AuZXhhbXBsZS5jb20vZGVtbzEvbWV0YWRhdGEucGhwPC9zYW1sOkF1ZGllbmNlPg0KICAgICAgPC9zYW1sOkF1ZGllbmNlUmVzdHJpY3Rpb24+DQogICAgPC9zYW1sOkNvbmRpdGlvbnM+DQogICAgPHNhbWw6QXV0aG5TdGF0ZW1lbnQgQXV0aG5JbnN0YW50PSIyMDE0LTA3LTE3VDAxOjAxOjQ4WiIgU2Vzc2lvbk5vdE9uT3JBZnRlcj0iMjAyNC0wNy0xN1QwOTowMTo0OFoiIFNlc3Npb25JbmRleD0iX2JlOTk2N2FiZDkwNGRkY2FlM2MwZWI0MTg5YWRiZTNmNzFlMzI3Y2Y5MyI+DQogICAgICA8c2FtbDpBdXRobkNvbnRleHQ+DQogICAgICAgIDxzYW1sOkF1dGhuQ29udGV4dENsYXNzUmVmPnVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDphYzpjbGFzc2VzOlBhc3N3b3JkPC9zYW1sOkF1dGhuQ29udGV4dENsYXNzUmVmPg0KICAgICAgPC9zYW1sOkF1dGhuQ29udGV4dD4NCiAgICA8L3NhbWw6QXV0aG5TdGF0ZW1lbnQ+DQogICAgPHNhbWw6QXR0cmlidXRlU3RhdGVtZW50Pg0KICAgICAgPHNhbWw6QXR0cmlidXRlIE5hbWU9InVpZCIgTmFtZUZvcm1hdD0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmF0dHJuYW1lLWZvcm1hdDpiYXNpYyI+DQogICAgICAgIDxzYW1sOkF0dHJpYnV0ZVZhbHVlIHhzaTp0eXBlPSJ4czpzdHJpbmciPnRlc3Q8L3NhbWw6QXR0cmlidXRlVmFsdWU+DQogICAgICA8L3NhbWw6QXR0cmlidXRlPg0KICAgICAgPHNhbWw6QXR0cmlidXRlIE5hbWU9Im1haWwiIE5hbWVGb3JtYXQ9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDphdHRybmFtZS1mb3JtYXQ6YmFzaWMiPg0KICAgICAgICA8c2FtbDpBdHRyaWJ1dGVWYWx1ZSB4c2k6dHlwZT0ieHM6c3RyaW5nIj50ZXN0QGV4YW1wbGUuY29tPC9zYW1sOkF0dHJpYnV0ZVZhbHVlPg0KICAgICAgPC9zYW1sOkF0dHJpYnV0ZT4NCiAgICAgIDxzYW1sOkF0dHJpYnV0ZSBOYW1lPSJlZHVQZXJzb25BZmZpbGlhdGlvbiIgTmFtZUZvcm1hdD0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmF0dHJuYW1lLWZvcm1hdDpiYXNpYyI+DQogICAgICAgIDxzYW1sOkF0dHJpYnV0ZVZhbHVlIHhzaTp0eXBlPSJ4czpzdHJpbmciPnVzZXJzPC9zYW1sOkF0dHJpYnV0ZVZhbHVlPg0KICAgICAgICA8c2FtbDpBdHRyaWJ1dGVWYWx1ZSB4c2k6dHlwZT0ieHM6c3RyaW5nIj5leGFtcGxlcm9sZTE8L3NhbWw6QXR0cmlidXRlVmFsdWU+DQogICAgICA8L3NhbWw6QXR0cmlidXRlPg0KICAgIDwvc2FtbDpBdHRyaWJ1dGVTdGF0ZW1lbnQ+DQogIDwvc2FtbDpBc3NlcnRpb24+DQo8L3NhbWxwOlJlc3BvbnNlPg==");
+
+        SamlVerificationParametersType verificationParameters;
+        String samlVerificationProfile;
+        SamlTokenVerificationChecksType samlTokenVerificationChecks;
+        SamlAuthnRequestVerificationChecksType samlAuthnRequestVerificationChecks;
+        verificationParameters = samlType.getSamlVerificationParameters();
+        samlVerificationProfile = samlType.getSamlVerificationProfile();
+        samlAuthnRequestVerificationChecks = samlType.getSamlAuthnReqVerificationChecks();
+
+        verificationProfile.setID(UUID.randomUUID().toString());
+        verificationProfile.setSamlAuthnReqVerificationChecks(samlAuthnRequestVerificationChecks);
+        verificationProfile.setSamlTokenVerificationChecks(checks);
+        verificationProfile.setSamlTokenVerificationParameters(verificationParameters);
+
         EidProvider instance = new EidProvider(samlType);
         instance.verify();
-        //test commit
     }
-    
+
 }
