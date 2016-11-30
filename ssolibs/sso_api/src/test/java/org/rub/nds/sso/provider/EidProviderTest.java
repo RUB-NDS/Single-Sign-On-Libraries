@@ -97,6 +97,7 @@ public class EidProviderTest {
         samlType.setSamlTokenVerificationChecks(checks);
         EidProvider instance = new EidProvider(samlType);
         instance.verify();
+        //test commit
     }
     
 }
