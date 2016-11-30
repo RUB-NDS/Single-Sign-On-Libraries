@@ -15,6 +15,7 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.XMLConstants;
+import javax.xml.bind.UnmarshalException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -64,7 +65,7 @@ public class AuthenticatedUserTypeTest {
         }
     }
 
-    @Test(expected = Exception.class)
+    @Test(expected = UnmarshalException.class)
     public void testInvalidAuthenticatedUserType() throws JAXBException, IOException, Exception {
         JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.sso.api");
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
