@@ -42,6 +42,10 @@ public class EidProvider {
         samlResponse = serializeSamlResponse();
         authRequest = serializeSamlAuthnRequest();
 
+        if (samlResponse == null) {
+            throw new SAMLVerifyException("Verification without Resonse is useless");
+        }
+
         SAMLVerifierImpl verifier = new SAMLVerifierImpl();
         verifier.verify(samlResponse, verificationProfile);
     }
