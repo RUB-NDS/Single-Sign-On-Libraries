@@ -124,25 +124,25 @@
 				name="verifySAMLResponseIssueInstant" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
-				name="verifiySAMLResponseSignatureTrusted" type="xs:boolean">
+				name="VerifySAMLResponseSignatureTrusted" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
-				name="verifiySAMLResponseSignature" type="xs:boolean">
+				name="VerifySAMLResponseSignature" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
 				name="verifySAMLResponseInResponseTo" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
-				name="verifiySAMLAssertionID" type="xs:boolean">
+				name="VerifySAMLAssertionID" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
-				name="verifiySAMLAssertionSignatureTrusted" type="xs:boolean">
+				name="VerifySAMLAssertionSignatureTrusted" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
-				name="verifiySAMLAssertionSignature" type="xs:boolean">
+				name="VerifySAMLAssertionSignature" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
-				name="verifiySAMLAssertionInResponseTo" type="xs:boolean">
+				name="VerifySAMLAssertionInResponseTo" type="xs:boolean">
 			</xs:element>
 			<xs:element maxOccurs="1" minOccurs="0"
 				name="verifySAMLAssertionIssueInstant" type="xs:boolean">
@@ -150,7 +150,7 @@
 			<xs:element maxOccurs="1" minOccurs="0"
 				name="verifySAMLAssertionSbjConfirmationTimestamps" type="xs:boolean">
 			</xs:element>
-			<xs:element name="verifiySAMLAssertionSbjConfirmationDestination"
+			<xs:element name="VerifySAMLAssertionSbjConfirmationDestination"
 				type="xs:boolean" minOccurs="0" maxOccurs="1">
 			</xs:element>
 			<xs:element name="verifySAMLAssertionSbjInResponseTo"
@@ -164,7 +164,7 @@
 			<xs:element maxOccurs="1" minOccurs="0"
 				name="verifySAMLAssertionAuthnMethod" type="xs:boolean">
 			</xs:element>
-			<xs:element maxOccurs="1" minOccurs="0" name="verifiyHolderOfKey"
+			<xs:element maxOccurs="1" minOccurs="0" name="VerifyHolderOfKey"
 				type="xs:boolean" />
 		</xs:sequence>
 	</xs:complexType>
@@ -361,7 +361,7 @@
 		<xs:sequence>
 			<xs:element name="verifyIssuer" type="xs:boolean" />
 			<xs:element name="verifyAudience" type="xs:boolean" />
-			<xs:element name="verifiyNonce" type="xs:boolean" />
+			<xs:element name="VerifyNonce" type="xs:boolean" />
 			<xs:element name="verifyIssuedAt" type="xs:boolean" />
 			<xs:element name="verifyExpired" type="xs:boolean" />
 			<xs:element name="vierfyNotBefore" type="xs:boolean" />

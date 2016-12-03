@@ -77,7 +77,7 @@ public class EidProviderTest {
             VerificationProfileType verificationProfile = new VerificationProfileType();
             SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
 
-            checks.setVerifiySAMLAssertionSignature(Boolean.TRUE);
+            checks.setVerifySAMLAssertionSignature(Boolean.TRUE);
             samlType.setSamlTokenVerificationChecks(checks);
 
             SamlVerificationParametersType verificationParameters;

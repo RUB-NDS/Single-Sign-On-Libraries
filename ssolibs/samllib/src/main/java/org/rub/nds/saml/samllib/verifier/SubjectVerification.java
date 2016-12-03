@@ -93,8 +93,8 @@ public class SubjectVerification implements SAMLVerifierInterface {
 
     private void verifyRecipient(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         try {
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination() != null
-                    && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSbjConfirmationDestination()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationDestination() != null
+                    && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSbjConfirmationDestination()) {
                 for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                     for (SubjectConfirmation sbjConfirmation : assertion.getSubject().getSubjectConfirmations()) {
 

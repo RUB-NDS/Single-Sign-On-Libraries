@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="verifyIssuer" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="verifyAudience" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="verifiyNonce" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="VerifyNonce" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="verifyIssuedAt" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="verifyExpired" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="vierfyNotBefore" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
@@ -40,13 +40,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "oidcVerificationChecksType", propOrder = { "verifyIssuer", "verifyAudience", "verifiyNonce",
+@XmlType(name = "oidcVerificationChecksType", propOrder = { "verifyIssuer", "verifyAudience", "VerifyNonce",
         "verifyIssuedAt", "verifyExpired", "vierfyNotBefore", "verifySubClaims" })
 public class OidcVerificationChecksType {
 
     protected boolean verifyIssuer;
     protected boolean verifyAudience;
-    protected boolean verifiyNonce;
+    protected boolean VerifyNonce;
     protected boolean verifyIssuedAt;
     protected boolean verifyExpired;
     protected boolean vierfyNotBefore;
@@ -85,19 +85,19 @@ public class OidcVerificationChecksType {
     }
 
     /**
-     * Ruft den Wert der verifiyNonce-Eigenschaft ab.
+     * Ruft den Wert der VerifyNonce-Eigenschaft ab.
      * 
      */
-    public boolean isVerifiyNonce() {
-        return verifiyNonce;
+    public boolean isVerifyNonce() {
+        return VerifyNonce;
     }
 
     /**
-     * Legt den Wert der verifiyNonce-Eigenschaft fest.
+     * Legt den Wert der VerifyNonce-Eigenschaft fest.
      * 
      */
-    public void setVerifiyNonce(boolean value) {
-        this.verifiyNonce = value;
+    public void setVerifyNonce(boolean value) {
+        this.VerifyNonce = value;
     }
 
     /**
