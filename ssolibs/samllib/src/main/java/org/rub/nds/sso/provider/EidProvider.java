@@ -57,16 +57,16 @@ public class EidProvider {
 
     private Response serializeSamlResponse() throws WrongInputException {
         Response samlResponse = null;
-        try{ 
+        try {
             if (samlType.getSamlResponse() == null || samlType.getSamlResponse().isEmpty()) {
-                //TODO: Warning Log
+                // TODO: Warning Log
             } else {
                 samlResponse = (Response) SAMLUtils.buildObjectfromString(samlType.getSamlResponse());
             }
         } catch (WrongInputException ex) {
             throw new WrongInputException("Cannot parse SAML Response");
         } catch (NullPointerException ex) {
-            //TODO: Warning Log
+            // TODO: Warning Log
 
         }
         return samlResponse;
@@ -76,7 +76,7 @@ public class EidProvider {
         AuthnRequest samlRequest = null;
         try {
             if (samlType.getSamlRequest() == null || samlType.getSamlRequest().isEmpty()) {
-                //TODO: Warning Log
+                // TODO: Warning Log
             } else {
                 samlRequest = (AuthnRequest) SAMLUtils.buildObjectfromString(samlType.getSamlRequest());
             }
