@@ -11,9 +11,9 @@ import org.opensaml.saml2.core.Response;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.saml.samllib.verifier.SAMLVerifierImpl;
+import org.rub.nds.sso.api.OidcType;
 import org.rub.nds.sso.api.SamlType;
 import org.rub.nds.sso.api.VerificationProfileType;
-import org.rub.nds.sso.provider.EidProvider;
 import org.rub.nds.sso.exceptions.WrongInputException;
 import org.rub.nds.sso.utils.DecoderUtils;
 
@@ -24,6 +24,7 @@ import org.rub.nds.sso.utils.DecoderUtils;
 public class EidProvider {
 
     private SamlType samlType;
+    private OidcType oidcType;
     private VerificationProfileType verificationProfile;
 
     public EidProvider(SamlType samlType) throws SAMLVerifyException {
@@ -36,19 +37,36 @@ public class EidProvider {
         this.verificationProfile = verificationProfile;
     }
 
-    public void verify() throws WrongInputException, SAMLVerifyException, UnsupportedEncodingException {
-        Response samlResponse;
-        AuthnRequest authRequest;
+    public EidProvider(OidcType oidcType) throws Exception {
+        this.oidcType = oidcType;
+        throw new Exception("not implemented");
+    }
 
-        samlResponse = serializeSamlResponse();
-        authRequest = serializeSamlAuthnRequest();
+    public EidProvider(OidcType oidcType, VerificationProfileType verificationProfile) throws Exception {
+        this.oidcType = oidcType;
+        this.verificationProfile = verificationProfile;
+        throw new Exception("not implemented");
+    }
 
-        if (samlResponse == null) {
-            throw new SAMLVerifyException("Verification without Resonse is useless");
+    public void verify() throws WrongInputException, SAMLVerifyException, UnsupportedEncodingException, Exception {
+        if (samlType != null) {
+            Response samlResponse;
+            AuthnRequest authRequest;
+
+            samlResponse = serializeSamlResponse();
+            authRequest = serializeSamlAuthnRequest();
+
+            if (samlResponse == null) {
+                throw new SAMLVerifyException("Verification without Resonse is useless");
+            }
+
+            SAMLVerifierImpl verifier = new SAMLVerifierImpl();
+            verifier.verify(samlResponse, verificationProfile);
+        } else if (oidcType != null) {
+            throw new Exception("not implemented");
+        } else {
+            throw new NullPointerException();
         }
-
-        SAMLVerifierImpl verifier = new SAMLVerifierImpl();
-        verifier.verify(samlResponse, verificationProfile);
     }
 
     private Response serializeSamlResponse() throws WrongInputException, UnsupportedEncodingException {
