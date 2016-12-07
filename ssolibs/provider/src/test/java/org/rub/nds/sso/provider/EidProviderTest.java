@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.rub.nds.saml.samllib.provider;
+package org.rub.nds.sso.provider;
 
-import org.rub.nds.saml.samllib.provider.EidProviderSAML;
 import java.io.File;
 import java.io.StringReader;
 import java.util.UUID;
@@ -35,9 +34,9 @@ import org.rub.nds.sso.utils.FileUtils;
  *
  * @author vmladenov
  */
-public class EidProviderSAMLTest {
+public class EidProviderTest {
 
-    public EidProviderSAMLTest() {
+    public EidProviderTest() {
     }
 
     @BeforeClass
@@ -135,7 +134,7 @@ public class EidProviderSAMLTest {
                 verificationProfile.setSamlTokenVerificationChecks(checks);
                 verificationProfile.setSamlTokenVerificationParameters(verificationParameters);
 
-                EidProviderSAML instance = new EidProviderSAML(samlType, verificationProfile);
+                EidProvider instance = new EidProvider(samlType, verificationProfile);
                 try {
                     instance.verify();
                 } catch (SAMLVerifyException e) {

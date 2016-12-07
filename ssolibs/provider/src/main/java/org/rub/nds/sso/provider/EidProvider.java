@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.rub.nds.saml.samllib.provider;
+package org.rub.nds.sso.provider;
 
 import java.io.UnsupportedEncodingException;
 import org.opensaml.saml2.core.AuthnRequest;
@@ -21,17 +21,17 @@ import org.rub.nds.sso.utils.DecoderUtils;
  *
  * @author Juraj Somorovsky - juraj.somorovsky@rub.de
  */
-public class EidProviderSAML implements EidProvider {
+public class EidProvider {
 
     private SamlType samlType;
     private VerificationProfileType verificationProfile;
 
-    public EidProviderSAML(SamlType samlType) throws SAMLVerifyException {
+    public EidProvider(SamlType samlType) throws SAMLVerifyException {
         this.samlType = samlType;
         throw new SAMLVerifyException("Verification without Profile is useless");
     }
 
-    public EidProviderSAML(SamlType samlType, VerificationProfileType verificationProfile) {
+    public EidProvider(SamlType samlType, VerificationProfileType verificationProfile) {
         this.samlType = samlType;
         this.verificationProfile = verificationProfile;
     }
