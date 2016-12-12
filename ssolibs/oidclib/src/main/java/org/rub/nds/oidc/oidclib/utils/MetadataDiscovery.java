@@ -39,11 +39,12 @@ import net.minidev.json.JSONObject;
  */
 public class MetadataDiscovery {
 
-    public static OIDCProviderMetadata discoverIssuerURL(String issuerURL) throws ParseException, URISyntaxException, MalformedURLException, IOException {
+    public static OIDCProviderMetadata discoverIssuerURL(String issuerURL) throws ParseException, URISyntaxException,
+            MalformedURLException, IOException {
         URI issuerURI = new URI(issuerURL);
         URL providerConfigurationURL = issuerURI.resolve("/.well-known/openid-configuration").toURL();
         InputStream stream = providerConfigurationURL.openStream();
-// Read all data from URL
+        // Read all data from URL
         String providerInfo = null;
         try (java.util.Scanner s = new java.util.Scanner(stream)) {
             providerInfo = s.useDelimiter("\\A").hasNext() ? s.next() : "";
@@ -51,29 +52,30 @@ public class MetadataDiscovery {
         return OIDCProviderMetadata.parse(providerInfo);
     }
 
-    public static OIDCProviderMetadata parseMetadataFile(String metadataFile) throws ParseException, URISyntaxException, MalformedURLException, IOException, java.text.ParseException {
+    public static OIDCProviderMetadata parseMetadataFile(String metadataFile) throws ParseException,
+            URISyntaxException, MalformedURLException, IOException, java.text.ParseException {
         JSONObject json = JSONObjectUtils.parse(readFile(metadataFile, Charset.defaultCharset()));
         return OIDCProviderMetadata.parse(json);
     }
-    
-    public static JWKSet getJWKSKeys(OIDCProviderMetadata metadata) throws ParseException, URISyntaxException, MalformedURLException, IOException, java.text.ParseException {
+
+    public static JWKSet getJWKSKeys(OIDCProviderMetadata metadata) throws ParseException, URISyntaxException,
+            MalformedURLException, IOException, java.text.ParseException {
         JWKSet rsaKeys;
         // HTTP connect timeout in milliseconds
         int connectTimeout = 100;
 
-// HTTP read timeout in milliseconds
+        // HTTP read timeout in milliseconds
         int readTimeout = 100;
 
-// JWK set size limit, in bytes
+        // JWK set size limit, in bytes
         int sizeLimit = 10000;
-        
+
         rsaKeys = JWKSet.load(metadata.getJWKSetURI().toURL(), connectTimeout, readTimeout, sizeLimit);
-        
+
         return rsaKeys;
     }
 
-    public static String readFile(String path, Charset encoding)
-            throws IOException {
+    public static String readFile(String path, Charset encoding) throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded, encoding);
     }

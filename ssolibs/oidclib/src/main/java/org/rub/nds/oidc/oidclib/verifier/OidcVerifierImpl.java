@@ -31,12 +31,12 @@ import org.rub.nds.sso.api.VerificationProfileType;
  *
  * @author vladi
  */
-public class OidcVerifierImpl implements OIDCVerifierInterface{
+public class OidcVerifierImpl implements OIDCVerifierInterface {
 
     @Override
     public void verify(SignedJWT oidcObject, VerificationProfileType profile) throws OIDCVerifyException {
         new OidcIntegrityVerifier().verify(oidcObject, profile);
-        
+
     }
-    
+
 }

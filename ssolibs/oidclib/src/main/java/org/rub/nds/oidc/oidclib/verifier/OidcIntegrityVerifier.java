@@ -44,19 +44,14 @@ public class OidcIntegrityVerifier implements OIDCVerifierInterface {
     public void verify(SignedJWT oidcObject, VerificationProfileType profile) throws OIDCVerifyException {
         String algorithm = oidcObject.getHeader().getAlgorithm().getName();
         try {
-            if (algorithm.equalsIgnoreCase("HS256")
-                    || algorithm.equalsIgnoreCase("HS384")
+            if (algorithm.equalsIgnoreCase("HS256") || algorithm.equalsIgnoreCase("HS384")
                     || algorithm.equalsIgnoreCase("HS512")) {
                 verifyHMAC(oidcObject, profile);
-            } else if (algorithm.equalsIgnoreCase("RS256")
-                    || algorithm.equalsIgnoreCase("RS384")
-                    || algorithm.equalsIgnoreCase("RS512")
-                    || algorithm.equalsIgnoreCase("PS256")
-                    || algorithm.equalsIgnoreCase("PS384")
-                    || algorithm.equalsIgnoreCase("PS512")) {
+            } else if (algorithm.equalsIgnoreCase("RS256") || algorithm.equalsIgnoreCase("RS384")
+                    || algorithm.equalsIgnoreCase("RS512") || algorithm.equalsIgnoreCase("PS256")
+                    || algorithm.equalsIgnoreCase("PS384") || algorithm.equalsIgnoreCase("PS512")) {
                 verifyAsymRSA(oidcObject, profile);
-            } else if (algorithm.equalsIgnoreCase("ES256")
-                    || algorithm.equalsIgnoreCase("ES384")
+            } else if (algorithm.equalsIgnoreCase("ES256") || algorithm.equalsIgnoreCase("ES384")
                     || algorithm.equalsIgnoreCase("ES512")) {
                 verifyAsymEC(oidcObject, profile);
             } else {
@@ -72,21 +67,24 @@ public class OidcIntegrityVerifier implements OIDCVerifierInterface {
         oidcObject.verify(verifier);
     }
 
-    private void verifyAsymRSA(SignedJWT oidcObject, VerificationProfileType profile) throws IOException, ParseException, OIDCVerifyException, JOSEException {
+    private void verifyAsymRSA(SignedJWT oidcObject, VerificationProfileType profile) throws IOException,
+            ParseException, OIDCVerifyException, JOSEException {
         JWKSet rsaKeys;
         // HTTP connect timeout in milliseconds
         int connectTimeout = 100;
 
-// HTTP read timeout in milliseconds
+        // HTTP read timeout in milliseconds
         int readTimeout = 100;
 
-// JWK set size limit, in bytes
+        // JWK set size limit, in bytes
         int sizeLimit = 10000;
 
-        if (profile.getOidcVerificationParameters().getOidcMetadata() != null || !profile.getOidcVerificationParameters().getOidcMetadata().isEmpty()) {
+        if (profile.getOidcVerificationParameters().getOidcMetadata() != null
+                || !profile.getOidcVerificationParameters().getOidcMetadata().isEmpty()) {
             rsaKeys = JWKSet.load(new File(profile.getOidcVerificationParameters().getOidcMetadata()));
         } else {
-            rsaKeys = JWKSet.load(new URL(profile.getOidcVerificationParameters().getOidcMetadataUrl()), connectTimeout, readTimeout, sizeLimit);
+            rsaKeys = JWKSet.load(new URL(profile.getOidcVerificationParameters().getOidcMetadataUrl()),
+                    connectTimeout, readTimeout, sizeLimit);
         }
 
         if (rsaKeys == null) {
@@ -97,21 +95,24 @@ public class OidcIntegrityVerifier implements OIDCVerifierInterface {
         oidcObject.verify(verifier);
     }
 
-    private void verifyAsymEC(SignedJWT oidcObject, VerificationProfileType profile) throws IOException, ParseException, OIDCVerifyException, JOSEException {
+    private void verifyAsymEC(SignedJWT oidcObject, VerificationProfileType profile) throws IOException,
+            ParseException, OIDCVerifyException, JOSEException {
         JWKSet ecKeys;
         // HTTP connect timeout in milliseconds
         int connectTimeout = 100;
 
-// HTTP read timeout in milliseconds
+        // HTTP read timeout in milliseconds
         int readTimeout = 100;
 
-// JWK set size limit, in bytes
+        // JWK set size limit, in bytes
         int sizeLimit = 10000;
 
-        if (profile.getOidcVerificationParameters().getOidcMetadata() != null || !profile.getOidcVerificationParameters().getOidcMetadata().isEmpty()) {
+        if (profile.getOidcVerificationParameters().getOidcMetadata() != null
+                || !profile.getOidcVerificationParameters().getOidcMetadata().isEmpty()) {
             ecKeys = JWKSet.load(new File(profile.getOidcVerificationParameters().getOidcMetadata()));
         } else {
-            ecKeys = JWKSet.load(new URL(profile.getOidcVerificationParameters().getOidcMetadataUrl()), connectTimeout, readTimeout, sizeLimit);
+            ecKeys = JWKSet.load(new URL(profile.getOidcVerificationParameters().getOidcMetadataUrl()), connectTimeout,
+                    readTimeout, sizeLimit);
         }
 
         if (ecKeys == null) {
