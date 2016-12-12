@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.11.04 um 11:43:03 PM CET 
+// Generiert: 2016.12.12 um 02:23:52 PM CET 
 //
 
 package org.rub.nds.sso.api;
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="verifyIssuer" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="verifyAudience" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="VerifyNonce" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="verifyNonce" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="verifyIssuedAt" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="verifyExpired" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="vierfyNotBefore" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
@@ -40,13 +40,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "oidcVerificationChecksType", propOrder = { "verifyIssuer", "verifyAudience", "VerifyNonce",
+@XmlType(name = "oidcVerificationChecksType", propOrder = { "verifyIssuer", "verifyAudience", "verifyNonce",
         "verifyIssuedAt", "verifyExpired", "vierfyNotBefore", "verifySubClaims" })
 public class OidcVerificationChecksType {
 
     protected boolean verifyIssuer;
     protected boolean verifyAudience;
-    protected boolean VerifyNonce;
+    protected boolean verifyNonce;
     protected boolean verifyIssuedAt;
     protected boolean verifyExpired;
     protected boolean vierfyNotBefore;
@@ -85,19 +85,19 @@ public class OidcVerificationChecksType {
     }
 
     /**
-     * Ruft den Wert der VerifyNonce-Eigenschaft ab.
+     * Ruft den Wert der verifyNonce-Eigenschaft ab.
      * 
      */
     public boolean isVerifyNonce() {
-        return VerifyNonce;
+        return verifyNonce;
     }
 
     /**
-     * Legt den Wert der VerifyNonce-Eigenschaft fest.
+     * Legt den Wert der verifyNonce-Eigenschaft fest.
      * 
      */
     public void setVerifyNonce(boolean value) {
-        this.VerifyNonce = value;
+        this.verifyNonce = value;
     }
 
     /**

@@ -7,7 +7,9 @@ import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.saml.samllib.verifier.SAMLVerifierImpl;
 import org.rub.nds.sso.api.SamlType;
+import org.rub.nds.sso.api.SsoType;
 import org.rub.nds.sso.api.VerificationProfileType;
+import org.rub.nds.sso.api.VerificationResponseType;
 import org.rub.nds.sso.exceptions.WrongInputException;
 import org.rub.nds.sso.provider.EidProvider;
 import org.rub.nds.sso.utils.DecoderUtils;
@@ -31,9 +33,10 @@ public class SamlEidProvider extends EidProvider {
     }
 
     @Override
-    public boolean verify() {
+    public VerificationResponseType verify(SsoType samlType) {
+        VerificationResponseType result = new VerificationResponseType();
         try {
-            SamlType samlType = (SamlType) this.getSecurityObject();
+            // SamlType samlType = (SamlType) this.getSecurityObject();
             VerificationProfileType verificationProfile = (VerificationProfileType) this.getVerificationProfile();
             if (samlType != null) {
                 Response samlResponse;
@@ -49,9 +52,9 @@ public class SamlEidProvider extends EidProvider {
                 SAMLVerifierImpl verifier = new SAMLVerifierImpl();
                 verifier.verify(samlResponse, verificationProfile);
             }
-            return true;
+            return result;
         } catch (Exception e) {
-            return false;
+            return result;
         }
     }
 

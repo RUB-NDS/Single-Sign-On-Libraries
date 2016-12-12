@@ -5,7 +5,9 @@
  */
 package org.rub.nds.sso.provider;
 
+import org.rub.nds.sso.api.SsoType;
 import org.rub.nds.sso.api.VerificationProfileType;
+import org.rub.nds.sso.api.VerificationResponseType;
 
 /**
  *
@@ -32,7 +34,7 @@ public abstract class EidProvider {
         this.type = type;
     }
 
-    public abstract boolean verify();
+    public abstract VerificationResponseType verify(SsoType ssoType);
 
     public void setSecurityObject(Object type) {
         this.securityObject = type;
