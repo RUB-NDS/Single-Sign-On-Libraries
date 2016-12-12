@@ -42,8 +42,8 @@ public class SamlEidProvider extends EidProvider {
                 Response samlResponse;
                 AuthnRequest authRequest;
 
-                samlResponse = serializeSamlResponse();
-                authRequest = serializeSamlAuthnRequest();
+                samlResponse = serializeSamlResponse((SamlType) samlType);
+                authRequest = serializeSamlAuthnRequest((SamlType) samlType);
 
                 if (samlResponse == null) {
                     throw new SAMLVerifyException("Verification without Resonse is useless");
@@ -58,10 +58,8 @@ public class SamlEidProvider extends EidProvider {
         }
     }
 
-    private Response serializeSamlResponse() throws WrongInputException, UnsupportedEncodingException {
+    private Response serializeSamlResponse(SamlType samlType) throws WrongInputException, UnsupportedEncodingException {
         Response samlResponse = null;
-        SamlType samlType = (SamlType) this.getSecurityObject();
-
         try {
             if (samlType.getSamlResponse() == null || samlType.getSamlResponse().isEmpty()) {
                 // TODO: Warning Log
@@ -78,10 +76,8 @@ public class SamlEidProvider extends EidProvider {
         return samlResponse;
     }
 
-    private AuthnRequest serializeSamlAuthnRequest() throws WrongInputException {
+    private AuthnRequest serializeSamlAuthnRequest(SamlType samlType) throws WrongInputException {
         AuthnRequest samlRequest = null;
-        SamlType samlType = (SamlType) this.getSecurityObject();
-
         try {
             if (samlType.getSamlRequest() == null || samlType.getSamlRequest().isEmpty()) {
                 // TODO: Warning Log
