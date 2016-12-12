@@ -15,13 +15,6 @@
             <artifactId>utils</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>org.opensaml</groupId>
-            <artifactId>opensaml</artifactId>
-            <version>2.6.4</version>
-            <scope>test</scope>
-            <type>jar</type>
-        </dependency>
     </dependencies>
     
     <properties>
