@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.rub.nds.saml.samllib.provider.SamlEidProvider;
 import org.rub.nds.sso.api.SamlType;
+import org.rub.nds.sso.api.SsoType;
 
 /**
  *
@@ -32,8 +33,10 @@ public class IntegrationTest {
     @Test
     public void testSamlProvider() throws NoSuchEidProviderException {
         EidProvider p = EidSecurity.getEidProviderInstance("saml");
-        SamlType t = new SamlType();
-        Assert.assertEquals(false, p.verify(t));
+        SsoType t = new SamlType();
+        p.setSecurityObject(t);
+        // Assert.assertEquals(false, p.verify());
+        p.verify(t);
     }
 
 }

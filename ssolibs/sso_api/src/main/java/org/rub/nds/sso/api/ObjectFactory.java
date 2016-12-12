@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.11.04 um 11:43:03 PM CET 
+// Generiert: 2016.12.12 um 02:23:52 PM CET 
 //
 
 package org.rub.nds.sso.api;
@@ -34,6 +34,8 @@ public class ObjectFactory {
     private final static QName _Saml_QNAME = new QName("http://www.api.sso.nds.rub.org", "saml");
     private final static QName _AuthenticatedUser_QNAME = new QName("http://www.api.sso.nds.rub.org",
             "authenticatedUser");
+    private final static QName _VerificationResponse_QNAME = new QName("http://www.api.sso.nds.rub.org",
+            "verificationResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of
@@ -41,6 +43,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link VerificationResponseType }
+     * 
+     */
+    public VerificationResponseType createVerificationResponseType() {
+        return new VerificationResponseType();
     }
 
     /**
@@ -318,6 +328,17 @@ public class ObjectFactory {
     public JAXBElement<AuthenticatedUserType> createAuthenticatedUser(AuthenticatedUserType value) {
         return new JAXBElement<AuthenticatedUserType>(_AuthenticatedUser_QNAME, AuthenticatedUserType.class, null,
                 value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}
+     * {@link VerificationResponseType }{@code >}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.api.sso.nds.rub.org", name = "verificationResponse")
+    public JAXBElement<VerificationResponseType> createVerificationResponse(VerificationResponseType value) {
+        return new JAXBElement<VerificationResponseType>(_VerificationResponse_QNAME, VerificationResponseType.class,
+                null, value);
     }
 
 }

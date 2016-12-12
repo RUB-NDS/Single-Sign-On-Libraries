@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.11.04 um 11:43:03 PM CET 
+// Generiert: 2016.12.12 um 02:23:52 PM CET 
 //
 
 package org.rub.nds.sso.api;
@@ -22,14 +22,14 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="oidcType">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{http://www.api.sso.nds.rub.org}ssoType">
  *       &lt;sequence>
  *         &lt;element name="oidcResponse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="oidcVerificationProfile" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="oidcVerificationParameters" type="{http://www.api.sso.nds.rub.org}oidcVerificationParametersType" minOccurs="0"/>
  *         &lt;element name="oidcVerificiationChecks" type="{http://www.api.sso.nds.rub.org}oidcVerificationChecksType" minOccurs="0"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "oidcType", propOrder = { "oidcResponse", "oidcVerificationProfile", "oidcVerificationParameters",
         "oidcVerificiationChecks" })
-public class OidcType {
+public class OidcType extends SsoType {
 
     protected String oidcResponse;
     protected String oidcVerificationProfile;
