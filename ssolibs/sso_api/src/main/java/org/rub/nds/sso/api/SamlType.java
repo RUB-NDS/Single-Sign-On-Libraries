@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.11.04 um 11:43:03 PM CET 
+// Generiert: 2016.12.12 um 02:23:52 PM CET 
 //
 
 package org.rub.nds.sso.api;
@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="samlType">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{http://www.api.sso.nds.rub.org}ssoType">
  *       &lt;sequence>
  *         &lt;element name="samlRequest" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="samlResponse" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="samlTokenVerificationChecks" type="{http://www.api.sso.nds.rub.org}samlTokenVerificationChecksType" minOccurs="0"/>
  *         &lt;element name="samlAuthnReqVerificationChecks" type="{http://www.api.sso.nds.rub.org}samlAuthnRequestVerificationChecksType" minOccurs="0"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -41,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "samlType", propOrder = { "samlRequest", "samlResponse", "samlVerificationParameters",
         "samlVerificationProfile", "samlTokenVerificationChecks", "samlAuthnReqVerificationChecks" })
-public class SamlType {
+public class SamlType extends SsoType {
 
     protected String samlRequest;
     protected String samlResponse;

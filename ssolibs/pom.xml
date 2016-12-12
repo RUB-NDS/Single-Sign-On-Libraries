@@ -9,6 +9,7 @@
         <module>utils</module>
         <module>sso_api</module>
         <module>samllib</module>
+        <module>provider</module>
     </modules>
     <dependencies>
         <dependency>

@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.11.04 um 11:43:03 PM CET 
+// Generiert: 2016.12.12 um 02:23:52 PM CET 
 //
 
 package org.rub.nds.sso.api;
@@ -28,21 +28,21 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="verifyXSW" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLResponseID" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLResponseIssueInstant" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiySAMLResponseSignatureTrusted" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiySAMLResponseSignature" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifySAMLResponseSignatureTrusted" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifySAMLResponseSignature" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLResponseInResponseTo" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiySAMLAssertionID" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiySAMLAssertionSignatureTrusted" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiySAMLAssertionSignature" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiySAMLAssertionInResponseTo" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifySAMLAssertionID" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifySAMLAssertionSignatureTrusted" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifySAMLAssertionSignature" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifySAMLAssertionInResponseTo" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLAssertionIssueInstant" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLAssertionSbjConfirmationTimestamps" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiySAMLAssertionSbjConfirmationDestination" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifySAMLAssertionSbjConfirmationDestination" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLAssertionSbjInResponseTo" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLAssertionConditionsTimestamps" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLAssertionConditionsAudience" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *         &lt;element name="verifySAMLAssertionAuthnMethod" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
- *         &lt;element name="verifiyHolderOfKey" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
+ *         &lt;element name="verifyHolderOfKey" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -53,33 +53,33 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "samlTokenVerificationChecksType", propOrder = { "verifySchema", "verifyXSW", "verifySAMLResponseID",
-        "verifySAMLResponseIssueInstant", "verifiySAMLResponseSignatureTrusted", "verifiySAMLResponseSignature",
-        "verifySAMLResponseInResponseTo", "verifiySAMLAssertionID", "verifiySAMLAssertionSignatureTrusted",
-        "verifiySAMLAssertionSignature", "verifiySAMLAssertionInResponseTo", "verifySAMLAssertionIssueInstant",
-        "verifySAMLAssertionSbjConfirmationTimestamps", "verifiySAMLAssertionSbjConfirmationDestination",
+        "verifySAMLResponseIssueInstant", "verifySAMLResponseSignatureTrusted", "verifySAMLResponseSignature",
+        "verifySAMLResponseInResponseTo", "verifySAMLAssertionID", "verifySAMLAssertionSignatureTrusted",
+        "verifySAMLAssertionSignature", "verifySAMLAssertionInResponseTo", "verifySAMLAssertionIssueInstant",
+        "verifySAMLAssertionSbjConfirmationTimestamps", "verifySAMLAssertionSbjConfirmationDestination",
         "verifySAMLAssertionSbjInResponseTo", "verifySAMLAssertionConditionsTimestamps",
-        "verifySAMLAssertionConditionsAudience", "verifySAMLAssertionAuthnMethod", "verifiyHolderOfKey" })
+        "verifySAMLAssertionConditionsAudience", "verifySAMLAssertionAuthnMethod", "verifyHolderOfKey" })
 public class SamlTokenVerificationChecksType {
 
     protected Boolean verifySchema;
     protected Boolean verifyXSW;
     protected Boolean verifySAMLResponseID;
     protected Boolean verifySAMLResponseIssueInstant;
-    protected Boolean verifiySAMLResponseSignatureTrusted;
-    protected Boolean verifiySAMLResponseSignature;
+    protected Boolean verifySAMLResponseSignatureTrusted;
+    protected Boolean verifySAMLResponseSignature;
     protected Boolean verifySAMLResponseInResponseTo;
-    protected Boolean verifiySAMLAssertionID;
-    protected Boolean verifiySAMLAssertionSignatureTrusted;
-    protected Boolean verifiySAMLAssertionSignature;
-    protected Boolean verifiySAMLAssertionInResponseTo;
+    protected Boolean verifySAMLAssertionID;
+    protected Boolean verifySAMLAssertionSignatureTrusted;
+    protected Boolean verifySAMLAssertionSignature;
+    protected Boolean verifySAMLAssertionInResponseTo;
     protected Boolean verifySAMLAssertionIssueInstant;
     protected Boolean verifySAMLAssertionSbjConfirmationTimestamps;
-    protected Boolean verifiySAMLAssertionSbjConfirmationDestination;
+    protected Boolean verifySAMLAssertionSbjConfirmationDestination;
     protected Boolean verifySAMLAssertionSbjInResponseTo;
     protected Boolean verifySAMLAssertionConditionsTimestamps;
     protected Boolean verifySAMLAssertionConditionsAudience;
     protected Boolean verifySAMLAssertionAuthnMethod;
-    protected Boolean verifiyHolderOfKey;
+    protected Boolean verifyHolderOfKey;
 
     /**
      * Ruft den Wert der verifySchema-Eigenschaft ab.
@@ -166,45 +166,45 @@ public class SamlTokenVerificationChecksType {
     }
 
     /**
-     * Ruft den Wert der verifiySAMLResponseSignatureTrusted-Eigenschaft ab.
+     * Ruft den Wert der verifySAMLResponseSignatureTrusted-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiySAMLResponseSignatureTrusted() {
-        return verifiySAMLResponseSignatureTrusted;
+    public Boolean isVerifySAMLResponseSignatureTrusted() {
+        return verifySAMLResponseSignatureTrusted;
     }
 
     /**
-     * Legt den Wert der verifiySAMLResponseSignatureTrusted-Eigenschaft fest.
+     * Legt den Wert der verifySAMLResponseSignatureTrusted-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiySAMLResponseSignatureTrusted(Boolean value) {
-        this.verifiySAMLResponseSignatureTrusted = value;
+    public void setVerifySAMLResponseSignatureTrusted(Boolean value) {
+        this.verifySAMLResponseSignatureTrusted = value;
     }
 
     /**
-     * Ruft den Wert der verifiySAMLResponseSignature-Eigenschaft ab.
+     * Ruft den Wert der verifySAMLResponseSignature-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiySAMLResponseSignature() {
-        return verifiySAMLResponseSignature;
+    public Boolean isVerifySAMLResponseSignature() {
+        return verifySAMLResponseSignature;
     }
 
     /**
-     * Legt den Wert der verifiySAMLResponseSignature-Eigenschaft fest.
+     * Legt den Wert der verifySAMLResponseSignature-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiySAMLResponseSignature(Boolean value) {
-        this.verifiySAMLResponseSignature = value;
+    public void setVerifySAMLResponseSignature(Boolean value) {
+        this.verifySAMLResponseSignature = value;
     }
 
     /**
@@ -229,87 +229,87 @@ public class SamlTokenVerificationChecksType {
     }
 
     /**
-     * Ruft den Wert der verifiySAMLAssertionID-Eigenschaft ab.
+     * Ruft den Wert der verifySAMLAssertionID-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiySAMLAssertionID() {
-        return verifiySAMLAssertionID;
+    public Boolean isVerifySAMLAssertionID() {
+        return verifySAMLAssertionID;
     }
 
     /**
-     * Legt den Wert der verifiySAMLAssertionID-Eigenschaft fest.
+     * Legt den Wert der verifySAMLAssertionID-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiySAMLAssertionID(Boolean value) {
-        this.verifiySAMLAssertionID = value;
+    public void setVerifySAMLAssertionID(Boolean value) {
+        this.verifySAMLAssertionID = value;
     }
 
     /**
-     * Ruft den Wert der verifiySAMLAssertionSignatureTrusted-Eigenschaft ab.
+     * Ruft den Wert der verifySAMLAssertionSignatureTrusted-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiySAMLAssertionSignatureTrusted() {
-        return verifiySAMLAssertionSignatureTrusted;
+    public Boolean isVerifySAMLAssertionSignatureTrusted() {
+        return verifySAMLAssertionSignatureTrusted;
     }
 
     /**
-     * Legt den Wert der verifiySAMLAssertionSignatureTrusted-Eigenschaft fest.
+     * Legt den Wert der verifySAMLAssertionSignatureTrusted-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiySAMLAssertionSignatureTrusted(Boolean value) {
-        this.verifiySAMLAssertionSignatureTrusted = value;
+    public void setVerifySAMLAssertionSignatureTrusted(Boolean value) {
+        this.verifySAMLAssertionSignatureTrusted = value;
     }
 
     /**
-     * Ruft den Wert der verifiySAMLAssertionSignature-Eigenschaft ab.
+     * Ruft den Wert der verifySAMLAssertionSignature-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiySAMLAssertionSignature() {
-        return verifiySAMLAssertionSignature;
+    public Boolean isVerifySAMLAssertionSignature() {
+        return verifySAMLAssertionSignature;
     }
 
     /**
-     * Legt den Wert der verifiySAMLAssertionSignature-Eigenschaft fest.
+     * Legt den Wert der verifySAMLAssertionSignature-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiySAMLAssertionSignature(Boolean value) {
-        this.verifiySAMLAssertionSignature = value;
+    public void setVerifySAMLAssertionSignature(Boolean value) {
+        this.verifySAMLAssertionSignature = value;
     }
 
     /**
-     * Ruft den Wert der verifiySAMLAssertionInResponseTo-Eigenschaft ab.
+     * Ruft den Wert der verifySAMLAssertionInResponseTo-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiySAMLAssertionInResponseTo() {
-        return verifiySAMLAssertionInResponseTo;
+    public Boolean isVerifySAMLAssertionInResponseTo() {
+        return verifySAMLAssertionInResponseTo;
     }
 
     /**
-     * Legt den Wert der verifiySAMLAssertionInResponseTo-Eigenschaft fest.
+     * Legt den Wert der verifySAMLAssertionInResponseTo-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiySAMLAssertionInResponseTo(Boolean value) {
-        this.verifiySAMLAssertionInResponseTo = value;
+    public void setVerifySAMLAssertionInResponseTo(Boolean value) {
+        this.verifySAMLAssertionInResponseTo = value;
     }
 
     /**
@@ -358,25 +358,25 @@ public class SamlTokenVerificationChecksType {
 
     /**
      * Ruft den Wert der
-     * verifiySAMLAssertionSbjConfirmationDestination-Eigenschaft ab.
+     * verifySAMLAssertionSbjConfirmationDestination-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiySAMLAssertionSbjConfirmationDestination() {
-        return verifiySAMLAssertionSbjConfirmationDestination;
+    public Boolean isVerifySAMLAssertionSbjConfirmationDestination() {
+        return verifySAMLAssertionSbjConfirmationDestination;
     }
 
     /**
      * Legt den Wert der
-     * verifiySAMLAssertionSbjConfirmationDestination-Eigenschaft fest.
+     * verifySAMLAssertionSbjConfirmationDestination-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiySAMLAssertionSbjConfirmationDestination(Boolean value) {
-        this.verifiySAMLAssertionSbjConfirmationDestination = value;
+    public void setVerifySAMLAssertionSbjConfirmationDestination(Boolean value) {
+        this.verifySAMLAssertionSbjConfirmationDestination = value;
     }
 
     /**
@@ -465,24 +465,24 @@ public class SamlTokenVerificationChecksType {
     }
 
     /**
-     * Ruft den Wert der verifiyHolderOfKey-Eigenschaft ab.
+     * Ruft den Wert der verifyHolderOfKey-Eigenschaft ab.
      * 
      * @return possible object is {@link Boolean }
      * 
      */
-    public Boolean isVerifiyHolderOfKey() {
-        return verifiyHolderOfKey;
+    public Boolean isVerifyHolderOfKey() {
+        return verifyHolderOfKey;
     }
 
     /**
-     * Legt den Wert der verifiyHolderOfKey-Eigenschaft fest.
+     * Legt den Wert der verifyHolderOfKey-Eigenschaft fest.
      * 
      * @param value
      *            allowed object is {@link Boolean }
      * 
      */
-    public void setVerifiyHolderOfKey(Boolean value) {
-        this.verifiyHolderOfKey = value;
+    public void setVerifyHolderOfKey(Boolean value) {
+        this.verifyHolderOfKey = value;
     }
 
 }

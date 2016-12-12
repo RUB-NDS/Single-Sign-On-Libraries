@@ -71,24 +71,24 @@ public class SAMLSignatureVerification implements SAMLVerifierInterface {
             verifyStructure((SignableSAMLObject) samlObject);
         }
 
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature() != null
-                && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignature()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseSignature() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLResponseSignature()) {
             verifyUntrustedKeys((Response) samlObject);
         }
 
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted() != null
-                && profile.getSamlTokenVerificationChecks().isVerifiySAMLResponseSignatureTrusted()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseSignatureTrusted() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLResponseSignatureTrusted()) {
             verifyTrustedKeys((Response) samlObject);
         }
 
         for (Assertion assertion : ((Response) samlObject).getAssertions()) {
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature() != null
-                    && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignature()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSignature() != null
+                    && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSignature()) {
                 verifyUntrustedKeys(assertion);
             }
 
-            if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted() != null
-                    && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionSignatureTrusted()) {
+            if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSignatureTrusted() != null
+                    && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionSignatureTrusted()) {
                 verifyTrustedKeys(assertion);
             }
         }

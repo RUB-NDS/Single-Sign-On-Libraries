@@ -60,8 +60,8 @@ public class HolderOfKeyVerification implements SAMLVerifierInterface {
 
     @Override
     public void verify(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifiyHolderOfKey() != null
-                && profile.getSamlTokenVerificationChecks().isVerifiyHolderOfKey()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifyHolderOfKey() != null
+                && profile.getSamlTokenVerificationChecks().isVerifyHolderOfKey()) {
             try {
                 NodeList results = SAMLUtils.getHokCertificate(samlObject, createXPathExpression(samlObject));
                 // Compare client certificate of SAML response with given TLS

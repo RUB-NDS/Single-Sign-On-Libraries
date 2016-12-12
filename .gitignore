@@ -1,3 +1,5 @@
 ssolibs/samllib/target/
 ssolibs/samllib/nbproject/
 /ssolibs/sso_api/target/
+/ssolibs/utils/target/
+/ssolibs/provider/target/

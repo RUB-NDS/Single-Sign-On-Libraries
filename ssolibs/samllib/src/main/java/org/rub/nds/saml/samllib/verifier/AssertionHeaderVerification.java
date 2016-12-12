@@ -45,8 +45,8 @@ public class AssertionHeaderVerification implements SAMLVerifierInterface {
     }
 
     private void verifyIDs(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
-        if (profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID() != null
-                && profile.getSamlTokenVerificationChecks().isVerifiySAMLAssertionID()) {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionID() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLAssertionID()) {
             for (Assertion assertion : ((Response) samlObject).getAssertions()) {
                 try {
                     if (!SAMLIDCache.getHandler().get(assertion.getID()).equals("Recently used!")) {

@@ -34,9 +34,9 @@
             <ns1:samlTokenVerificationChecks>
                 <ns1:verifySchema>true</ns1:verifySchema>
                 <ns1:verifyXSW>false</ns1:verifyXSW>
-                <ns1:verifiySAMLAssertionID>false</ns1:verifiySAMLAssertionID>
-                <ns1:verifiySAMLAssertionSignature>false</ns1:verifiySAMLAssertionSignature>
-                <ns1:verifiySAMLAssertionInResponseTo>false</ns1:verifiySAMLAssertionInResponseTo>
+                <ns1:VerifySAMLAssertionID>false</ns1:VerifySAMLAssertionID>
+                <ns1:VerifySAMLAssertionSignature>false</ns1:VerifySAMLAssertionSignature>
+                <ns1:VerifySAMLAssertionInResponseTo>false</ns1:VerifySAMLAssertionInResponseTo>
                 <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
             </ns1:samlTokenVerificationChecks>
         </samlVerificationProfile>
@@ -45,8 +45,8 @@
                 <ns1:verifySchema>true</ns1:verifySchema>
                 <ns1:verifyXSW>false</ns1:verifyXSW>
                 <ns1:verifySAMLResponseID>true</ns1:verifySAMLResponseID>
-                <ns1:verifiySAMLAssertionSignature>true</ns1:verifiySAMLAssertionSignature>
-                <ns1:verifiySAMLAssertionInResponseTo>false</ns1:verifiySAMLAssertionInResponseTo>
+                <ns1:VerifySAMLAssertionSignature>true</ns1:VerifySAMLAssertionSignature>
+                <ns1:VerifySAMLAssertionInResponseTo>false</ns1:VerifySAMLAssertionInResponseTo>
                 <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
             </ns1:samlTokenVerificationChecks>
         </samlVerificationProfile>
@@ -54,7 +54,7 @@
             <ns1:samlTokenVerificationChecks>
                 <ns1:verifySchema>true</ns1:verifySchema>
                 <ns1:verifyXSW>false</ns1:verifyXSW>
-                <ns1:verifiySAMLResponseSignature>true</ns1:verifiySAMLResponseSignature>
+                <ns1:VerifySAMLResponseSignature>true</ns1:VerifySAMLResponseSignature>
                 <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
             </ns1:samlTokenVerificationChecks>
         </samlVerificationProfile>
@@ -62,8 +62,8 @@
             <ns1:samlTokenVerificationChecks>
                 <ns1:verifySchema>true</ns1:verifySchema>
                 <ns1:verifyXSW>false</ns1:verifyXSW>
-                <ns1:verifiySAMLResponseSignature>true</ns1:verifiySAMLResponseSignature>
-                <ns1:verifiySAMLAssertionSignature>true</ns1:verifiySAMLAssertionSignature>
+                <ns1:VerifySAMLResponseSignature>true</ns1:VerifySAMLResponseSignature>
+                <ns1:VerifySAMLAssertionSignature>true</ns1:VerifySAMLAssertionSignature>
                 <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
             </ns1:samlTokenVerificationChecks>
         </samlVerificationProfile>
@@ -71,9 +71,9 @@
             <ns1:samlTokenVerificationChecks>
                 <ns1:verifySchema>true</ns1:verifySchema>
                 <ns1:verifyXSW>false</ns1:verifyXSW>
-                <ns1:verifiySAMLAssertionSignature>true</ns1:verifiySAMLAssertionSignature>
+                <ns1:VerifySAMLAssertionSignature>true</ns1:VerifySAMLAssertionSignature>
                 <ns1:verifySAMLAssertionConditionsTimestamps>true</ns1:verifySAMLAssertionConditionsTimestamps>
-                <ns1:verifiyHolderOfKey>true</ns1:verifiyHolderOfKey>
+                <ns1:VerifyHolderOfKey>true</ns1:VerifyHolderOfKey>
             </ns1:samlTokenVerificationChecks>
         </samlVerificationProfile>
     </samlVerificationProfiles>
