@@ -219,7 +219,7 @@ public final class SAMLUtils {
                     attributes.add(((Attribute) xmlObjects.get(i)).getName());
                 }
             }
-        } catch (NullPointerException ex) {
+        } catch (NullPointerException | ClassCastException ex) {
             throw new WrongInputException("Cannot extract Attributes from AuthnRequest!");
         }
 

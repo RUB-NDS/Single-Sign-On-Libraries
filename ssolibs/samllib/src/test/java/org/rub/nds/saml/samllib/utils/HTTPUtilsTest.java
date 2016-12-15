@@ -55,7 +55,7 @@ public class HTTPUtilsTest {
     String encodedAuthnReqURLenc;
     String authnReqresult;
     String encodedAuthnReq;
-    
+
     String deflatedResponse;
 
     public HTTPUtilsTest() {
@@ -100,7 +100,7 @@ public class HTTPUtilsTest {
         encodedAuthnReq = "nVTbctowEP0Vjd6NL5DYaGIyJExaprkwmPQhLx1FXhc1tkSlNYS/j2wgCXRKm7zu5ezZs5ez8+eqJEswVmqV0rATUAJK6Fyqnym9n115CT0fnFleldGCDWucqyn8rsEicYnKso0npbVRTHMrLVO8AstQsGx4c82iTsAWRqMWuqRkaC0YdKUutbJ1BSYDs5QC7qfXKZ0jLizz/VILXs61RZb0el0/exqPQKHEdTbxpcrhuTPHyoFdaSOgpZRSNDVQMh6l9EfSL5Je2E3iJIhD3hen0Wl8GvfiMAx7PBaxC7MTbq1cQkoLXtom0doaxsoiV5jSKAi7XhB5QTILE3ZywrpRpx/0HyiZbDu5cDxahY61/bgJsuzrbDbxppBLAwIp+b5T2wXRrbasZWDei3ocnO+UpIPp/YV3O8rIVsuG5FLmYM7899C7Qln9+MvR+FSlLcStixmP/ANEN9JCmoo3oeQGcK7z48CiYnNdOqKeLrwnWH8Af8SRk1uNd+rODAsEsz+0Pos2QwuDh1fUIaKRjzUCuTISVF6umzqbtXNbt1qtOvbJ6dauWicHf6FLKdY+fPnmjTNKPhTt/1n1H/kc0YeKy/KzuePWUEgwDYJ/VLtj/kPf6/VvxjJp+yTDstSrSwMc367IHaSDOD70xiJzr2hDGRqurBsGvjXtqOSy4WE/s6LNUlyAQ4e/nHEYPtD/2pzw3ebUueMoYOrenpFiI9K+a/Cx57WT+DX90LBXyj9UZmfa/8iDFw==";
 
         authnReqresult = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><saml2p:AuthnRequest xmlns:saml2p=\"urn:oasis:names:tc:SAML:2.0:protocol\" AssertionConsumerServiceURL=\"https://localhost:8443/SkIDentitySP/index.html\" ForceAuthn=\"true\" ID=\"_89f8413878071a9c626767471114a7c7\" IsPassive=\"false\" IssueInstant=\"2013-02-08T18:55:32.909Z\" ProtocolBinding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect\" Version=\"2.0\"><saml2:Issuer xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\">RUB-NDS Service Provider</saml2:Issuer><saml2:Subject xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\"><saml2:NameID/><saml2:SubjectConfirmation Method=\"urn:oasis:names:tc:SAML:2.0:cm:holder-of-key\"><saml2:NameID/><saml2:SubjectConfirmationData NotOnOrAfter=\"2013-02-08T19:25:32.910Z\"><saml2:Attribute FriendlyName=\"http://www.skidentity.de/policy/eGK-IS\" Name=\"http://www.skidentity.de/policy/eGK-IS\"/><saml2:Attribute Name=\"http://www.skidentity.de/att/email\"/><saml2:Attribute Name=\"http://www.skidentity.de/att/eIdentifier\"/></saml2:SubjectConfirmationData></saml2:SubjectConfirmation></saml2:Subject><saml2p:NameIDPolicy AllowCreate=\"false\" Format=\"urn:oasis:names:tc:SAML:2.0:nameid-format:transient\"/><saml2:Conditions xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\" NotBefore=\"2013-02-08T18:55:32.911Z\" NotOnOrAfter=\"2013-02-08T19:25:32.911Z\"><saml2:AudienceRestriction><saml2:Audience>https://localhost:8443/SkIDentitySP/index.html</saml2:Audience></saml2:AudienceRestriction></saml2:Conditions></saml2p:AuthnRequest>";
-        
+
         deflatedResponse = "s7GvyM1RKEstKs7Mz7NVMtQzUFJIzUvOT8nMS7dVCg1x07VQsrfjsilOzM0xKrAKSi0uyM8rTlUIg%2BkwAukAmpFXbAVRY6tUWpRnlZ9YnFlslZeYm1psVZJsFezo62MFVGpVUJRfkp%2Bcn6OkbwcA";
     }
 
@@ -204,7 +204,8 @@ public class HTTPUtilsTest {
 
     @Test
     public void testDeflateSamlObject() throws Exception {
-        String result = HTTPUtils.deflateSamlObject(SAMLUtils.getSAMLBuilder(Response.DEFAULT_ELEMENT_NAME).buildObject());
+        String result = HTTPUtils.deflateSamlObject(SAMLUtils.getSAMLBuilder(Response.DEFAULT_ELEMENT_NAME)
+                .buildObject());
         assertArrayEquals(deflatedResponse.getBytes(), result.getBytes());
     }
 }
