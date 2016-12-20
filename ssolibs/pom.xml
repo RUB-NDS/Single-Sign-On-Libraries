@@ -10,6 +10,7 @@
         <module>sso_api</module>
         <module>samllib</module>
         <module>provider</module>
+        <module>WebService</module>
     </modules>
     <dependencies>
         <dependency>
