@@ -1,16 +1,37 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2016 Ole Lemke <ole.lemke@rub.de>.
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301  USA
  */
-package org.rub.nds.sso.provider;
+package org.rub.nds.saml.samllib.provider;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -20,55 +41,40 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.opensaml.DefaultBootstrap;
-import org.opensaml.xml.ConfigurationException;
-import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
-import org.rub.nds.saml.samllib.provider.SamlEidProvider;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 import org.rub.nds.sso.api.SamlAuthnRequestVerificationChecksType;
 import org.rub.nds.sso.api.SamlTokenVerificationChecksType;
 import org.rub.nds.sso.api.SamlType;
 import org.rub.nds.sso.api.SamlVerificationParametersType;
+import org.rub.nds.sso.api.SsoType;
 import org.rub.nds.sso.api.VerificationProfileType;
+import org.rub.nds.sso.api.VerificationResponseType;
+import org.rub.nds.sso.provider.EidProvider;
+import org.rub.nds.sso.provider.EidSecurity;
+import org.rub.nds.sso.provider.NoSuchEidProviderException;
 import org.rub.nds.sso.utils.FileUtils;
+import org.xml.sax.SAXException;
 
 /**
  *
- * @author vmladenov
+ * @author Ole Lemke <ole.lemke@rub.de>
  */
-public class EidProviderTest {
-
-    public EidProviderTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws ConfigurationException {
-        DefaultBootstrap.bootstrap();
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
+@RunWith(Parameterized.class)
+public class SamlEidProviderTest {
 
     @Before
     public void init() {
         EidSecurity.addEidProvider(new SamlEidProvider());
     }
 
-    @Before
-    public void setUp() {
+    @Parameters
+    public static List<Object[]> data() throws IOException, JAXBException, SAXException {
 
-    }
+        List result;
+        result = new ArrayList<>();
 
-    @After
-    public void tearDown() {
-    }
-
-    /**
-     * Test of verify method, of class EidProvider.
-     */
-    @Test
-    // (expected = SAMLVerifyException.class)
-    public void testVerify() throws Exception {
         JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.sso.api");
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<SamlType> SamlType;
@@ -76,7 +82,7 @@ public class EidProviderTest {
         Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd"));
         unmarshaller.setSchema(schema);
 
-        for (String s : FileUtils.readFilesFromDir("src/test/resources/Saml/valid", "xml")) {
+        for (String s : FileUtils.readFilesFromDir("src/test/resources/SamlType/valid", "xml")) {
             StringReader reader = new StringReader(s);
             SamlType = (JAXBElement<SamlType>) unmarshaller.unmarshal(reader);
             SamlType samlType = SamlType.getValue();
@@ -84,7 +90,7 @@ public class EidProviderTest {
             VerificationProfileType verificationProfile = new VerificationProfileType();
             SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
 
-            for (int i = 10; i < 20; i++) {
+            for (int i = 19; i < 20; i++) {
                 switch (i) {
                     case 1:
                         checks.setVerifySchema(Boolean.TRUE);
@@ -141,20 +147,39 @@ public class EidProviderTest {
                 verificationProfile.setSamlTokenVerificationChecks(checks);
                 verificationProfile.setSamlTokenVerificationParameters(verificationParameters);
 
+                result.add(new Object[] { samlType, verificationProfile, i, s });
+            }
+        }
+        return result;
+    }
+
+    private SamlType samlType;
+    private VerificationProfileType verificationProfile;
+    private int profileID;
+    private String saml;
+
+    public SamlEidProviderTest(SamlType s, VerificationProfileType v, int ID, String string) {
+        samlType = s;
+        verificationProfile = v;
+        profileID = ID;
+        saml = string;
+    }
+
+    @Test
+    public void testVerify() throws NoSuchEidProviderException, Exception {
+        try {
+            if (verificationProfile != null && samlType != null) {
                 EidProvider p = EidSecurity.getEidProviderInstance("saml");
                 p.setVerificationProfile(verificationProfile);
-                p.setSecurityObject(samlType);
                 p.verify(samlType);
-
-                // try {
-                // p.verify();
-                // } catch (SAMLVerifyException e) {
-                // } catch (Exception e) {
-                // throw e;
-                // }
             }
-
+        } catch (Exception e) {
+            System.out.println("Failed with Verification Profile ID:");
+            System.out.println(profileID);
+            System.out.println(saml);
+            throw e;
         }
+
     }
 
 }

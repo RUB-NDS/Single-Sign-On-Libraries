@@ -434,12 +434,12 @@ public final class SAMLUtils {
         }
     }
 
-    public static String getAuthenticatedUser(Response response) throws ManagerException {
+    public static String getAuthenticatedUser(Response response) throws WrongInputException {
         try {
             return response.getAssertions().get(0).getSubject().getNameID().getValue();
         } catch (NullPointerException ex) {
             _log.error("No authenticated user was found in the token!", ex);
-            throw new ManagerException("No authenticated user was found in the token!");
+            throw new WrongInputException("No authenticated user was found in the token!");
         }
     }
 }
