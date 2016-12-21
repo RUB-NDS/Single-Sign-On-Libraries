@@ -147,7 +147,7 @@ public class SamlEidProviderTest {
                 verificationProfile.setSamlTokenVerificationChecks(checks);
                 verificationProfile.setSamlTokenVerificationParameters(verificationParameters);
 
-                result.add(new Object[] { samlType, verificationProfile, i, s });
+                result.add(new Object[]{samlType, verificationProfile, i, s});
             }
         }
         return result;
@@ -168,11 +168,9 @@ public class SamlEidProviderTest {
     @Test
     public void testVerify() throws NoSuchEidProviderException, Exception {
         try {
-            if (verificationProfile != null && samlType != null) {
-                EidProvider p = EidSecurity.getEidProviderInstance("saml");
-                p.setVerificationProfile(verificationProfile);
-                p.verify(samlType);
-            }
+            EidProvider p = EidSecurity.getEidProviderInstance("saml");
+            p.setVerificationProfile(verificationProfile);
+            p.verify(samlType);
         } catch (Exception e) {
             System.out.println("Failed with Verification Profile ID:");
             System.out.println(profileID);
