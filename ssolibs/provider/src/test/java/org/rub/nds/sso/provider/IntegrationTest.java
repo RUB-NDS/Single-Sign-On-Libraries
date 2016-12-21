@@ -34,7 +34,6 @@ public class IntegrationTest {
     public void testSamlProvider() throws NoSuchEidProviderException {
         EidProvider p = EidSecurity.getEidProviderInstance("saml");
         SsoType t = new SamlType();
-        p.setSecurityObject(t);
         // Assert.assertEquals(false, p.verify());
         p.verify(t);
     }

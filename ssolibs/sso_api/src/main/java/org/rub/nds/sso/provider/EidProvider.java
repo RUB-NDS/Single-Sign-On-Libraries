@@ -25,8 +25,6 @@ public abstract class EidProvider {
 
     private VerificationProfileType verificationProfileType;
 
-    private Object securityObject;
-
     public EidProvider(String name, String info, double version, String type) {
         this.name = name;
         this.info = info;
@@ -35,14 +33,6 @@ public abstract class EidProvider {
     }
 
     public abstract VerificationResponseType verify(SsoType ssoType);
-
-    public void setSecurityObject(Object type) {
-        this.securityObject = type;
-    }
-
-    public Object getSecurityObject() {
-        return securityObject;
-    }
 
     public void setVerificationProfile(VerificationProfileType verificationProfile) {
         this.verificationProfileType = verificationProfile;

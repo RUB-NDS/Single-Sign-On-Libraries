@@ -90,7 +90,7 @@ public class SamlEidProviderTest {
             VerificationProfileType verificationProfile = new VerificationProfileType();
             SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
 
-            for (int i = 19; i < 20; i++) {
+            for (int i = 20; i < 20; i++) {
                 switch (i) {
                     case 1:
                         checks.setVerifySchema(Boolean.TRUE);

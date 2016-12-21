@@ -40,7 +40,6 @@ public class SamlEidProvider extends EidProvider {
     public VerificationResponseType verify(SsoType samlType) {
         VerificationResponseType result = new VerificationResponseType();
 
-        // SamlType samlType = (SamlType) this.getSecurityObject();
         VerificationProfileType verificationProfile = (VerificationProfileType) this.getVerificationProfile();
 
         try {
