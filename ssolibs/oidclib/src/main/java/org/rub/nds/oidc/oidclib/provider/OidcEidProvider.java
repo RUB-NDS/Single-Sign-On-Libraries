@@ -1,6 +1,8 @@
 package org.rub.nds.oidc.oidclib.provider;
 
 import org.rub.nds.sso.api.OidcType;
+import org.rub.nds.sso.api.SsoType;
+import org.rub.nds.sso.api.VerificationResponseType;
 import org.rub.nds.sso.provider.EidProvider;
 
 /**
@@ -22,12 +24,12 @@ public class OidcEidProvider extends EidProvider {
     }
 
     @Override
-    public boolean verify(Object type) {
-        OidcType sType = (OidcType) type;
+    public VerificationResponseType verify(SsoType oicdType) {
 
+        VerificationResponseType result = new VerificationResponseType();
         // insert code here
 
-        return false;
+        return result;
     }
 
 }

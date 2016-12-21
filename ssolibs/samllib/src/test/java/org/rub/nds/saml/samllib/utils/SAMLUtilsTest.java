@@ -167,10 +167,11 @@ public class SAMLUtilsTest {
         SAMLUtils.getAuthnRequestAttributes((AuthnRequest) SAMLUtils.getSAMLBuilder(AuthnRequest.DEFAULT_ELEMENT_NAME));
     }
 
-     @Test(expected = WrongInputException.class)
-     public void testGetAuthnRequestAttributesEmpty() throws Exception {
-      SAMLUtils.getAuthnRequestAttributes((AuthnRequest)SAMLUtils.getSAMLBuilder(AuthnRequest.DEFAULT_ELEMENT_NAME).buildObject());
-     }
+    @Test(expected = WrongInputException.class)
+    public void testGetAuthnRequestAttributesEmpty() throws Exception {
+        SAMLUtils.getAuthnRequestAttributes((AuthnRequest) SAMLUtils.getSAMLBuilder(AuthnRequest.DEFAULT_ELEMENT_NAME)
+                .buildObject());
+    }
 
     /**
      * Test of getIssuer method, of class SAMLUtils.
