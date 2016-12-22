@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -12,13 +13,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für verificationLogType complex type.
+ * <p>Java-Klasse für verificationLogType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="verificationLogType">
@@ -46,7 +45,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "verificationLogType", propOrder = { "logLevel", "exception", "verificationLog" })
+@XmlType(name = "verificationLogType", propOrder = {
+    "logLevel",
+    "exception",
+    "verificationLog"
+})
 public class VerificationLogType {
 
     protected String logLevel;
@@ -57,8 +60,10 @@ public class VerificationLogType {
     /**
      * Ruft den Wert der logLevel-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getLogLevel() {
         return logLevel;
@@ -68,8 +73,9 @@ public class VerificationLogType {
      * Legt den Wert der logLevel-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setLogLevel(String value) {
         this.logLevel = value;
@@ -78,8 +84,10 @@ public class VerificationLogType {
     /**
      * Ruft den Wert der exception-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getException() {
         return exception;
@@ -89,8 +97,9 @@ public class VerificationLogType {
      * Legt den Wert der exception-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setException(String value) {
         this.exception = value;
@@ -99,8 +108,10 @@ public class VerificationLogType {
     /**
      * Ruft den Wert der verificationLog-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVerificationLog() {
         return verificationLog;
@@ -110,8 +121,9 @@ public class VerificationLogType {
      * Legt den Wert der verificationLog-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVerificationLog(String value) {
         this.verificationLog = value;

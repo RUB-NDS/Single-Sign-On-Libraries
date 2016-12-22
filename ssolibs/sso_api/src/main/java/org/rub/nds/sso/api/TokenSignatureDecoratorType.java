@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -11,13 +12,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für tokenSignatureDecoratorType complex type.
+ * <p>Java-Klasse für tokenSignatureDecoratorType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="tokenSignatureDecoratorType">
@@ -36,7 +35,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "tokenSignatureDecoratorType", propOrder = { "signAssertion", "signResponse", "signAuthnRequest" })
+@XmlType(name = "tokenSignatureDecoratorType", propOrder = {
+    "signAssertion",
+    "signResponse",
+    "signAuthnRequest"
+})
 public class TokenSignatureDecoratorType {
 
     protected Boolean signAssertion;
@@ -46,8 +49,10 @@ public class TokenSignatureDecoratorType {
     /**
      * Ruft den Wert der signAssertion-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isSignAssertion() {
         return signAssertion;
@@ -57,8 +62,9 @@ public class TokenSignatureDecoratorType {
      * Legt den Wert der signAssertion-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setSignAssertion(Boolean value) {
         this.signAssertion = value;
@@ -67,8 +73,10 @@ public class TokenSignatureDecoratorType {
     /**
      * Ruft den Wert der signResponse-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isSignResponse() {
         return signResponse;
@@ -78,8 +86,9 @@ public class TokenSignatureDecoratorType {
      * Legt den Wert der signResponse-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setSignResponse(Boolean value) {
         this.signResponse = value;
@@ -88,8 +97,10 @@ public class TokenSignatureDecoratorType {
     /**
      * Ruft den Wert der signAuthnRequest-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isSignAuthnRequest() {
         return signAuthnRequest;
@@ -99,8 +110,9 @@ public class TokenSignatureDecoratorType {
      * Legt den Wert der signAuthnRequest-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setSignAuthnRequest(Boolean value) {
         this.signAuthnRequest = value;

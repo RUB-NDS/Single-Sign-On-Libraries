@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -12,13 +13,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für audienceRestrictionsType complex type.
+ * <p>Java-Klasse für audienceRestrictionsType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="audienceRestrictionsType">
@@ -35,7 +34,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "audienceRestrictionsType", propOrder = { "newElement" })
+@XmlType(name = "audienceRestrictionsType", propOrder = {
+    "newElement"
+})
 public class AudienceRestrictionsType {
 
     @XmlElement(name = "NewElement", required = true)
@@ -44,8 +45,10 @@ public class AudienceRestrictionsType {
     /**
      * Ruft den Wert der newElement-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNewElement() {
         return newElement;
@@ -55,8 +58,9 @@ public class AudienceRestrictionsType {
      * Legt den Wert der newElement-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNewElement(String value) {
         this.newElement = value;

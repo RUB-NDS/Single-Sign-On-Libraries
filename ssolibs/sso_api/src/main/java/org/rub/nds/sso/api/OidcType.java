@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -11,13 +12,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für oidcType complex type.
+ * <p>Java-Klasse für oidcType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="oidcType">
@@ -37,9 +36,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "oidcType", propOrder = { "oidcResponse", "oidcVerificationProfile", "oidcVerificationParameters",
-        "oidcVerificiationChecks" })
-public class OidcType extends SsoType {
+@XmlType(name = "oidcType", propOrder = {
+    "oidcResponse",
+    "oidcVerificationProfile",
+    "oidcVerificationParameters",
+    "oidcVerificiationChecks"
+})
+public class OidcType
+    extends SsoType
+{
 
     protected String oidcResponse;
     protected String oidcVerificationProfile;
@@ -49,8 +54,10 @@ public class OidcType extends SsoType {
     /**
      * Ruft den Wert der oidcResponse-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getOidcResponse() {
         return oidcResponse;
@@ -60,8 +67,9 @@ public class OidcType extends SsoType {
      * Legt den Wert der oidcResponse-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setOidcResponse(String value) {
         this.oidcResponse = value;
@@ -70,8 +78,10 @@ public class OidcType extends SsoType {
     /**
      * Ruft den Wert der oidcVerificationProfile-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getOidcVerificationProfile() {
         return oidcVerificationProfile;
@@ -81,8 +91,9 @@ public class OidcType extends SsoType {
      * Legt den Wert der oidcVerificationProfile-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setOidcVerificationProfile(String value) {
         this.oidcVerificationProfile = value;
@@ -91,8 +102,10 @@ public class OidcType extends SsoType {
     /**
      * Ruft den Wert der oidcVerificationParameters-Eigenschaft ab.
      * 
-     * @return possible object is {@link OidcVerificationParametersType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link OidcVerificationParametersType }
+     *     
      */
     public OidcVerificationParametersType getOidcVerificationParameters() {
         return oidcVerificationParameters;
@@ -102,8 +115,9 @@ public class OidcType extends SsoType {
      * Legt den Wert der oidcVerificationParameters-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link OidcVerificationParametersType }
-     * 
+     *     allowed object is
+     *     {@link OidcVerificationParametersType }
+     *     
      */
     public void setOidcVerificationParameters(OidcVerificationParametersType value) {
         this.oidcVerificationParameters = value;
@@ -112,8 +126,10 @@ public class OidcType extends SsoType {
     /**
      * Ruft den Wert der oidcVerificiationChecks-Eigenschaft ab.
      * 
-     * @return possible object is {@link OidcVerificationChecksType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link OidcVerificationChecksType }
+     *     
      */
     public OidcVerificationChecksType getOidcVerificiationChecks() {
         return oidcVerificiationChecks;
@@ -123,8 +139,9 @@ public class OidcType extends SsoType {
      * Legt den Wert der oidcVerificiationChecks-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link OidcVerificationChecksType }
-     * 
+     *     allowed object is
+     *     {@link OidcVerificationChecksType }
+     *     
      */
     public void setOidcVerificiationChecks(OidcVerificationChecksType value) {
         this.oidcVerificiationChecks = value;
