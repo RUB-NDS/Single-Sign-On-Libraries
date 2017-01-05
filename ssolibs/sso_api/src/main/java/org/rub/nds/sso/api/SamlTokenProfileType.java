@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -12,13 +13,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für samlTokenProfileType complex type.
+ * <p>Java-Klasse für samlTokenProfileType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="samlTokenProfileType">
@@ -41,9 +40,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlTokenProfileType", propOrder = { "id", "responseHeaderDecorator", "assertionHeaderDecorator",
-        "assertionConditionsDecorator", "assertionSubjectDecorator", "assertionAuthnStatementDecorator",
-        "tokenSignatureDecorator" })
+@XmlType(name = "samlTokenProfileType", propOrder = {
+    "id",
+    "responseHeaderDecorator",
+    "assertionHeaderDecorator",
+    "assertionConditionsDecorator",
+    "assertionSubjectDecorator",
+    "assertionAuthnStatementDecorator",
+    "tokenSignatureDecorator"
+})
 public class SamlTokenProfileType {
 
     @XmlElement(name = "ID", required = true)
@@ -64,8 +69,10 @@ public class SamlTokenProfileType {
     /**
      * Ruft den Wert der id-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getID() {
         return id;
@@ -75,8 +82,9 @@ public class SamlTokenProfileType {
      * Legt den Wert der id-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setID(String value) {
         this.id = value;
@@ -85,8 +93,10 @@ public class SamlTokenProfileType {
     /**
      * Ruft den Wert der responseHeaderDecorator-Eigenschaft ab.
      * 
-     * @return possible object is {@link ResponseHeaderDecoratorType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link ResponseHeaderDecoratorType }
+     *     
      */
     public ResponseHeaderDecoratorType getResponseHeaderDecorator() {
         return responseHeaderDecorator;
@@ -96,8 +106,9 @@ public class SamlTokenProfileType {
      * Legt den Wert der responseHeaderDecorator-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link ResponseHeaderDecoratorType }
-     * 
+     *     allowed object is
+     *     {@link ResponseHeaderDecoratorType }
+     *     
      */
     public void setResponseHeaderDecorator(ResponseHeaderDecoratorType value) {
         this.responseHeaderDecorator = value;
@@ -106,8 +117,10 @@ public class SamlTokenProfileType {
     /**
      * Ruft den Wert der assertionHeaderDecorator-Eigenschaft ab.
      * 
-     * @return possible object is {@link AssertionHeaderDecoratorType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link AssertionHeaderDecoratorType }
+     *     
      */
     public AssertionHeaderDecoratorType getAssertionHeaderDecorator() {
         return assertionHeaderDecorator;
@@ -117,8 +130,9 @@ public class SamlTokenProfileType {
      * Legt den Wert der assertionHeaderDecorator-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link AssertionHeaderDecoratorType }
-     * 
+     *     allowed object is
+     *     {@link AssertionHeaderDecoratorType }
+     *     
      */
     public void setAssertionHeaderDecorator(AssertionHeaderDecoratorType value) {
         this.assertionHeaderDecorator = value;
@@ -127,8 +141,10 @@ public class SamlTokenProfileType {
     /**
      * Ruft den Wert der assertionConditionsDecorator-Eigenschaft ab.
      * 
-     * @return possible object is {@link AssertionConditionsDecoratorType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link AssertionConditionsDecoratorType }
+     *     
      */
     public AssertionConditionsDecoratorType getAssertionConditionsDecorator() {
         return assertionConditionsDecorator;
@@ -138,8 +154,9 @@ public class SamlTokenProfileType {
      * Legt den Wert der assertionConditionsDecorator-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link AssertionConditionsDecoratorType }
-     * 
+     *     allowed object is
+     *     {@link AssertionConditionsDecoratorType }
+     *     
      */
     public void setAssertionConditionsDecorator(AssertionConditionsDecoratorType value) {
         this.assertionConditionsDecorator = value;
@@ -148,8 +165,10 @@ public class SamlTokenProfileType {
     /**
      * Ruft den Wert der assertionSubjectDecorator-Eigenschaft ab.
      * 
-     * @return possible object is {@link AssertionSubjectDecoratorType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link AssertionSubjectDecoratorType }
+     *     
      */
     public AssertionSubjectDecoratorType getAssertionSubjectDecorator() {
         return assertionSubjectDecorator;
@@ -159,8 +178,9 @@ public class SamlTokenProfileType {
      * Legt den Wert der assertionSubjectDecorator-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link AssertionSubjectDecoratorType }
-     * 
+     *     allowed object is
+     *     {@link AssertionSubjectDecoratorType }
+     *     
      */
     public void setAssertionSubjectDecorator(AssertionSubjectDecoratorType value) {
         this.assertionSubjectDecorator = value;
@@ -169,8 +189,10 @@ public class SamlTokenProfileType {
     /**
      * Ruft den Wert der assertionAuthnStatementDecorator-Eigenschaft ab.
      * 
-     * @return possible object is {@link AssertionAuthnStatementDecoratorType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link AssertionAuthnStatementDecoratorType }
+     *     
      */
     public AssertionAuthnStatementDecoratorType getAssertionAuthnStatementDecorator() {
         return assertionAuthnStatementDecorator;
@@ -180,8 +202,9 @@ public class SamlTokenProfileType {
      * Legt den Wert der assertionAuthnStatementDecorator-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link AssertionAuthnStatementDecoratorType }
-     * 
+     *     allowed object is
+     *     {@link AssertionAuthnStatementDecoratorType }
+     *     
      */
     public void setAssertionAuthnStatementDecorator(AssertionAuthnStatementDecoratorType value) {
         this.assertionAuthnStatementDecorator = value;
@@ -190,8 +213,10 @@ public class SamlTokenProfileType {
     /**
      * Ruft den Wert der tokenSignatureDecorator-Eigenschaft ab.
      * 
-     * @return possible object is {@link TokenSignatureDecoratorType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link TokenSignatureDecoratorType }
+     *     
      */
     public TokenSignatureDecoratorType getTokenSignatureDecorator() {
         return tokenSignatureDecorator;
@@ -201,8 +226,9 @@ public class SamlTokenProfileType {
      * Legt den Wert der tokenSignatureDecorator-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link TokenSignatureDecoratorType }
-     * 
+     *     allowed object is
+     *     {@link TokenSignatureDecoratorType }
+     *     
      */
     public void setTokenSignatureDecorator(TokenSignatureDecoratorType value) {
         this.tokenSignatureDecorator = value;

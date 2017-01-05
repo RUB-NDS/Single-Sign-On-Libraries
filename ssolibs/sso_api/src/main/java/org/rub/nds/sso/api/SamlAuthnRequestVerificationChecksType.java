@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -11,13 +12,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für samlAuthnRequestVerificationChecksType complex type.
+ * <p>Java-Klasse für samlAuthnRequestVerificationChecksType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="samlAuthnRequestVerificationChecksType">
@@ -39,8 +38,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlAuthnRequestVerificationChecksType", propOrder = { "verifySchema", "verifyXSW",
-        "verifyAuthnReqSignatureTrusted", "verifyAuthnReqSignature", "verifyAuthnReqIssueInstant", "verifyAuthnReqID" })
+@XmlType(name = "samlAuthnRequestVerificationChecksType", propOrder = {
+    "verifySchema",
+    "verifyXSW",
+    "verifyAuthnReqSignatureTrusted",
+    "verifyAuthnReqSignature",
+    "verifyAuthnReqIssueInstant",
+    "verifyAuthnReqID"
+})
 public class SamlAuthnRequestVerificationChecksType {
 
     protected Boolean verifySchema;
@@ -53,8 +58,10 @@ public class SamlAuthnRequestVerificationChecksType {
     /**
      * Ruft den Wert der verifySchema-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isVerifySchema() {
         return verifySchema;
@@ -64,8 +71,9 @@ public class SamlAuthnRequestVerificationChecksType {
      * Legt den Wert der verifySchema-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setVerifySchema(Boolean value) {
         this.verifySchema = value;
@@ -74,8 +82,10 @@ public class SamlAuthnRequestVerificationChecksType {
     /**
      * Ruft den Wert der verifyXSW-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isVerifyXSW() {
         return verifyXSW;
@@ -85,8 +95,9 @@ public class SamlAuthnRequestVerificationChecksType {
      * Legt den Wert der verifyXSW-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setVerifyXSW(Boolean value) {
         this.verifyXSW = value;
@@ -95,8 +106,10 @@ public class SamlAuthnRequestVerificationChecksType {
     /**
      * Ruft den Wert der verifyAuthnReqSignatureTrusted-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isVerifyAuthnReqSignatureTrusted() {
         return verifyAuthnReqSignatureTrusted;
@@ -106,8 +119,9 @@ public class SamlAuthnRequestVerificationChecksType {
      * Legt den Wert der verifyAuthnReqSignatureTrusted-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setVerifyAuthnReqSignatureTrusted(Boolean value) {
         this.verifyAuthnReqSignatureTrusted = value;
@@ -116,8 +130,10 @@ public class SamlAuthnRequestVerificationChecksType {
     /**
      * Ruft den Wert der verifyAuthnReqSignature-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isVerifyAuthnReqSignature() {
         return verifyAuthnReqSignature;
@@ -127,8 +143,9 @@ public class SamlAuthnRequestVerificationChecksType {
      * Legt den Wert der verifyAuthnReqSignature-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setVerifyAuthnReqSignature(Boolean value) {
         this.verifyAuthnReqSignature = value;
@@ -137,8 +154,10 @@ public class SamlAuthnRequestVerificationChecksType {
     /**
      * Ruft den Wert der verifyAuthnReqIssueInstant-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isVerifyAuthnReqIssueInstant() {
         return verifyAuthnReqIssueInstant;
@@ -148,8 +167,9 @@ public class SamlAuthnRequestVerificationChecksType {
      * Legt den Wert der verifyAuthnReqIssueInstant-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setVerifyAuthnReqIssueInstant(Boolean value) {
         this.verifyAuthnReqIssueInstant = value;
@@ -158,8 +178,10 @@ public class SamlAuthnRequestVerificationChecksType {
     /**
      * Ruft den Wert der verifyAuthnReqID-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isVerifyAuthnReqID() {
         return verifyAuthnReqID;
@@ -169,8 +191,9 @@ public class SamlAuthnRequestVerificationChecksType {
      * Legt den Wert der verifyAuthnReqID-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setVerifyAuthnReqID(Boolean value) {
         this.verifyAuthnReqID = value;

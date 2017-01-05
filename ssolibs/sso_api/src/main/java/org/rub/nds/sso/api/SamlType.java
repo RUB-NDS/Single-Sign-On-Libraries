@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -11,13 +12,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für samlType complex type.
+ * <p>Java-Klasse für samlType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="samlType">
@@ -39,9 +38,17 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlType", propOrder = { "samlRequest", "samlResponse", "samlVerificationParameters",
-        "samlVerificationProfile", "samlTokenVerificationChecks", "samlAuthnReqVerificationChecks" })
-public class SamlType extends SsoType {
+@XmlType(name = "samlType", propOrder = {
+    "samlRequest",
+    "samlResponse",
+    "samlVerificationParameters",
+    "samlVerificationProfile",
+    "samlTokenVerificationChecks",
+    "samlAuthnReqVerificationChecks"
+})
+public class SamlType
+    extends SsoType
+{
 
     protected String samlRequest;
     protected String samlResponse;
@@ -53,8 +60,10 @@ public class SamlType extends SsoType {
     /**
      * Ruft den Wert der samlRequest-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSamlRequest() {
         return samlRequest;
@@ -64,8 +73,9 @@ public class SamlType extends SsoType {
      * Legt den Wert der samlRequest-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSamlRequest(String value) {
         this.samlRequest = value;
@@ -74,8 +84,10 @@ public class SamlType extends SsoType {
     /**
      * Ruft den Wert der samlResponse-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSamlResponse() {
         return samlResponse;
@@ -85,8 +97,9 @@ public class SamlType extends SsoType {
      * Legt den Wert der samlResponse-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSamlResponse(String value) {
         this.samlResponse = value;
@@ -95,8 +108,10 @@ public class SamlType extends SsoType {
     /**
      * Ruft den Wert der samlVerificationParameters-Eigenschaft ab.
      * 
-     * @return possible object is {@link SamlVerificationParametersType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link SamlVerificationParametersType }
+     *     
      */
     public SamlVerificationParametersType getSamlVerificationParameters() {
         return samlVerificationParameters;
@@ -106,8 +121,9 @@ public class SamlType extends SsoType {
      * Legt den Wert der samlVerificationParameters-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link SamlVerificationParametersType }
-     * 
+     *     allowed object is
+     *     {@link SamlVerificationParametersType }
+     *     
      */
     public void setSamlVerificationParameters(SamlVerificationParametersType value) {
         this.samlVerificationParameters = value;
@@ -116,8 +132,10 @@ public class SamlType extends SsoType {
     /**
      * Ruft den Wert der samlVerificationProfile-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getSamlVerificationProfile() {
         return samlVerificationProfile;
@@ -127,8 +145,9 @@ public class SamlType extends SsoType {
      * Legt den Wert der samlVerificationProfile-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setSamlVerificationProfile(String value) {
         this.samlVerificationProfile = value;
@@ -137,8 +156,10 @@ public class SamlType extends SsoType {
     /**
      * Ruft den Wert der samlTokenVerificationChecks-Eigenschaft ab.
      * 
-     * @return possible object is {@link SamlTokenVerificationChecksType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link SamlTokenVerificationChecksType }
+     *     
      */
     public SamlTokenVerificationChecksType getSamlTokenVerificationChecks() {
         return samlTokenVerificationChecks;
@@ -148,8 +169,9 @@ public class SamlType extends SsoType {
      * Legt den Wert der samlTokenVerificationChecks-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link SamlTokenVerificationChecksType }
-     * 
+     *     allowed object is
+     *     {@link SamlTokenVerificationChecksType }
+     *     
      */
     public void setSamlTokenVerificationChecks(SamlTokenVerificationChecksType value) {
         this.samlTokenVerificationChecks = value;
@@ -158,8 +180,10 @@ public class SamlType extends SsoType {
     /**
      * Ruft den Wert der samlAuthnReqVerificationChecks-Eigenschaft ab.
      * 
-     * @return possible object is {@link SamlAuthnRequestVerificationChecksType }
-     * 
+     * @return
+     *     possible object is
+     *     {@link SamlAuthnRequestVerificationChecksType }
+     *     
      */
     public SamlAuthnRequestVerificationChecksType getSamlAuthnReqVerificationChecks() {
         return samlAuthnReqVerificationChecks;
@@ -169,9 +193,9 @@ public class SamlType extends SsoType {
      * Legt den Wert der samlAuthnReqVerificationChecks-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is
-     *            {@link SamlAuthnRequestVerificationChecksType }
-     * 
+     *     allowed object is
+     *     {@link SamlAuthnRequestVerificationChecksType }
+     *     
      */
     public void setSamlAuthnReqVerificationChecks(SamlAuthnRequestVerificationChecksType value) {
         this.samlAuthnReqVerificationChecks = value;

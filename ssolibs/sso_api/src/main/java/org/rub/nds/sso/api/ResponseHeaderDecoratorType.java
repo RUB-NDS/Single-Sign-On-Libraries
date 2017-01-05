@@ -2,8 +2,9 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.8-b130911.1802 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2016.12.12 um 02:23:52 PM CET 
+// Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
+
 
 package org.rub.nds.sso.api;
 
@@ -12,13 +13,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
+
 /**
- * <p>
- * Java-Klasse für responseHeaderDecoratorType complex type.
+ * <p>Java-Klasse für responseHeaderDecoratorType complex type.
  * 
- * <p>
- * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
- * Klasse enthalten ist.
+ * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="responseHeaderDecoratorType">
@@ -38,8 +37,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "responseHeaderDecoratorType", propOrder = { "issuerStr", "statusCodeURI", "addInResponseTo",
-        "addDestination" })
+@XmlType(name = "responseHeaderDecoratorType", propOrder = {
+    "issuerStr",
+    "statusCodeURI",
+    "addInResponseTo",
+    "addDestination"
+})
 public class ResponseHeaderDecoratorType {
 
     @XmlElement(required = true)
@@ -51,8 +54,10 @@ public class ResponseHeaderDecoratorType {
     /**
      * Ruft den Wert der issuerStr-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIssuerStr() {
         return issuerStr;
@@ -62,8 +67,9 @@ public class ResponseHeaderDecoratorType {
      * Legt den Wert der issuerStr-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIssuerStr(String value) {
         this.issuerStr = value;
@@ -72,8 +78,10 @@ public class ResponseHeaderDecoratorType {
     /**
      * Ruft den Wert der statusCodeURI-Eigenschaft ab.
      * 
-     * @return possible object is {@link String }
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getStatusCodeURI() {
         return statusCodeURI;
@@ -83,8 +91,9 @@ public class ResponseHeaderDecoratorType {
      * Legt den Wert der statusCodeURI-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link String }
-     * 
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setStatusCodeURI(String value) {
         this.statusCodeURI = value;
@@ -93,8 +102,10 @@ public class ResponseHeaderDecoratorType {
     /**
      * Ruft den Wert der addInResponseTo-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isAddInResponseTo() {
         return addInResponseTo;
@@ -104,8 +115,9 @@ public class ResponseHeaderDecoratorType {
      * Legt den Wert der addInResponseTo-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setAddInResponseTo(Boolean value) {
         this.addInResponseTo = value;
@@ -114,8 +126,10 @@ public class ResponseHeaderDecoratorType {
     /**
      * Ruft den Wert der addDestination-Eigenschaft ab.
      * 
-     * @return possible object is {@link Boolean }
-     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
      */
     public Boolean isAddDestination() {
         return addDestination;
@@ -125,8 +139,9 @@ public class ResponseHeaderDecoratorType {
      * Legt den Wert der addDestination-Eigenschaft fest.
      * 
      * @param value
-     *            allowed object is {@link Boolean }
-     * 
+     *     allowed object is
+     *     {@link Boolean }
+     *     
      */
     public void setAddDestination(Boolean value) {
         this.addDestination = value;
