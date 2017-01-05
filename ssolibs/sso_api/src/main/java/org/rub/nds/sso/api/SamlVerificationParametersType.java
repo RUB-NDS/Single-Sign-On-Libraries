@@ -5,7 +5,6 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import java.util.ArrayList;
@@ -17,11 +16,13 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-
 /**
- * <p>Java-Klasse für samlVerificationParametersType complex type.
+ * <p>
+ * Java-Klasse für samlVerificationParametersType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="samlVerificationParametersType">
@@ -46,17 +47,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlVerificationParametersType", propOrder = {
-    "x509Certificate",
-    "samlSchema",
-    "samlSchemaUrl",
-    "audience",
-    "destination",
-    "timeLimitation",
-    "hokX509Certificate",
-    "samlMetadata",
-    "samlMetadataUrl"
-})
+@XmlType(name = "samlVerificationParametersType", propOrder = { "x509Certificate", "samlSchema", "samlSchemaUrl",
+        "audience", "destination", "timeLimitation", "hokX509Certificate", "samlMetadata", "samlMetadataUrl" })
 public class SamlVerificationParametersType {
 
     @XmlElement(name = "x509certificate")
@@ -80,21 +72,21 @@ public class SamlVerificationParametersType {
      * Gets the value of the x509Certificate property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the x509Certificate property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the x509Certificate property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getX509Certificate().add(newItem);
+     * getX509Certificate().add(newItem);
      * </pre>
      * 
      * 
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * Objects of the following type(s) are allowed in the list {@link String }
      * 
      * 
      */
@@ -109,21 +101,21 @@ public class SamlVerificationParametersType {
      * Gets the value of the samlSchema property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the samlSchema property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the samlSchema property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getSamlSchema().add(newItem);
+     * getSamlSchema().add(newItem);
      * </pre>
      * 
      * 
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * Objects of the following type(s) are allowed in the list {@link String }
      * 
      * 
      */
@@ -137,10 +129,8 @@ public class SamlVerificationParametersType {
     /**
      * Ruft den Wert der samlSchemaUrl-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSamlSchemaUrl() {
         return samlSchemaUrl;
@@ -150,9 +140,8 @@ public class SamlVerificationParametersType {
      * Legt den Wert der samlSchemaUrl-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSamlSchemaUrl(String value) {
         this.samlSchemaUrl = value;
@@ -162,21 +151,21 @@ public class SamlVerificationParametersType {
      * Gets the value of the audience property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the audience property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the audience property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getAudience().add(newItem);
+     * getAudience().add(newItem);
      * </pre>
      * 
      * 
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * Objects of the following type(s) are allowed in the list {@link String }
      * 
      * 
      */
@@ -190,10 +179,8 @@ public class SamlVerificationParametersType {
     /**
      * Ruft den Wert der destination-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getDestination() {
         return destination;
@@ -203,9 +190,8 @@ public class SamlVerificationParametersType {
      * Legt den Wert der destination-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setDestination(String value) {
         this.destination = value;
@@ -214,10 +200,8 @@ public class SamlVerificationParametersType {
     /**
      * Ruft den Wert der timeLimitation-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     * @return possible object is {@link XMLGregorianCalendar }
+     * 
      */
     public XMLGregorianCalendar getTimeLimitation() {
         return timeLimitation;
@@ -227,9 +211,8 @@ public class SamlVerificationParametersType {
      * Legt den Wert der timeLimitation-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *            allowed object is {@link XMLGregorianCalendar }
+     * 
      */
     public void setTimeLimitation(XMLGregorianCalendar value) {
         this.timeLimitation = value;
@@ -238,10 +221,8 @@ public class SamlVerificationParametersType {
     /**
      * Ruft den Wert der hokX509Certificate-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getHokX509Certificate() {
         return hokX509Certificate;
@@ -251,9 +232,8 @@ public class SamlVerificationParametersType {
      * Legt den Wert der hokX509Certificate-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setHokX509Certificate(String value) {
         this.hokX509Certificate = value;
@@ -262,10 +242,8 @@ public class SamlVerificationParametersType {
     /**
      * Ruft den Wert der samlMetadata-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSamlMetadata() {
         return samlMetadata;
@@ -275,9 +253,8 @@ public class SamlVerificationParametersType {
      * Legt den Wert der samlMetadata-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSamlMetadata(String value) {
         this.samlMetadata = value;
@@ -286,10 +263,8 @@ public class SamlVerificationParametersType {
     /**
      * Ruft den Wert der samlMetadataUrl-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSamlMetadataUrl() {
         return samlMetadataUrl;
@@ -299,9 +274,8 @@ public class SamlVerificationParametersType {
      * Legt den Wert der samlMetadataUrl-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSamlMetadataUrl(String value) {
         this.samlMetadataUrl = value;

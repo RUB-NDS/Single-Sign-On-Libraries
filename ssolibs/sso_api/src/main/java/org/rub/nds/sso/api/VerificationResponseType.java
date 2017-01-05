@@ -5,7 +5,6 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für verificationResponse_Type complex type.
+ * <p>
+ * Java-Klasse für verificationResponse_Type complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="verificationResponse_Type">
@@ -41,14 +42,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "verificationResponse_Type", propOrder = {
-    "authenticatedUser",
-    "result",
-    "samlAuthnRequestVerifiedChecks",
-    "samlTokenVerifiedChecks",
-    "oidcVerifiedChecks",
-    "verificationLog"
-})
+@XmlType(name = "verificationResponse_Type", propOrder = { "authenticatedUser", "result",
+        "samlAuthnRequestVerifiedChecks", "samlTokenVerifiedChecks", "oidcVerifiedChecks", "verificationLog" })
 public class VerificationResponseType {
 
     @XmlElement(required = true)
@@ -63,10 +58,8 @@ public class VerificationResponseType {
     /**
      * Ruft den Wert der authenticatedUser-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link AuthenticatedUserType }
-     *     
+     * @return possible object is {@link AuthenticatedUserType }
+     * 
      */
     public AuthenticatedUserType getAuthenticatedUser() {
         return authenticatedUser;
@@ -76,9 +69,8 @@ public class VerificationResponseType {
      * Legt den Wert der authenticatedUser-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link AuthenticatedUserType }
-     *     
+     *            allowed object is {@link AuthenticatedUserType }
+     * 
      */
     public void setAuthenticatedUser(AuthenticatedUserType value) {
         this.authenticatedUser = value;
@@ -103,10 +95,8 @@ public class VerificationResponseType {
     /**
      * Ruft den Wert der samlAuthnRequestVerifiedChecks-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlAuthnRequestVerificationChecksType }
-     *     
+     * @return possible object is {@link SamlAuthnRequestVerificationChecksType }
+     * 
      */
     public SamlAuthnRequestVerificationChecksType getSamlAuthnRequestVerifiedChecks() {
         return samlAuthnRequestVerifiedChecks;
@@ -116,9 +106,9 @@ public class VerificationResponseType {
      * Legt den Wert der samlAuthnRequestVerifiedChecks-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlAuthnRequestVerificationChecksType }
-     *     
+     *            allowed object is
+     *            {@link SamlAuthnRequestVerificationChecksType }
+     * 
      */
     public void setSamlAuthnRequestVerifiedChecks(SamlAuthnRequestVerificationChecksType value) {
         this.samlAuthnRequestVerifiedChecks = value;
@@ -127,10 +117,8 @@ public class VerificationResponseType {
     /**
      * Ruft den Wert der samlTokenVerifiedChecks-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlTokenVerificationChecksType }
-     *     
+     * @return possible object is {@link SamlTokenVerificationChecksType }
+     * 
      */
     public SamlTokenVerificationChecksType getSamlTokenVerifiedChecks() {
         return samlTokenVerifiedChecks;
@@ -140,9 +128,8 @@ public class VerificationResponseType {
      * Legt den Wert der samlTokenVerifiedChecks-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlTokenVerificationChecksType }
-     *     
+     *            allowed object is {@link SamlTokenVerificationChecksType }
+     * 
      */
     public void setSamlTokenVerifiedChecks(SamlTokenVerificationChecksType value) {
         this.samlTokenVerifiedChecks = value;
@@ -151,10 +138,8 @@ public class VerificationResponseType {
     /**
      * Ruft den Wert der oidcVerifiedChecks-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link OidcVerificationChecksType }
-     *     
+     * @return possible object is {@link OidcVerificationChecksType }
+     * 
      */
     public OidcVerificationChecksType getOidcVerifiedChecks() {
         return oidcVerifiedChecks;
@@ -164,9 +149,8 @@ public class VerificationResponseType {
      * Legt den Wert der oidcVerifiedChecks-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link OidcVerificationChecksType }
-     *     
+     *            allowed object is {@link OidcVerificationChecksType }
+     * 
      */
     public void setOidcVerifiedChecks(OidcVerificationChecksType value) {
         this.oidcVerifiedChecks = value;
@@ -175,10 +159,8 @@ public class VerificationResponseType {
     /**
      * Ruft den Wert der verificationLog-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link VerificationLogType }
-     *     
+     * @return possible object is {@link VerificationLogType }
+     * 
      */
     public VerificationLogType getVerificationLog() {
         return verificationLog;
@@ -188,9 +170,8 @@ public class VerificationResponseType {
      * Legt den Wert der verificationLog-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link VerificationLogType }
-     *     
+     *            allowed object is {@link VerificationLogType }
+     * 
      */
     public void setVerificationLog(VerificationLogType value) {
         this.verificationLog = value;

@@ -5,7 +5,6 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import java.util.ArrayList;
@@ -15,11 +14,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für verificationProfilesType complex type.
+ * <p>
+ * Java-Klasse für verificationProfilesType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="verificationProfilesType">
@@ -36,9 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "verificationProfilesType", propOrder = {
-    "verificationProfile"
-})
+@XmlType(name = "verificationProfilesType", propOrder = { "verificationProfile" })
 public class VerificationProfilesType {
 
     @XmlElement(required = true)
@@ -48,15 +47,16 @@ public class VerificationProfilesType {
      * Gets the value of the verificationProfile property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the verificationProfile property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the verificationProfile property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getVerificationProfile().add(newItem);
+     * getVerificationProfile().add(newItem);
      * </pre>
      * 
      * 

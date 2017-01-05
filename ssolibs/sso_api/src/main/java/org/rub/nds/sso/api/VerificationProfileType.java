@@ -5,7 +5,6 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für verificationProfileType complex type.
+ * <p>
+ * Java-Klasse für verificationProfileType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="verificationProfileType">
@@ -40,15 +41,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "verificationProfileType", propOrder = {
-    "id",
-    "samlTokenVerificationChecks",
-    "samlAuthnReqVerificationChecks",
-    "samlTokenVerificationParameters",
-    "oidcVerificationChecks",
-    "oidcVerificationParameters",
-    "log"
-})
+@XmlType(name = "verificationProfileType", propOrder = { "id", "samlTokenVerificationChecks",
+        "samlAuthnReqVerificationChecks", "samlTokenVerificationParameters", "oidcVerificationChecks",
+        "oidcVerificationParameters", "log" })
 public class VerificationProfileType {
 
     @XmlElement(name = "ID", required = true)
@@ -63,10 +58,8 @@ public class VerificationProfileType {
     /**
      * Ruft den Wert der id-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getID() {
         return id;
@@ -76,9 +69,8 @@ public class VerificationProfileType {
      * Legt den Wert der id-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setID(String value) {
         this.id = value;
@@ -87,10 +79,8 @@ public class VerificationProfileType {
     /**
      * Ruft den Wert der samlTokenVerificationChecks-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlTokenVerificationChecksType }
-     *     
+     * @return possible object is {@link SamlTokenVerificationChecksType }
+     * 
      */
     public SamlTokenVerificationChecksType getSamlTokenVerificationChecks() {
         return samlTokenVerificationChecks;
@@ -100,9 +90,8 @@ public class VerificationProfileType {
      * Legt den Wert der samlTokenVerificationChecks-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlTokenVerificationChecksType }
-     *     
+     *            allowed object is {@link SamlTokenVerificationChecksType }
+     * 
      */
     public void setSamlTokenVerificationChecks(SamlTokenVerificationChecksType value) {
         this.samlTokenVerificationChecks = value;
@@ -111,10 +100,8 @@ public class VerificationProfileType {
     /**
      * Ruft den Wert der samlAuthnReqVerificationChecks-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlAuthnRequestVerificationChecksType }
-     *     
+     * @return possible object is {@link SamlAuthnRequestVerificationChecksType }
+     * 
      */
     public SamlAuthnRequestVerificationChecksType getSamlAuthnReqVerificationChecks() {
         return samlAuthnReqVerificationChecks;
@@ -124,9 +111,9 @@ public class VerificationProfileType {
      * Legt den Wert der samlAuthnReqVerificationChecks-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlAuthnRequestVerificationChecksType }
-     *     
+     *            allowed object is
+     *            {@link SamlAuthnRequestVerificationChecksType }
+     * 
      */
     public void setSamlAuthnReqVerificationChecks(SamlAuthnRequestVerificationChecksType value) {
         this.samlAuthnReqVerificationChecks = value;
@@ -135,10 +122,8 @@ public class VerificationProfileType {
     /**
      * Ruft den Wert der samlTokenVerificationParameters-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlVerificationParametersType }
-     *     
+     * @return possible object is {@link SamlVerificationParametersType }
+     * 
      */
     public SamlVerificationParametersType getSamlTokenVerificationParameters() {
         return samlTokenVerificationParameters;
@@ -148,9 +133,8 @@ public class VerificationProfileType {
      * Legt den Wert der samlTokenVerificationParameters-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlVerificationParametersType }
-     *     
+     *            allowed object is {@link SamlVerificationParametersType }
+     * 
      */
     public void setSamlTokenVerificationParameters(SamlVerificationParametersType value) {
         this.samlTokenVerificationParameters = value;
@@ -159,10 +143,8 @@ public class VerificationProfileType {
     /**
      * Ruft den Wert der oidcVerificationChecks-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link OidcVerificationChecksType }
-     *     
+     * @return possible object is {@link OidcVerificationChecksType }
+     * 
      */
     public OidcVerificationChecksType getOidcVerificationChecks() {
         return oidcVerificationChecks;
@@ -172,9 +154,8 @@ public class VerificationProfileType {
      * Legt den Wert der oidcVerificationChecks-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link OidcVerificationChecksType }
-     *     
+     *            allowed object is {@link OidcVerificationChecksType }
+     * 
      */
     public void setOidcVerificationChecks(OidcVerificationChecksType value) {
         this.oidcVerificationChecks = value;
@@ -183,10 +164,8 @@ public class VerificationProfileType {
     /**
      * Ruft den Wert der oidcVerificationParameters-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link OidcVerificationParametersType }
-     *     
+     * @return possible object is {@link OidcVerificationParametersType }
+     * 
      */
     public OidcVerificationParametersType getOidcVerificationParameters() {
         return oidcVerificationParameters;
@@ -196,9 +175,8 @@ public class VerificationProfileType {
      * Legt den Wert der oidcVerificationParameters-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link OidcVerificationParametersType }
-     *     
+     *            allowed object is {@link OidcVerificationParametersType }
+     * 
      */
     public void setOidcVerificationParameters(OidcVerificationParametersType value) {
         this.oidcVerificationParameters = value;
@@ -207,10 +185,8 @@ public class VerificationProfileType {
     /**
      * Ruft den Wert der log-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link VerificationLogType }
-     *     
+     * @return possible object is {@link VerificationLogType }
+     * 
      */
     public VerificationLogType getLog() {
         return log;
@@ -220,9 +196,8 @@ public class VerificationProfileType {
      * Legt den Wert der log-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link VerificationLogType }
-     *     
+     *            allowed object is {@link VerificationLogType }
+     * 
      */
     public void setLog(VerificationLogType value) {
         this.log = value;

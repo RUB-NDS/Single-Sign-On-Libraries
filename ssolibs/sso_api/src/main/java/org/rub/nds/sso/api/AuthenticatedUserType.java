@@ -5,7 +5,6 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für authenticatedUserType complex type.
+ * <p>
+ * Java-Klasse für authenticatedUserType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="authenticatedUserType">
@@ -35,10 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "authenticatedUserType", propOrder = {
-    "userID",
-    "userAdditionalInformation"
-})
+@XmlType(name = "authenticatedUserType", propOrder = { "userID", "userAdditionalInformation" })
 public class AuthenticatedUserType {
 
     @XmlElement(required = true)
@@ -48,10 +46,8 @@ public class AuthenticatedUserType {
     /**
      * Ruft den Wert der userID-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getUserID() {
         return userID;
@@ -61,9 +57,8 @@ public class AuthenticatedUserType {
      * Legt den Wert der userID-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setUserID(String value) {
         this.userID = value;
@@ -72,10 +67,8 @@ public class AuthenticatedUserType {
     /**
      * Ruft den Wert der userAdditionalInformation-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link UserAdditionalInformationType }
-     *     
+     * @return possible object is {@link UserAdditionalInformationType }
+     * 
      */
     public UserAdditionalInformationType getUserAdditionalInformation() {
         return userAdditionalInformation;
@@ -85,9 +78,8 @@ public class AuthenticatedUserType {
      * Legt den Wert der userAdditionalInformation-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link UserAdditionalInformationType }
-     *     
+     *            allowed object is {@link UserAdditionalInformationType }
+     * 
      */
     public void setUserAdditionalInformation(UserAdditionalInformationType value) {
         this.userAdditionalInformation = value;

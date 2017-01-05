@@ -5,7 +5,6 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für assertionHeaderDecoratorType complex type.
+ * <p>
+ * Java-Klasse für assertionHeaderDecoratorType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="assertionHeaderDecoratorType">
@@ -34,9 +35,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "assertionHeaderDecoratorType", propOrder = {
-    "issuerStr"
-})
+@XmlType(name = "assertionHeaderDecoratorType", propOrder = { "issuerStr" })
 public class AssertionHeaderDecoratorType {
 
     @XmlElement(required = true)
@@ -45,10 +44,8 @@ public class AssertionHeaderDecoratorType {
     /**
      * Ruft den Wert der issuerStr-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getIssuerStr() {
         return issuerStr;
@@ -58,9 +55,8 @@ public class AssertionHeaderDecoratorType {
      * Legt den Wert der issuerStr-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setIssuerStr(String value) {
         this.issuerStr = value;

@@ -18,7 +18,7 @@
  */
 package org.rub.nds.sso.webservice;
 
-import java.util.List;
+import java.io.StringReader;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -26,9 +26,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PUT;
-import javax.ws.rs.core.Response;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.stream.StreamSource;
+import oasis.names.tc.dss._1_0.core.schema.VerifyRequest;
+import org.eclipse.persistence.jaxb.UnmarshallerProperties;
+import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
 import org.rub.nds.sso.api.VerificationResponseType;
+import org.eclipse.persistence.jaxb.JAXBContextFactory;
+import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
+import org.rub.nds.saml.samllib.provider.SamlEidProvider;
+import org.rub.nds.saml.samllib.utils.SAMLUtils;
+import org.rub.nds.sso.provider.EidProvider;
 
 /**
  * REST Web Service
@@ -71,10 +81,22 @@ public class ValidationService {
     @Consumes("application/json")
     @Produces("application/json")
     @Path("verifyrequest")
-    public VerificationResponseType postJson(String content) {
-        // System.out.println(content.getAuthenticatedUser().getUserID());
-        System.out.println(content);
-        return new VerificationResponseType();
+    public VerificationResponseType postJson(String content) throws JAXBException, SAMLBuildException {
+        SAMLUtils.getSAMLBuilder();
+        // JAXBContext jaxbContext =
+        // JAXBContext.newInstance(VerifyRequest.class);
+        JAXBContext jaxbContext = JAXBContextFactory.createContext(new Class[] { VerifyRequest.class,
+                VerificationRequestType.class }, null);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        unmarshaller.setProperty(UnmarshallerProperties.MEDIA_TYPE, "application/json");
+        StringReader reader = new StringReader(content);
+        StreamSource json = new StreamSource(reader);
+        VerifyRequest vr = unmarshaller.unmarshal(json, VerifyRequest.class).getValue();
+
+        VerificationRequestType rq = (VerificationRequestType) vr.getOptionalInputs().getAny().get(0);
+        EidProvider provider = new SamlEidProvider();
+
+        return provider.verify(rq.getSaml());
     }
 
 }

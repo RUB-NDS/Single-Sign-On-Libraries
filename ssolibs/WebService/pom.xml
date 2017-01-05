@@ -14,11 +14,7 @@
     <name>WebService</name>
     
     <dependencies>
-        <dependency>
-            <groupId>or.rub.nds.sso</groupId>
-            <artifactId>sso_api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
@@ -34,6 +30,27 @@
             <groupId>unknown.binary</groupId>
             <artifactId>javax.ws.rs-api-2.0</artifactId>
             <version>SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.13</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.moxy</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.12</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>samllib</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

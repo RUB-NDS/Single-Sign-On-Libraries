@@ -5,18 +5,19 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für assertionSubjectDecoratorType complex type.
+ * <p>
+ * Java-Klasse für assertionSubjectDecoratorType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="assertionSubjectDecoratorType">
@@ -41,17 +42,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "assertionSubjectDecoratorType", propOrder = {
-    "nameIDValue",
-    "nameIDformat",
-    "nameIDnameQualifier",
-    "nameIDsPNameQualifier",
-    "nameIDsPProvidedID",
-    "sbjConfirmMethod",
-    "sbjConfirmationDataAddress",
-    "sbjConfirmationDataRecipient",
-    "timestampDuration"
-})
+@XmlType(name = "assertionSubjectDecoratorType", propOrder = { "nameIDValue", "nameIDformat", "nameIDnameQualifier",
+        "nameIDsPNameQualifier", "nameIDsPProvidedID", "sbjConfirmMethod", "sbjConfirmationDataAddress",
+        "sbjConfirmationDataRecipient", "timestampDuration" })
 public class AssertionSubjectDecoratorType {
 
     protected String nameIDValue;
@@ -67,10 +60,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der nameIDValue-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getNameIDValue() {
         return nameIDValue;
@@ -80,9 +71,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der nameIDValue-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setNameIDValue(String value) {
         this.nameIDValue = value;
@@ -91,10 +81,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der nameIDformat-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getNameIDformat() {
         return nameIDformat;
@@ -104,9 +92,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der nameIDformat-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setNameIDformat(String value) {
         this.nameIDformat = value;
@@ -115,10 +102,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der nameIDnameQualifier-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getNameIDnameQualifier() {
         return nameIDnameQualifier;
@@ -128,9 +113,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der nameIDnameQualifier-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setNameIDnameQualifier(String value) {
         this.nameIDnameQualifier = value;
@@ -139,10 +123,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der nameIDsPNameQualifier-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getNameIDsPNameQualifier() {
         return nameIDsPNameQualifier;
@@ -152,9 +134,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der nameIDsPNameQualifier-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setNameIDsPNameQualifier(String value) {
         this.nameIDsPNameQualifier = value;
@@ -163,10 +144,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der nameIDsPProvidedID-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getNameIDsPProvidedID() {
         return nameIDsPProvidedID;
@@ -176,9 +155,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der nameIDsPProvidedID-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setNameIDsPProvidedID(String value) {
         this.nameIDsPProvidedID = value;
@@ -187,10 +165,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der sbjConfirmMethod-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSbjConfirmMethod() {
         return sbjConfirmMethod;
@@ -200,9 +176,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der sbjConfirmMethod-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSbjConfirmMethod(String value) {
         this.sbjConfirmMethod = value;
@@ -211,10 +186,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der sbjConfirmationDataAddress-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSbjConfirmationDataAddress() {
         return sbjConfirmationDataAddress;
@@ -224,9 +197,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der sbjConfirmationDataAddress-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSbjConfirmationDataAddress(String value) {
         this.sbjConfirmationDataAddress = value;
@@ -235,10 +207,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der sbjConfirmationDataRecipient-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSbjConfirmationDataRecipient() {
         return sbjConfirmationDataRecipient;
@@ -248,9 +218,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der sbjConfirmationDataRecipient-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSbjConfirmationDataRecipient(String value) {
         this.sbjConfirmationDataRecipient = value;
@@ -259,10 +228,8 @@ public class AssertionSubjectDecoratorType {
     /**
      * Ruft den Wert der timestampDuration-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     * @return possible object is {@link Integer }
+     * 
      */
     public Integer getTimestampDuration() {
         return timestampDuration;
@@ -272,9 +239,8 @@ public class AssertionSubjectDecoratorType {
      * Legt den Wert der timestampDuration-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *            allowed object is {@link Integer }
+     * 
      */
     public void setTimestampDuration(Integer value) {
         this.timestampDuration = value;

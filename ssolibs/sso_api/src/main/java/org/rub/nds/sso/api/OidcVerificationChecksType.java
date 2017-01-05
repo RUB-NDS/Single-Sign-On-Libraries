@@ -5,18 +5,19 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für oidcVerificationChecksType complex type.
+ * <p>
+ * Java-Klasse für oidcVerificationChecksType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="oidcVerificationChecksType">
@@ -39,15 +40,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "oidcVerificationChecksType", propOrder = {
-    "verifyIssuer",
-    "verifyAudience",
-    "verifyNonce",
-    "verifyIssuedAt",
-    "verifyExpired",
-    "vierfyNotBefore",
-    "verifySubClaims"
-})
+@XmlType(name = "oidcVerificationChecksType", propOrder = { "verifyIssuer", "verifyAudience", "verifyNonce",
+        "verifyIssuedAt", "verifyExpired", "vierfyNotBefore", "verifySubClaims" })
 public class OidcVerificationChecksType {
 
     protected boolean verifyIssuer;

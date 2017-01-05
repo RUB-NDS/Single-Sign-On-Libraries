@@ -6,8 +6,10 @@ import org.opensaml.saml2.core.Response;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.saml.samllib.verifier.SAMLVerifierImpl;
+import org.rub.nds.sso.api.AuthenticatedUserType;
 import org.rub.nds.sso.api.SamlType;
 import org.rub.nds.sso.api.SsoType;
+import org.rub.nds.sso.api.VerificationLogType;
 import org.rub.nds.sso.api.VerificationProfileType;
 import org.rub.nds.sso.api.VerificationResponseType;
 import org.rub.nds.sso.exceptions.WrongInputException;
@@ -50,10 +52,24 @@ public class SamlEidProvider extends EidProvider {
                 }
 
                 SAMLVerifierImpl verifier = new SAMLVerifierImpl();
+                verificationProfile = new VerificationProfileType();
+                verificationProfile.setSamlTokenVerificationChecks(((SamlType) samlType)
+                        .getSamlTokenVerificationChecks());
                 verifier.verify(samlResponse, verificationProfile);
+
+                result.setResult(true);
+                AuthenticatedUserType user = new AuthenticatedUserType();
+                user.setUserID(SAMLUtils.getAuthenticatedUser(samlResponse));
+                result.setAuthenticatedUser(user);
+
+                result.setSamlTokenVerifiedChecks(((SamlType) samlType).getSamlTokenVerificationChecks());
             }
             return result;
         } catch (Exception e) {
+            VerificationLogType log = new VerificationLogType();
+            log.setVerificationLog(e.getMessage());
+            result.setResult(false);
+            result.setVerificationLog(log);
             return result;
         }
     }

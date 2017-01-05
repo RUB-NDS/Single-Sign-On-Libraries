@@ -5,7 +5,6 @@
 // Generiert: 2016.12.22 um 01:58:53 PM CET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für pkceParametersType complex type.
+ * <p>
+ * Java-Klasse für pkceParametersType complex type.
  * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="pkceParametersType">
@@ -44,11 +45,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "pkceParametersType", propOrder = {
-    "codeChallenge",
-    "codeVerifier",
-    "codeChallengeMethod"
-})
+@XmlType(name = "pkceParametersType", propOrder = { "codeChallenge", "codeVerifier", "codeChallengeMethod" })
 public class PkceParametersType {
 
     @XmlElement(name = "code_challenge", required = true)
@@ -61,10 +58,8 @@ public class PkceParametersType {
     /**
      * Ruft den Wert der codeChallenge-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getCodeChallenge() {
         return codeChallenge;
@@ -74,9 +69,8 @@ public class PkceParametersType {
      * Legt den Wert der codeChallenge-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setCodeChallenge(String value) {
         this.codeChallenge = value;
@@ -85,10 +79,8 @@ public class PkceParametersType {
     /**
      * Ruft den Wert der codeVerifier-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getCodeVerifier() {
         return codeVerifier;
@@ -98,9 +90,8 @@ public class PkceParametersType {
      * Legt den Wert der codeVerifier-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setCodeVerifier(String value) {
         this.codeVerifier = value;
@@ -109,10 +100,8 @@ public class PkceParametersType {
     /**
      * Ruft den Wert der codeChallengeMethod-Eigenschaft ab.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getCodeChallengeMethod() {
         return codeChallengeMethod;
@@ -122,9 +111,8 @@ public class PkceParametersType {
      * Legt den Wert der codeChallengeMethod-Eigenschaft fest.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setCodeChallengeMethod(String value) {
         this.codeChallengeMethod = value;
