@@ -28,6 +28,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 import oasis.names.tc.dss._1_0.core.schema.VerifyRequest;
+import org.rub.nds.futuretrust.controller.Controller;
 import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
 import org.rub.nds.sso.api.VerificationResponseType;
 import org.rub.nds.saml.samllib.exceptions.SAMLBuildException;
@@ -77,10 +78,6 @@ public class ValidationService {
     @Produces("application/json")
     @Path("verifyrequest")
     public VerificationResponseType postJson(VerifyRequest content) throws JAXBException, SAMLBuildException {
-        SAMLUtils.getSAMLBuilder();
-        VerificationRequestType rq = (VerificationRequestType) content.getOptionalInputs().getAny().get(0);
-        EidProvider provider = new SamlEidProvider();
-
-        return provider.verify(rq.getSaml());
+        return new Controller(content).verify();
     }
 }
