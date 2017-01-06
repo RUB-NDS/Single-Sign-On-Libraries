@@ -10,7 +10,7 @@
         <module>sso_api</module>
         <module>samllib</module>
         <module>provider</module>
-        <module>ValidationService</module>
+        <module>ValidationService</module> <!-- TODO: will be moved to ecsec repository -->
     </modules>
     <dependencies>
         <dependency>

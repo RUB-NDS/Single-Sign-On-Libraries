@@ -39,19 +39,26 @@ public final class JAXBContextResolver implements ContextResolver<JAXBContext> {
     private JAXBContext context;
 
     public JAXBContextResolver() throws Exception {
-        final Map<String, String> namespacePrefixMapper = new HashMap<String, String>();
-        namespacePrefixMapper.put("http://www.w3.org/2001/XMLSchema-instance", "xsi");
-        namespacePrefixMapper.put("http://www.api.sso.cvs.futuretrust.nds.rub.org", "ft");
-        namespacePrefixMapper.put("http://www.api.sso.nds.rub.org", "sso");
-        namespacePrefixMapper.put("urn:oasis:names:tc:dss:1.0:core:schema", "dss");
-
-        Map<String, Object> jaxbProperties = new HashMap<String, Object>();
-        jaxbProperties.put(JAXBContextProperties.MEDIA_TYPE, "application/json");
-        jaxbProperties.put(JAXBContextProperties.JSON_INCLUDE_ROOT, false);
-        jaxbProperties.put(JAXBContextProperties.JSON_NAMESPACE_SEPARATOR, ':');
-        jaxbProperties.put(JAXBContextProperties.NAMESPACE_PREFIX_MAPPER, namespacePrefixMapper);
+        // final Map<String, String> namespacePrefixMapper = new HashMap<String,
+        // String>();
+        // namespacePrefixMapper.put("http://www.w3.org/2001/XMLSchema-instance",
+        // "xsi");
+        // namespacePrefixMapper.put("http://www.api.sso.cvs.futuretrust.nds.rub.org",
+        // "ft");
+        // namespacePrefixMapper.put("http://www.api.sso.nds.rub.org", "sso");
+        // namespacePrefixMapper.put("urn:oasis:names:tc:dss:1.0:core:schema",
+        // "dss");
+        //
+        // Map<String, Object> jaxbProperties = new HashMap<String, Object>();
+        // jaxbProperties.put(JAXBContextProperties.MEDIA_TYPE,
+        // "application/json");
+        // jaxbProperties.put(JAXBContextProperties.JSON_INCLUDE_ROOT, false);
+        // jaxbProperties.put(JAXBContextProperties.JSON_NAMESPACE_SEPARATOR,
+        // ':');
+        // jaxbProperties.put(JAXBContextProperties.NAMESPACE_PREFIX_MAPPER,
+        // namespacePrefixMapper);
         this.context = JAXBContextFactory.createContext(new Class[] { VerifyRequest.class,
-                VerificationRequestType.class, VerificationResponseType.class }, jaxbProperties);
+                VerificationRequestType.class, VerificationResponseType.class }, null);
 
     }
 
