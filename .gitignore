@@ -4,3 +4,6 @@ ssolibs/samllib/nbproject/
 /ssolibs/utils/target/
 /ssolibs/provider/target/
 /ssolibs/WebService/target/
+/ssolibs/ValidationService/WebService/target/
+/ssolibs/ValidationService/ft_sso_api/target/
+/ssolibs/ValidationService/Controller/target/

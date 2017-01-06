@@ -30,6 +30,7 @@ import javax.xml.bind.JAXBContext;
 import oasis.names.tc.dss._1_0.core.schema.VerifyRequest;
 import org.eclipse.persistence.jaxb.JAXBContextFactory;
 import org.eclipse.persistence.jaxb.JAXBContextProperties;
+import org.eclipse.persistence.jaxb.MarshallerProperties;
 import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
 import org.rub.nds.sso.api.VerificationResponseType;
 
@@ -57,8 +58,13 @@ public final class JAXBContextResolver implements ContextResolver<JAXBContext> {
         // ':');
         // jaxbProperties.put(JAXBContextProperties.NAMESPACE_PREFIX_MAPPER,
         // namespacePrefixMapper);
+        System.setProperty(JAXBContext.class.getName(), "org.eclipse.persistence.jaxb.JAXBContextFactory");
+        Map<String, Object> props = new HashMap<String, Object>();
+        props.put("eclipselink.media-type", "application/json");
+        props.put("eclipselink.json.include-root", false);
+        props.put(MarshallerProperties.JSON_VALUE_WRAPPER, "arguments");
         this.context = JAXBContextFactory.createContext(new Class[] { VerifyRequest.class,
-                VerificationRequestType.class, VerificationResponseType.class }, null);
+                VerificationRequestType.class, VerificationResponseType.class }, props);
 
     }
 
