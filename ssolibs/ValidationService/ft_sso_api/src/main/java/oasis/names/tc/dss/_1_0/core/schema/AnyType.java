@@ -13,6 +13,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlType;
+import org.eclipse.persistence.oxm.annotations.XmlCustomizer;
+import org.eclipse.persistence.oxm.annotations.XmlNameTransformer;
+import org.rub.nds.futuretrust.cvs.sso.api.VerificationRequestType;
+import org.rub.nds.futuretrust.cvs.sso.customizer.AnyTypeCustomizer;
+import org.rub.nds.futuretrust.cvs.sso.customizer.NameGenerator;
 import org.w3c.dom.Element;
 
 /**
@@ -38,11 +43,11 @@ import org.w3c.dom.Element;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AnyType", propOrder = { "any" })
+@XmlType(name = "AnyType", propOrder = { "verificationRequest_Type" })
 public class AnyType {
 
     @XmlAnyElement(lax = true)
-    protected List<Object> any;
+    protected List<Object> verificationRequest_Type;
 
     /**
      * Gets the value of the any property.
@@ -68,10 +73,10 @@ public class AnyType {
      * 
      */
     public List<Object> getAny() {
-        if (any == null) {
-            any = new ArrayList<Object>();
+        if (verificationRequest_Type == null) {
+            verificationRequest_Type = new ArrayList<Object>();
         }
-        return this.any;
+        return this.verificationRequest_Type;
     }
 
 }

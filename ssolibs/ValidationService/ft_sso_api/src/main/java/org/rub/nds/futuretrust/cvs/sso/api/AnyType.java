@@ -12,6 +12,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import org.w3c.dom.Element;
 
@@ -38,6 +39,7 @@ import org.w3c.dom.Element;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "verificationRequest_Type", namespace = "org:rub:nds:futuretrust:cvs.sso:api")
 @XmlType(name = "AnyType", propOrder = { "any" })
 public class AnyType {
 
