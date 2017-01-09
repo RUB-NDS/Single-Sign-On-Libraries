@@ -10,6 +10,7 @@
         <module>ft_sso_api</module>
         <module>WebService</module>
         <module>Controller</module>
+        <module>ft_rest_client</module>
     </modules>
     
     <dependencies>
