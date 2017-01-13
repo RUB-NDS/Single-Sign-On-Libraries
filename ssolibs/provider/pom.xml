@@ -12,7 +12,7 @@
     <name>IntegrationTest</name>
     <dependencies>
         <dependency>
-            <groupId>or.rub.nds.sso</groupId>
+            <groupId>org.rub.nds.sso</groupId>
             <artifactId>sso_api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
