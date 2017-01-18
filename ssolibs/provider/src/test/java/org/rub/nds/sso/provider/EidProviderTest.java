@@ -143,7 +143,6 @@ public class EidProviderTest {
 
                 EidProvider p = EidSecurity.getEidProviderInstance("saml");
                 p.setVerificationProfile(verificationProfile);
-                p.setSecurityObject(samlType);
                 p.verify(samlType);
 
                 // try {
