@@ -78,7 +78,7 @@ public class EidProviderTest {
         checks.setVerifySAMLResponseSignatureTrusted(Boolean.TRUE);
 
         String saml_metadata;
-        saml_metadata = "src/test/resources/SamlEidProvider/certfile";
+        saml_metadata = "src/test/resources/SamlEidProvider/metadata.xml";
 
         samlType.setSamlTokenVerificationChecks(checks);
         SamlVerificationParametersType verificationParameters = new SamlVerificationParametersType();
@@ -101,7 +101,7 @@ public class EidProviderTest {
         p.setVerificationProfile(verificationProfile);
         result = p.verify(samlType);
         if (!result.isResult()) {
-            //fail();
+            // fail();
         }
     }
 
@@ -148,7 +148,7 @@ public class EidProviderTest {
         p.setVerificationProfile(verificationProfile);
         result = p.verify(samlType);
         if (!result.isResult()) {
-            //fail();
+            // fail();
         }
     }
 
