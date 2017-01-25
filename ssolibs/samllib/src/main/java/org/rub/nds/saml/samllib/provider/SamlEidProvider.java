@@ -1,8 +1,15 @@
 package org.rub.nds.saml.samllib.provider;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.security.cert.X509Certificate;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
+import org.opensaml.saml2.metadata.provider.AbstractMetadataProvider;
+import org.opensaml.saml2.metadata.provider.FilesystemMetadataProvider;
+import org.opensaml.saml2.metadata.provider.HTTPMetadataProvider;
+import org.opensaml.saml2.metadata.provider.MetadataProviderException;
+import org.opensaml.xml.util.Base64;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.saml.samllib.verifier.SAMLVerifierImpl;
@@ -42,16 +49,17 @@ public class SamlEidProvider extends EidProvider {
             VerificationProfileType verificationProfile = (VerificationProfileType) this.getVerificationProfile();
             if (samlType != null) {
                 Response samlResponse;
-                AuthnRequest authRequest;
+                AuthnRequest authnRequest;
+                AbstractMetadataProvider metadata;
 
                 samlResponse = serializeSamlResponse((SamlType) samlType);
-                authRequest = serializeSamlAuthnRequest((SamlType) samlType);
+                authnRequest = serializeSamlAuthnRequest((SamlType) samlType);
+                metadata = buildMetadata((SamlType) samlType);
 
                 if (samlResponse == null) {
                     throw new SAMLVerifyException("Verification without Resonse is useless");
                 }
-
-                SAMLVerifierImpl verifier = new SAMLVerifierImpl();
+                SAMLVerifierImpl verifier = new SAMLVerifierImpl(authnRequest, metadata);
                 verificationProfile = new VerificationProfileType();
                 verificationProfile.setSamlTokenVerificationChecks(((SamlType) samlType)
                         .getSamlTokenVerificationChecks());
@@ -72,6 +80,29 @@ public class SamlEidProvider extends EidProvider {
             result.setVerificationLog(log);
             return result;
         }
+    }
+
+    private AbstractMetadataProvider buildMetadata(SamlType samlType) throws MetadataProviderException {
+
+        AbstractMetadataProvider metadata;
+
+        if (samlType.getSamlVerificationParameters().getSamlMetadataUrl() != null
+                && !samlType.getSamlVerificationParameters().getSamlMetadataUrl().isEmpty()) {
+            String metadataURL = samlType.getSamlVerificationParameters().getSamlMetadataUrl();
+            metadata = new HTTPMetadataProvider(metadataURL, 5000);
+            metadata.initialize();
+            return metadata;
+        }
+
+        if (samlType.getSamlVerificationParameters().getSamlMetadata() != null
+                && !samlType.getSamlVerificationParameters().getSamlMetadata().isEmpty()) {
+            File file = new File(samlType.getSamlVerificationParameters().getSamlMetadata());
+            metadata = new FilesystemMetadataProvider(file);
+            metadata.initialize();
+            return metadata;
+        }
+
+        return null;
     }
 
     private Response serializeSamlResponse(SamlType samlType) throws WrongInputException, UnsupportedEncodingException {
