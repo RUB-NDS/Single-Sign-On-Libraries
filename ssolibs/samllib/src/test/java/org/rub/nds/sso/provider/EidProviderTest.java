@@ -69,7 +69,7 @@ public class EidProviderTest {
         Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd"));
         unmarshaller.setSchema(schema);
 
-        File file = new File("src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertion.xml");
+        File file = new File("src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertionAndMessage.xml");
         SamlType = (JAXBElement<SamlType>) unmarshaller.unmarshal(file);
         SamlType samlType = SamlType.getValue();
         VerificationProfileType verificationProfile = new VerificationProfileType();
@@ -116,7 +116,7 @@ public class EidProviderTest {
         Schema schema = sf.newSchema(new File("src/test/resources/schema/ssolib_API.xsd"));
         unmarshaller.setSchema(schema);
 
-        File file = new File("src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertion.xml");
+        File file = new File("src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertionAndMessage.xml");
         SamlType = (JAXBElement<SamlType>) unmarshaller.unmarshal(file);
         SamlType samlType = SamlType.getValue();
         VerificationProfileType verificationProfile = new VerificationProfileType();
