@@ -1,5 +1,6 @@
-<?xml version="1.0"?>
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2017-01-27T11:27:24Z" cacheDuration="PT1485948444S" entityID="https://nds.rub.de">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<md:EntitiesDescriptor Name="Group1" validUntil="2030-06-09T09:00:00" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" validUntil="2030-01-27T11:27:24Z" cacheDuration="PT1485948444S" entityID="https://nds.rub.de">
   <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:KeyDescriptor use="signing">
       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
@@ -19,3 +20,4 @@
     <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://nds.rub.de"/>
   </md:IDPSSODescriptor>
 </md:EntityDescriptor>
+</md:EntitiesDescriptor>

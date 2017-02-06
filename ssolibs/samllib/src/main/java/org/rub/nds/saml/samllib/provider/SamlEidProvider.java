@@ -1,15 +1,19 @@
 package org.rub.nds.saml.samllib.provider;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.security.cert.X509Certificate;
+import java.security.GeneralSecurityException;
+import java.util.Timer;
+import org.apache.commons.httpclient.HttpClient;
 import org.opensaml.saml2.core.AuthnRequest;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.saml2.metadata.provider.AbstractMetadataProvider;
 import org.opensaml.saml2.metadata.provider.FilesystemMetadataProvider;
 import org.opensaml.saml2.metadata.provider.HTTPMetadataProvider;
 import org.opensaml.saml2.metadata.provider.MetadataProviderException;
-import org.opensaml.xml.util.Base64;
+import org.opensaml.xml.parse.StaticBasicParserPool;
+import org.opensaml.xml.parse.XMLParserException;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.saml.samllib.utils.SAMLUtils;
 import org.rub.nds.saml.samllib.verifier.SAMLVerifierImpl;
@@ -74,6 +78,7 @@ public class SamlEidProvider extends EidProvider {
             }
             return result;
         } catch (Exception e) {
+            e.printStackTrace();
             VerificationLogType log = new VerificationLogType();
             log.setVerificationLog(e.getMessage());
             result.setResult(false);
@@ -82,14 +87,19 @@ public class SamlEidProvider extends EidProvider {
         }
     }
 
-    private AbstractMetadataProvider buildMetadata(SamlType samlType) throws MetadataProviderException {
+    private AbstractMetadataProvider buildMetadata(SamlType samlType) throws MetadataProviderException, XMLParserException, GeneralSecurityException, IOException {
 
         AbstractMetadataProvider metadata;
 
         if (samlType.getSamlVerificationParameters().getSamlMetadataUrl() != null
                 && !samlType.getSamlVerificationParameters().getSamlMetadataUrl().isEmpty()) {
             String metadataURL = samlType.getSamlVerificationParameters().getSamlMetadataUrl();
-            metadata = new HTTPMetadataProvider(metadataURL, 5000);
+            HttpClient client = new HttpClient();
+            Timer timer = new Timer();
+            metadata = new HTTPMetadataProvider(timer, client,metadataURL);
+            StaticBasicParserPool parserPool = new StaticBasicParserPool();
+            parserPool.initialize();
+            metadata.setParserPool(parserPool);
             metadata.initialize();
             return metadata;
         }
@@ -98,6 +108,9 @@ public class SamlEidProvider extends EidProvider {
                 && !samlType.getSamlVerificationParameters().getSamlMetadata().isEmpty()) {
             File file = new File(samlType.getSamlVerificationParameters().getSamlMetadata());
             metadata = new FilesystemMetadataProvider(file);
+            StaticBasicParserPool parserPool = new StaticBasicParserPool();
+            parserPool.initialize();
+            metadata.setParserPool(parserPool);
             metadata.initialize();
             return metadata;
         }
