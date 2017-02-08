@@ -58,50 +58,89 @@ public class EidProviderTest {
     @After
     public void tearDown() {
     }
-    
-    @Test    
-    public void testVerifySAMLResponseSignatureTrusted() throws JAXBException, SAXException, NoSuchEidProviderException{
-        
+
+    @Test
+    public void testVerifySAMLResponseSignatureTrusted() throws JAXBException, SAXException, NoSuchEidProviderException {
+
         VerificationResponseType result = new VerificationResponseType();
-        
+
         SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
         checks.setVerifySAMLResponseSignatureTrusted(Boolean.TRUE);
-        
+
         String samlResponseFile = "src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertionAndMessage.xml";
-        
+
         String saml_metadata;
         saml_metadata = "src/test/resources/SamlEidProvider/metadata.xml";
         SamlVerificationParametersType verificationParameters = new SamlVerificationParametersType();
         verificationParameters.setSamlMetadata(saml_metadata);
-        result = testVerifySAMLResponse(checks,samlResponseFile,verificationParameters);
+        result = testVerifySAMLResponse(checks, samlResponseFile, verificationParameters);
         if (!result.isResult()) {
             // fail();
         }
     }
 
-    @Test    
-    public void testVerifySAMLResponseSignatureTrustedUrl() throws JAXBException, SAXException, NoSuchEidProviderException{
-        
+    @Test
+    public void testVerifySAMLResponseSignatureTrustedUrl() throws JAXBException, SAXException,
+            NoSuchEidProviderException {
+
         VerificationResponseType result = new VerificationResponseType();
-        
+
         SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
         checks.setVerifySAMLResponseSignatureTrusted(Boolean.TRUE);
-        
+
         String samlResponseFile = "src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertionAndMessage.xml";
-        
+
         String saml_metadata_url;
         saml_metadata_url = "https://www.telenaut.de/ft/certfile";
         SamlVerificationParametersType verificationParameters = new SamlVerificationParametersType();
         verificationParameters.setSamlMetadataUrl(saml_metadata_url);
-        result = testVerifySAMLResponse(checks,samlResponseFile,verificationParameters);
+        result = testVerifySAMLResponse(checks, samlResponseFile, verificationParameters);
         if (!result.isResult()) {
             // fail();
         }
     }
-    
-    private VerificationResponseType testVerifySAMLResponse(SamlTokenVerificationChecksType checks, String samlResponseFile, SamlVerificationParametersType verificationParameters) throws JAXBException, SAXException,
-        NoSuchEidProviderException {
+
+    @Test
+    public void testVerifySAMLResponseSchema() throws JAXBException, SAXException, NoSuchEidProviderException {
+
         VerificationResponseType result = new VerificationResponseType();
+
+        SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
+        checks.setVerifySchema(Boolean.TRUE);
+
+        String samlResponseFile = "src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertionAndMessage.xml";
+
+        SamlVerificationParametersType verificationParameters = new SamlVerificationParametersType();
+        result = testVerifySAMLResponse(checks, samlResponseFile, verificationParameters);
+        if (!result.isResult()) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testVerifySAMLResponseSchemaUrl() throws JAXBException, SAXException, NoSuchEidProviderException {
+
+        VerificationResponseType result = new VerificationResponseType();
+
+        SamlTokenVerificationChecksType checks = new SamlTokenVerificationChecksType();
+        checks.setVerifySchema(Boolean.TRUE);
+
+        String samlResponseFile = "src/test/resources/SamlEidProvider/SamlResponseWithSignedAssertionAndMessage.xml";
+
+        SamlVerificationParametersType verificationParameters = new SamlVerificationParametersType();
+        verificationParameters.setSamlSchemaUrl("test");
+        result = testVerifySAMLResponse(checks, samlResponseFile, verificationParameters);
+        if (!result.isResult()) {
+            fail();
+        }
+    }
+
+    private VerificationResponseType testVerifySAMLResponse(SamlTokenVerificationChecksType checks,
+            String samlResponseFile, SamlVerificationParametersType verificationParameters) throws JAXBException,
+            SAXException, NoSuchEidProviderException {
+
+        VerificationResponseType result = new VerificationResponseType();
+
         JAXBContext jaxbContext = JAXBContext.newInstance("org.rub.nds.sso.api");
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         JAXBElement<SamlType> SamlType;
@@ -112,20 +151,10 @@ public class EidProviderTest {
         File file = new File(samlResponseFile);
         SamlType = (JAXBElement<SamlType>) unmarshaller.unmarshal(file);
         SamlType samlType = SamlType.getValue();
+
         VerificationProfileType verificationProfile = new VerificationProfileType();
 
-        samlType.setSamlTokenVerificationChecks(checks);
-        samlType.setSamlVerificationParameters(verificationParameters);
-
-        String samlVerificationProfile;
-        SamlTokenVerificationChecksType samlTokenVerificationChecks;
-        SamlAuthnRequestVerificationChecksType samlAuthnRequestVerificationChecks;
-        verificationParameters = samlType.getSamlVerificationParameters();
-        samlVerificationProfile = samlType.getSamlVerificationProfile();
-        samlAuthnRequestVerificationChecks = samlType.getSamlAuthnReqVerificationChecks();
-
         verificationProfile.setID(UUID.randomUUID().toString());
-        verificationProfile.setSamlAuthnReqVerificationChecks(samlAuthnRequestVerificationChecks);
         verificationProfile.setSamlTokenVerificationChecks(checks);
         verificationProfile.setSamlTokenVerificationParameters(verificationParameters);
 

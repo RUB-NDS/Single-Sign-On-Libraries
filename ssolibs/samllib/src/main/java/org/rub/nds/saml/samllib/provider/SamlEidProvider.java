@@ -58,15 +58,12 @@ public class SamlEidProvider extends EidProvider {
 
                 samlResponse = serializeSamlResponse((SamlType) samlType);
                 authnRequest = serializeSamlAuthnRequest((SamlType) samlType);
-                metadata = buildMetadata((SamlType) samlType);
+                metadata = buildMetadata(this.getVerificationProfile());
 
                 if (samlResponse == null) {
                     throw new SAMLVerifyException("Verification without Resonse is useless");
                 }
                 SAMLVerifierImpl verifier = new SAMLVerifierImpl(authnRequest, metadata);
-                verificationProfile = new VerificationProfileType();
-                verificationProfile.setSamlTokenVerificationChecks(((SamlType) samlType)
-                        .getSamlTokenVerificationChecks());
                 verifier.verify(samlResponse, verificationProfile);
 
                 result.setResult(true);
@@ -87,16 +84,17 @@ public class SamlEidProvider extends EidProvider {
         }
     }
 
-    private AbstractMetadataProvider buildMetadata(SamlType samlType) throws MetadataProviderException, XMLParserException, GeneralSecurityException, IOException {
+    private AbstractMetadataProvider buildMetadata(VerificationProfileType profile) throws MetadataProviderException,
+            XMLParserException, GeneralSecurityException, IOException {
 
         AbstractMetadataProvider metadata;
 
-        if (samlType.getSamlVerificationParameters().getSamlMetadataUrl() != null
-                && !samlType.getSamlVerificationParameters().getSamlMetadataUrl().isEmpty()) {
-            String metadataURL = samlType.getSamlVerificationParameters().getSamlMetadataUrl();
+        if (profile.getSamlTokenVerificationParameters().getSamlMetadataUrl() != null
+                && !profile.getSamlTokenVerificationParameters().getSamlMetadataUrl().isEmpty()) {
+            String metadataURL = profile.getSamlTokenVerificationParameters().getSamlMetadataUrl();
             HttpClient client = new HttpClient();
             Timer timer = new Timer();
-            metadata = new HTTPMetadataProvider(timer, client,metadataURL);
+            metadata = new HTTPMetadataProvider(timer, client, metadataURL);
             StaticBasicParserPool parserPool = new StaticBasicParserPool();
             parserPool.initialize();
             metadata.setParserPool(parserPool);
@@ -104,9 +102,9 @@ public class SamlEidProvider extends EidProvider {
             return metadata;
         }
 
-        if (samlType.getSamlVerificationParameters().getSamlMetadata() != null
-                && !samlType.getSamlVerificationParameters().getSamlMetadata().isEmpty()) {
-            File file = new File(samlType.getSamlVerificationParameters().getSamlMetadata());
+        if (profile.getSamlTokenVerificationParameters().getSamlMetadata() != null
+                && !profile.getSamlTokenVerificationParameters().getSamlMetadata().isEmpty()) {
+            File file = new File(profile.getSamlTokenVerificationParameters().getSamlMetadata());
             metadata = new FilesystemMetadataProvider(file);
             StaticBasicParserPool parserPool = new StaticBasicParserPool();
             parserPool.initialize();

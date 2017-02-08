@@ -41,11 +41,17 @@ public class SchemaValidator implements SAMLVerifierInterface {
             _log.debug("Verify the XML-Schema ...");
 
             if (profile.getSamlTokenVerificationChecks().isVerifySchema()) {
-                ValidatorSuite schemaValidators = org.opensaml.Configuration
-                        .getValidatorSuite("saml2-core-schema-validator");
-                schemaValidators.validate(samlObject);
-                schemaValidators = org.opensaml.Configuration.getValidatorSuite("saml2-core-spec-validator");
-                schemaValidators.validate(samlObject);
+                if (profile.getSamlTokenVerificationParameters().getSamlSchema().isEmpty()
+                        && profile.getSamlTokenVerificationParameters().getSamlSchemaUrl() == null) {
+                    ValidatorSuite schemaValidators = org.opensaml.Configuration
+                            .getValidatorSuite("saml2-core-schema-validator");
+                    schemaValidators.validate(samlObject);
+                    schemaValidators = org.opensaml.Configuration.getValidatorSuite("saml2-core-spec-validator");
+                    schemaValidators.validate(samlObject);
+                }
+                if (profile.getSamlTokenVerificationParameters().getSamlSchemaUrl() != null) {
+                    System.out.println(profile.getSamlTokenVerificationParameters().getSamlSchemaUrl());
+                }
             }
         } catch (ValidationException ex) {
             _log.error("Schema validation failed! ");
