@@ -5,18 +5,19 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for oidcType complex type.
+ * <p>
+ * Java class for oidcType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="oidcType">
@@ -36,15 +37,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "oidcType", propOrder = {
-    "oidcResponse",
-    "oidcVerificationProfile",
-    "oidcVerificationParameters",
-    "oidcVerificiationChecks"
-})
-public class OidcType
-    extends SsoType
-{
+@XmlType(name = "oidcType", propOrder = { "oidcResponse", "oidcVerificationProfile", "oidcVerificationParameters",
+        "oidcVerificiationChecks" })
+public class OidcType extends SsoType {
 
     protected String oidcResponse;
     protected String oidcVerificationProfile;
@@ -54,10 +49,8 @@ public class OidcType
     /**
      * Gets the value of the oidcResponse property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getOidcResponse() {
         return oidcResponse;
@@ -67,9 +60,8 @@ public class OidcType
      * Sets the value of the oidcResponse property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setOidcResponse(String value) {
         this.oidcResponse = value;
@@ -78,10 +70,8 @@ public class OidcType
     /**
      * Gets the value of the oidcVerificationProfile property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getOidcVerificationProfile() {
         return oidcVerificationProfile;
@@ -91,9 +81,8 @@ public class OidcType
      * Sets the value of the oidcVerificationProfile property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setOidcVerificationProfile(String value) {
         this.oidcVerificationProfile = value;
@@ -102,10 +91,8 @@ public class OidcType
     /**
      * Gets the value of the oidcVerificationParameters property.
      * 
-     * @return
-     *     possible object is
-     *     {@link OidcVerificationParametersType }
-     *     
+     * @return possible object is {@link OidcVerificationParametersType }
+     * 
      */
     public OidcVerificationParametersType getOidcVerificationParameters() {
         return oidcVerificationParameters;
@@ -115,9 +102,8 @@ public class OidcType
      * Sets the value of the oidcVerificationParameters property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link OidcVerificationParametersType }
-     *     
+     *            allowed object is {@link OidcVerificationParametersType }
+     * 
      */
     public void setOidcVerificationParameters(OidcVerificationParametersType value) {
         this.oidcVerificationParameters = value;
@@ -126,10 +112,8 @@ public class OidcType
     /**
      * Gets the value of the oidcVerificiationChecks property.
      * 
-     * @return
-     *     possible object is
-     *     {@link OidcVerificationChecksType }
-     *     
+     * @return possible object is {@link OidcVerificationChecksType }
+     * 
      */
     public OidcVerificationChecksType getOidcVerificiationChecks() {
         return oidcVerificiationChecks;
@@ -139,9 +123,8 @@ public class OidcType
      * Sets the value of the oidcVerificiationChecks property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link OidcVerificationChecksType }
-     *     
+     *            allowed object is {@link OidcVerificationChecksType }
+     * 
      */
     public void setOidcVerificiationChecks(OidcVerificationChecksType value) {
         this.oidcVerificiationChecks = value;

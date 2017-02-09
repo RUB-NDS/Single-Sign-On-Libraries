@@ -5,18 +5,19 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for samlTokenVerificationChecksType complex type.
+ * <p>
+ * Java class for samlTokenVerificationChecksType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="samlTokenVerificationChecksType">
@@ -51,27 +52,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlTokenVerificationChecksType", propOrder = {
-    "verifySchema",
-    "verifyXSW",
-    "verifySAMLResponseID",
-    "verifySAMLResponseIssueInstant",
-    "verifySAMLResponseSignatureTrusted",
-    "verifySAMLResponseSignature",
-    "verifySAMLResponseInResponseTo",
-    "verifySAMLAssertionID",
-    "verifySAMLAssertionSignatureTrusted",
-    "verifySAMLAssertionSignature",
-    "verifySAMLAssertionInResponseTo",
-    "verifySAMLAssertionIssueInstant",
-    "verifySAMLAssertionSbjConfirmationTimestamps",
-    "verifySAMLAssertionSbjConfirmationDestination",
-    "verifySAMLAssertionSbjInResponseTo",
-    "verifySAMLAssertionConditionsTimestamps",
-    "verifySAMLAssertionConditionsAudience",
-    "verifySAMLAssertionAuthnMethod",
-    "verifyHolderOfKey"
-})
+@XmlType(name = "samlTokenVerificationChecksType", propOrder = { "verifySchema", "verifyXSW", "verifySAMLResponseID",
+        "verifySAMLResponseIssueInstant", "verifySAMLResponseSignatureTrusted", "verifySAMLResponseSignature",
+        "verifySAMLResponseInResponseTo", "verifySAMLAssertionID", "verifySAMLAssertionSignatureTrusted",
+        "verifySAMLAssertionSignature", "verifySAMLAssertionInResponseTo", "verifySAMLAssertionIssueInstant",
+        "verifySAMLAssertionSbjConfirmationTimestamps", "verifySAMLAssertionSbjConfirmationDestination",
+        "verifySAMLAssertionSbjInResponseTo", "verifySAMLAssertionConditionsTimestamps",
+        "verifySAMLAssertionConditionsAudience", "verifySAMLAssertionAuthnMethod", "verifyHolderOfKey" })
 public class SamlTokenVerificationChecksType {
 
     protected Boolean verifySchema;
@@ -97,10 +84,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySchema property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySchema() {
         return verifySchema;
@@ -110,9 +95,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySchema property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySchema(Boolean value) {
         this.verifySchema = value;
@@ -121,10 +105,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifyXSW property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifyXSW() {
         return verifyXSW;
@@ -134,9 +116,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifyXSW property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifyXSW(Boolean value) {
         this.verifyXSW = value;
@@ -145,10 +126,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLResponseID property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLResponseID() {
         return verifySAMLResponseID;
@@ -158,9 +137,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLResponseID property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLResponseID(Boolean value) {
         this.verifySAMLResponseID = value;
@@ -169,10 +147,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLResponseIssueInstant property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLResponseIssueInstant() {
         return verifySAMLResponseIssueInstant;
@@ -182,9 +158,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLResponseIssueInstant property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLResponseIssueInstant(Boolean value) {
         this.verifySAMLResponseIssueInstant = value;
@@ -193,10 +168,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLResponseSignatureTrusted property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLResponseSignatureTrusted() {
         return verifySAMLResponseSignatureTrusted;
@@ -206,9 +179,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLResponseSignatureTrusted property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLResponseSignatureTrusted(Boolean value) {
         this.verifySAMLResponseSignatureTrusted = value;
@@ -217,10 +189,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLResponseSignature property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLResponseSignature() {
         return verifySAMLResponseSignature;
@@ -230,9 +200,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLResponseSignature property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLResponseSignature(Boolean value) {
         this.verifySAMLResponseSignature = value;
@@ -241,10 +210,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLResponseInResponseTo property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLResponseInResponseTo() {
         return verifySAMLResponseInResponseTo;
@@ -254,9 +221,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLResponseInResponseTo property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLResponseInResponseTo(Boolean value) {
         this.verifySAMLResponseInResponseTo = value;
@@ -265,10 +231,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionID property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionID() {
         return verifySAMLAssertionID;
@@ -278,9 +242,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionID property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionID(Boolean value) {
         this.verifySAMLAssertionID = value;
@@ -289,10 +252,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionSignatureTrusted property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionSignatureTrusted() {
         return verifySAMLAssertionSignatureTrusted;
@@ -302,9 +263,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionSignatureTrusted property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionSignatureTrusted(Boolean value) {
         this.verifySAMLAssertionSignatureTrusted = value;
@@ -313,10 +273,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionSignature property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionSignature() {
         return verifySAMLAssertionSignature;
@@ -326,9 +284,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionSignature property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionSignature(Boolean value) {
         this.verifySAMLAssertionSignature = value;
@@ -337,10 +294,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionInResponseTo property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionInResponseTo() {
         return verifySAMLAssertionInResponseTo;
@@ -350,9 +305,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionInResponseTo property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionInResponseTo(Boolean value) {
         this.verifySAMLAssertionInResponseTo = value;
@@ -361,10 +315,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionIssueInstant property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionIssueInstant() {
         return verifySAMLAssertionIssueInstant;
@@ -374,57 +326,54 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionIssueInstant property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionIssueInstant(Boolean value) {
         this.verifySAMLAssertionIssueInstant = value;
     }
 
     /**
-     * Gets the value of the verifySAMLAssertionSbjConfirmationTimestamps property.
+     * Gets the value of the verifySAMLAssertionSbjConfirmationTimestamps
+     * property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionSbjConfirmationTimestamps() {
         return verifySAMLAssertionSbjConfirmationTimestamps;
     }
 
     /**
-     * Sets the value of the verifySAMLAssertionSbjConfirmationTimestamps property.
+     * Sets the value of the verifySAMLAssertionSbjConfirmationTimestamps
+     * property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionSbjConfirmationTimestamps(Boolean value) {
         this.verifySAMLAssertionSbjConfirmationTimestamps = value;
     }
 
     /**
-     * Gets the value of the verifySAMLAssertionSbjConfirmationDestination property.
+     * Gets the value of the verifySAMLAssertionSbjConfirmationDestination
+     * property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionSbjConfirmationDestination() {
         return verifySAMLAssertionSbjConfirmationDestination;
     }
 
     /**
-     * Sets the value of the verifySAMLAssertionSbjConfirmationDestination property.
+     * Sets the value of the verifySAMLAssertionSbjConfirmationDestination
+     * property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionSbjConfirmationDestination(Boolean value) {
         this.verifySAMLAssertionSbjConfirmationDestination = value;
@@ -433,10 +382,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionSbjInResponseTo property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionSbjInResponseTo() {
         return verifySAMLAssertionSbjInResponseTo;
@@ -446,9 +393,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionSbjInResponseTo property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionSbjInResponseTo(Boolean value) {
         this.verifySAMLAssertionSbjInResponseTo = value;
@@ -457,10 +403,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionConditionsTimestamps property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionConditionsTimestamps() {
         return verifySAMLAssertionConditionsTimestamps;
@@ -470,9 +414,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionConditionsTimestamps property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionConditionsTimestamps(Boolean value) {
         this.verifySAMLAssertionConditionsTimestamps = value;
@@ -481,10 +424,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionConditionsAudience property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionConditionsAudience() {
         return verifySAMLAssertionConditionsAudience;
@@ -494,9 +435,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionConditionsAudience property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionConditionsAudience(Boolean value) {
         this.verifySAMLAssertionConditionsAudience = value;
@@ -505,10 +445,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifySAMLAssertionAuthnMethod property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifySAMLAssertionAuthnMethod() {
         return verifySAMLAssertionAuthnMethod;
@@ -518,9 +456,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifySAMLAssertionAuthnMethod property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifySAMLAssertionAuthnMethod(Boolean value) {
         this.verifySAMLAssertionAuthnMethod = value;
@@ -529,10 +466,8 @@ public class SamlTokenVerificationChecksType {
     /**
      * Gets the value of the verifyHolderOfKey property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isVerifyHolderOfKey() {
         return verifyHolderOfKey;
@@ -542,9 +477,8 @@ public class SamlTokenVerificationChecksType {
      * Sets the value of the verifyHolderOfKey property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setVerifyHolderOfKey(Boolean value) {
         this.verifyHolderOfKey = value;

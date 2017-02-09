@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for audienceRestrictionsType complex type.
+ * <p>
+ * Java class for audienceRestrictionsType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="audienceRestrictionsType">
@@ -34,9 +35,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "audienceRestrictionsType", propOrder = {
-    "newElement"
-})
+@XmlType(name = "audienceRestrictionsType", propOrder = { "newElement" })
 public class AudienceRestrictionsType {
 
     @XmlElement(name = "NewElement", required = true)
@@ -45,10 +44,8 @@ public class AudienceRestrictionsType {
     /**
      * Gets the value of the newElement property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getNewElement() {
         return newElement;
@@ -58,9 +55,8 @@ public class AudienceRestrictionsType {
      * Sets the value of the newElement property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setNewElement(String value) {
         this.newElement = value;

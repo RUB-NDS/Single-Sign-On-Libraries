@@ -5,18 +5,19 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for jwkType complex type.
+ * <p>
+ * Java class for jwkType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="jwkType">
@@ -39,15 +40,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "jwkType", propOrder = {
-    "kty",
-    "sig",
-    "crv",
-    "x",
-    "y",
-    "alg",
-    "k"
-})
+@XmlType(name = "jwkType", propOrder = { "kty", "sig", "crv", "x", "y", "alg", "k" })
 public class JwkType {
 
     protected String kty;
@@ -61,10 +54,8 @@ public class JwkType {
     /**
      * Gets the value of the kty property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getKty() {
         return kty;
@@ -74,9 +65,8 @@ public class JwkType {
      * Sets the value of the kty property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setKty(String value) {
         this.kty = value;
@@ -85,10 +75,8 @@ public class JwkType {
     /**
      * Gets the value of the sig property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSig() {
         return sig;
@@ -98,9 +86,8 @@ public class JwkType {
      * Sets the value of the sig property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSig(String value) {
         this.sig = value;
@@ -109,10 +96,8 @@ public class JwkType {
     /**
      * Gets the value of the crv property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getCrv() {
         return crv;
@@ -122,9 +107,8 @@ public class JwkType {
      * Sets the value of the crv property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setCrv(String value) {
         this.crv = value;
@@ -133,10 +117,8 @@ public class JwkType {
     /**
      * Gets the value of the x property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getX() {
         return x;
@@ -146,9 +128,8 @@ public class JwkType {
      * Sets the value of the x property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setX(String value) {
         this.x = value;
@@ -157,10 +138,8 @@ public class JwkType {
     /**
      * Gets the value of the y property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getY() {
         return y;
@@ -170,9 +149,8 @@ public class JwkType {
      * Sets the value of the y property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setY(String value) {
         this.y = value;
@@ -181,10 +159,8 @@ public class JwkType {
     /**
      * Gets the value of the alg property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAlg() {
         return alg;
@@ -194,9 +170,8 @@ public class JwkType {
      * Sets the value of the alg property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAlg(String value) {
         this.alg = value;
@@ -205,10 +180,8 @@ public class JwkType {
     /**
      * Gets the value of the k property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getK() {
         return k;
@@ -218,9 +191,8 @@ public class JwkType {
      * Sets the value of the k property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setK(String value) {
         this.k = value;

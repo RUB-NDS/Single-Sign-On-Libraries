@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for verificationLogType complex type.
+ * <p>
+ * Java class for verificationLogType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="verificationLogType">
@@ -45,11 +46,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "verificationLogType", propOrder = {
-    "logLevel",
-    "exception",
-    "verificationLog"
-})
+@XmlType(name = "verificationLogType", propOrder = { "logLevel", "exception", "verificationLog" })
 public class VerificationLogType {
 
     protected String logLevel;
@@ -60,10 +57,8 @@ public class VerificationLogType {
     /**
      * Gets the value of the logLevel property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getLogLevel() {
         return logLevel;
@@ -73,9 +68,8 @@ public class VerificationLogType {
      * Sets the value of the logLevel property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setLogLevel(String value) {
         this.logLevel = value;
@@ -84,10 +78,8 @@ public class VerificationLogType {
     /**
      * Gets the value of the exception property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getException() {
         return exception;
@@ -97,9 +89,8 @@ public class VerificationLogType {
      * Sets the value of the exception property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setException(String value) {
         this.exception = value;
@@ -108,10 +99,8 @@ public class VerificationLogType {
     /**
      * Gets the value of the verificationLog property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getVerificationLog() {
         return verificationLog;
@@ -121,9 +110,8 @@ public class VerificationLogType {
      * Sets the value of the verificationLog property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setVerificationLog(String value) {
         this.verificationLog = value;

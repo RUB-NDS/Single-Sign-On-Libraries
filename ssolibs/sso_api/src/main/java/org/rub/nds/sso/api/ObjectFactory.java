@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.JAXBElement;
@@ -13,33 +12,34 @@ import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
 
-
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the org.rub.nds.sso.api package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
- * provided in this class.
+ * This object contains factory methods for each Java content interface and Java
+ * element interface generated in the org.rub.nds.sso.api package.
+ * <p>
+ * An ObjectFactory allows you to programatically construct new instances of the
+ * Java representation for XML content. The Java representation of XML content
+ * can consist of schema derived interfaces and classes representing the binding
+ * of schema type definitions, element declarations and model groups. Factory
+ * methods for each of these are provided in this class.
  * 
  */
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _VerificationResponse_QNAME = new QName("http://www.api.sso.nds.rub.org", "verificationResponse");
-    private final static QName _SamlRequestProfiles_QNAME = new QName("http://www.api.sso.nds.rub.org", "samlRequestProfiles");
-    private final static QName _AuthenticatedUser_QNAME = new QName("http://www.api.sso.nds.rub.org", "authenticatedUser");
-    private final static QName _SamlTokenProfiles_QNAME = new QName("http://www.api.sso.nds.rub.org", "samlTokenProfiles");
+    private final static QName _VerificationResponse_QNAME = new QName("http://www.api.sso.nds.rub.org",
+            "verificationResponse");
+    private final static QName _SamlRequestProfiles_QNAME = new QName("http://www.api.sso.nds.rub.org",
+            "samlRequestProfiles");
+    private final static QName _AuthenticatedUser_QNAME = new QName("http://www.api.sso.nds.rub.org",
+            "authenticatedUser");
+    private final static QName _SamlTokenProfiles_QNAME = new QName("http://www.api.sso.nds.rub.org",
+            "samlTokenProfiles");
     private final static QName _Saml_QNAME = new QName("http://www.api.sso.nds.rub.org", "saml");
     private final static QName _Oidc_QNAME = new QName("http://www.api.sso.nds.rub.org", "oidc");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.rub.nds.sso.api
+     * Create a new ObjectFactory that can be used to create new instances of
+     * schema derived classes for package: org.rub.nds.sso.api
      * 
      */
     public ObjectFactory() {
@@ -278,43 +278,52 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link VerificationResponseType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}
+     * {@link VerificationResponseType }{@code >}
      * 
      */
     @XmlElementDecl(namespace = "http://www.api.sso.nds.rub.org", name = "verificationResponse")
     public JAXBElement<VerificationResponseType> createVerificationResponse(VerificationResponseType value) {
-        return new JAXBElement<VerificationResponseType>(_VerificationResponse_QNAME, VerificationResponseType.class, null, value);
+        return new JAXBElement<VerificationResponseType>(_VerificationResponse_QNAME, VerificationResponseType.class,
+                null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SamlRequestProfilesType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}
+     * {@link SamlRequestProfilesType }{@code >}
      * 
      */
     @XmlElementDecl(namespace = "http://www.api.sso.nds.rub.org", name = "samlRequestProfiles")
     public JAXBElement<SamlRequestProfilesType> createSamlRequestProfiles(SamlRequestProfilesType value) {
-        return new JAXBElement<SamlRequestProfilesType>(_SamlRequestProfiles_QNAME, SamlRequestProfilesType.class, null, value);
+        return new JAXBElement<SamlRequestProfilesType>(_SamlRequestProfiles_QNAME, SamlRequestProfilesType.class,
+                null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AuthenticatedUserType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}
+     * {@link AuthenticatedUserType }{@code >}
      * 
      */
     @XmlElementDecl(namespace = "http://www.api.sso.nds.rub.org", name = "authenticatedUser")
     public JAXBElement<AuthenticatedUserType> createAuthenticatedUser(AuthenticatedUserType value) {
-        return new JAXBElement<AuthenticatedUserType>(_AuthenticatedUser_QNAME, AuthenticatedUserType.class, null, value);
+        return new JAXBElement<AuthenticatedUserType>(_AuthenticatedUser_QNAME, AuthenticatedUserType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SamlTokenProfilesType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}
+     * {@link SamlTokenProfilesType }{@code >}
      * 
      */
     @XmlElementDecl(namespace = "http://www.api.sso.nds.rub.org", name = "samlTokenProfiles")
     public JAXBElement<SamlTokenProfilesType> createSamlTokenProfiles(SamlTokenProfilesType value) {
-        return new JAXBElement<SamlTokenProfilesType>(_SamlTokenProfiles_QNAME, SamlTokenProfilesType.class, null, value);
+        return new JAXBElement<SamlTokenProfilesType>(_SamlTokenProfiles_QNAME, SamlTokenProfilesType.class, null,
+                value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SamlType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SamlType }
+     * {@code >}
      * 
      */
     @XmlElementDecl(namespace = "http://www.api.sso.nds.rub.org", name = "saml")
@@ -323,7 +332,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link OidcType }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link OidcType }
+     * {@code >}
      * 
      */
     @XmlElementDecl(namespace = "http://www.api.sso.nds.rub.org", name = "oidc")

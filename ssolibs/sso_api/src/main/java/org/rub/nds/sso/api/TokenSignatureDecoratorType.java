@@ -5,18 +5,19 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for tokenSignatureDecoratorType complex type.
+ * <p>
+ * Java class for tokenSignatureDecoratorType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="tokenSignatureDecoratorType">
@@ -35,11 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "tokenSignatureDecoratorType", propOrder = {
-    "signAssertion",
-    "signResponse",
-    "signAuthnRequest"
-})
+@XmlType(name = "tokenSignatureDecoratorType", propOrder = { "signAssertion", "signResponse", "signAuthnRequest" })
 public class TokenSignatureDecoratorType {
 
     protected Boolean signAssertion;
@@ -49,10 +46,8 @@ public class TokenSignatureDecoratorType {
     /**
      * Gets the value of the signAssertion property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isSignAssertion() {
         return signAssertion;
@@ -62,9 +57,8 @@ public class TokenSignatureDecoratorType {
      * Sets the value of the signAssertion property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setSignAssertion(Boolean value) {
         this.signAssertion = value;
@@ -73,10 +67,8 @@ public class TokenSignatureDecoratorType {
     /**
      * Gets the value of the signResponse property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isSignResponse() {
         return signResponse;
@@ -86,9 +78,8 @@ public class TokenSignatureDecoratorType {
      * Sets the value of the signResponse property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setSignResponse(Boolean value) {
         this.signResponse = value;
@@ -97,10 +88,8 @@ public class TokenSignatureDecoratorType {
     /**
      * Gets the value of the signAuthnRequest property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isSignAuthnRequest() {
         return signAuthnRequest;
@@ -110,9 +99,8 @@ public class TokenSignatureDecoratorType {
      * Sets the value of the signAuthnRequest property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setSignAuthnRequest(Boolean value) {
         this.signAuthnRequest = value;

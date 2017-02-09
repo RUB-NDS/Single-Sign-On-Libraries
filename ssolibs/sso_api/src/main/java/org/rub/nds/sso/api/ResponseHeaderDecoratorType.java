@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for responseHeaderDecoratorType complex type.
+ * <p>
+ * Java class for responseHeaderDecoratorType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="responseHeaderDecoratorType">
@@ -37,12 +38,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "responseHeaderDecoratorType", propOrder = {
-    "issuerStr",
-    "statusCodeURI",
-    "addInResponseTo",
-    "addDestination"
-})
+@XmlType(name = "responseHeaderDecoratorType", propOrder = { "issuerStr", "statusCodeURI", "addInResponseTo",
+        "addDestination" })
 public class ResponseHeaderDecoratorType {
 
     @XmlElement(required = true)
@@ -54,10 +51,8 @@ public class ResponseHeaderDecoratorType {
     /**
      * Gets the value of the issuerStr property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getIssuerStr() {
         return issuerStr;
@@ -67,9 +62,8 @@ public class ResponseHeaderDecoratorType {
      * Sets the value of the issuerStr property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setIssuerStr(String value) {
         this.issuerStr = value;
@@ -78,10 +72,8 @@ public class ResponseHeaderDecoratorType {
     /**
      * Gets the value of the statusCodeURI property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getStatusCodeURI() {
         return statusCodeURI;
@@ -91,9 +83,8 @@ public class ResponseHeaderDecoratorType {
      * Sets the value of the statusCodeURI property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setStatusCodeURI(String value) {
         this.statusCodeURI = value;
@@ -102,10 +93,8 @@ public class ResponseHeaderDecoratorType {
     /**
      * Gets the value of the addInResponseTo property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isAddInResponseTo() {
         return addInResponseTo;
@@ -115,9 +104,8 @@ public class ResponseHeaderDecoratorType {
      * Sets the value of the addInResponseTo property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setAddInResponseTo(Boolean value) {
         this.addInResponseTo = value;
@@ -126,10 +114,8 @@ public class ResponseHeaderDecoratorType {
     /**
      * Gets the value of the addDestination property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isAddDestination() {
         return addDestination;
@@ -139,9 +125,8 @@ public class ResponseHeaderDecoratorType {
      * Sets the value of the addDestination property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setAddDestination(Boolean value) {
         this.addDestination = value;

@@ -5,18 +5,19 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for proofOfPossessionType complex type.
+ * <p>
+ * Java class for proofOfPossessionType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="proofOfPossessionType">
@@ -36,12 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "proofOfPossessionType", propOrder = {
-    "kid",
-    "jwk",
-    "jwe",
-    "jku"
-})
+@XmlType(name = "proofOfPossessionType", propOrder = { "kid", "jwk", "jwe", "jku" })
 public class ProofOfPossessionType {
 
     protected String kid;
@@ -52,10 +48,8 @@ public class ProofOfPossessionType {
     /**
      * Gets the value of the kid property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getKid() {
         return kid;
@@ -65,9 +59,8 @@ public class ProofOfPossessionType {
      * Sets the value of the kid property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setKid(String value) {
         this.kid = value;
@@ -76,10 +69,8 @@ public class ProofOfPossessionType {
     /**
      * Gets the value of the jwk property.
      * 
-     * @return
-     *     possible object is
-     *     {@link JwkType }
-     *     
+     * @return possible object is {@link JwkType }
+     * 
      */
     public JwkType getJwk() {
         return jwk;
@@ -89,9 +80,8 @@ public class ProofOfPossessionType {
      * Sets the value of the jwk property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link JwkType }
-     *     
+     *            allowed object is {@link JwkType }
+     * 
      */
     public void setJwk(JwkType value) {
         this.jwk = value;
@@ -100,10 +90,8 @@ public class ProofOfPossessionType {
     /**
      * Gets the value of the jwe property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getJwe() {
         return jwe;
@@ -113,9 +101,8 @@ public class ProofOfPossessionType {
      * Sets the value of the jwe property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setJwe(String value) {
         this.jwe = value;
@@ -124,10 +111,8 @@ public class ProofOfPossessionType {
     /**
      * Gets the value of the jku property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getJku() {
         return jku;
@@ -137,9 +122,8 @@ public class ProofOfPossessionType {
      * Sets the value of the jku property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setJku(String value) {
         this.jku = value;

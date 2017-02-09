@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for samlTokenProfileType complex type.
+ * <p>
+ * Java class for samlTokenProfileType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="samlTokenProfileType">
@@ -40,15 +41,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlTokenProfileType", propOrder = {
-    "id",
-    "responseHeaderDecorator",
-    "assertionHeaderDecorator",
-    "assertionConditionsDecorator",
-    "assertionSubjectDecorator",
-    "assertionAuthnStatementDecorator",
-    "tokenSignatureDecorator"
-})
+@XmlType(name = "samlTokenProfileType", propOrder = { "id", "responseHeaderDecorator", "assertionHeaderDecorator",
+        "assertionConditionsDecorator", "assertionSubjectDecorator", "assertionAuthnStatementDecorator",
+        "tokenSignatureDecorator" })
 public class SamlTokenProfileType {
 
     @XmlElement(name = "ID", required = true)
@@ -69,10 +64,8 @@ public class SamlTokenProfileType {
     /**
      * Gets the value of the id property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getID() {
         return id;
@@ -82,9 +75,8 @@ public class SamlTokenProfileType {
      * Sets the value of the id property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setID(String value) {
         this.id = value;
@@ -93,10 +85,8 @@ public class SamlTokenProfileType {
     /**
      * Gets the value of the responseHeaderDecorator property.
      * 
-     * @return
-     *     possible object is
-     *     {@link ResponseHeaderDecoratorType }
-     *     
+     * @return possible object is {@link ResponseHeaderDecoratorType }
+     * 
      */
     public ResponseHeaderDecoratorType getResponseHeaderDecorator() {
         return responseHeaderDecorator;
@@ -106,9 +96,8 @@ public class SamlTokenProfileType {
      * Sets the value of the responseHeaderDecorator property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link ResponseHeaderDecoratorType }
-     *     
+     *            allowed object is {@link ResponseHeaderDecoratorType }
+     * 
      */
     public void setResponseHeaderDecorator(ResponseHeaderDecoratorType value) {
         this.responseHeaderDecorator = value;
@@ -117,10 +106,8 @@ public class SamlTokenProfileType {
     /**
      * Gets the value of the assertionHeaderDecorator property.
      * 
-     * @return
-     *     possible object is
-     *     {@link AssertionHeaderDecoratorType }
-     *     
+     * @return possible object is {@link AssertionHeaderDecoratorType }
+     * 
      */
     public AssertionHeaderDecoratorType getAssertionHeaderDecorator() {
         return assertionHeaderDecorator;
@@ -130,9 +117,8 @@ public class SamlTokenProfileType {
      * Sets the value of the assertionHeaderDecorator property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link AssertionHeaderDecoratorType }
-     *     
+     *            allowed object is {@link AssertionHeaderDecoratorType }
+     * 
      */
     public void setAssertionHeaderDecorator(AssertionHeaderDecoratorType value) {
         this.assertionHeaderDecorator = value;
@@ -141,10 +127,8 @@ public class SamlTokenProfileType {
     /**
      * Gets the value of the assertionConditionsDecorator property.
      * 
-     * @return
-     *     possible object is
-     *     {@link AssertionConditionsDecoratorType }
-     *     
+     * @return possible object is {@link AssertionConditionsDecoratorType }
+     * 
      */
     public AssertionConditionsDecoratorType getAssertionConditionsDecorator() {
         return assertionConditionsDecorator;
@@ -154,9 +138,8 @@ public class SamlTokenProfileType {
      * Sets the value of the assertionConditionsDecorator property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link AssertionConditionsDecoratorType }
-     *     
+     *            allowed object is {@link AssertionConditionsDecoratorType }
+     * 
      */
     public void setAssertionConditionsDecorator(AssertionConditionsDecoratorType value) {
         this.assertionConditionsDecorator = value;
@@ -165,10 +148,8 @@ public class SamlTokenProfileType {
     /**
      * Gets the value of the assertionSubjectDecorator property.
      * 
-     * @return
-     *     possible object is
-     *     {@link AssertionSubjectDecoratorType }
-     *     
+     * @return possible object is {@link AssertionSubjectDecoratorType }
+     * 
      */
     public AssertionSubjectDecoratorType getAssertionSubjectDecorator() {
         return assertionSubjectDecorator;
@@ -178,9 +159,8 @@ public class SamlTokenProfileType {
      * Sets the value of the assertionSubjectDecorator property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link AssertionSubjectDecoratorType }
-     *     
+     *            allowed object is {@link AssertionSubjectDecoratorType }
+     * 
      */
     public void setAssertionSubjectDecorator(AssertionSubjectDecoratorType value) {
         this.assertionSubjectDecorator = value;
@@ -189,10 +169,8 @@ public class SamlTokenProfileType {
     /**
      * Gets the value of the assertionAuthnStatementDecorator property.
      * 
-     * @return
-     *     possible object is
-     *     {@link AssertionAuthnStatementDecoratorType }
-     *     
+     * @return possible object is {@link AssertionAuthnStatementDecoratorType }
+     * 
      */
     public AssertionAuthnStatementDecoratorType getAssertionAuthnStatementDecorator() {
         return assertionAuthnStatementDecorator;
@@ -202,9 +180,8 @@ public class SamlTokenProfileType {
      * Sets the value of the assertionAuthnStatementDecorator property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link AssertionAuthnStatementDecoratorType }
-     *     
+     *            allowed object is {@link AssertionAuthnStatementDecoratorType }
+     * 
      */
     public void setAssertionAuthnStatementDecorator(AssertionAuthnStatementDecoratorType value) {
         this.assertionAuthnStatementDecorator = value;
@@ -213,10 +190,8 @@ public class SamlTokenProfileType {
     /**
      * Gets the value of the tokenSignatureDecorator property.
      * 
-     * @return
-     *     possible object is
-     *     {@link TokenSignatureDecoratorType }
-     *     
+     * @return possible object is {@link TokenSignatureDecoratorType }
+     * 
      */
     public TokenSignatureDecoratorType getTokenSignatureDecorator() {
         return tokenSignatureDecorator;
@@ -226,9 +201,8 @@ public class SamlTokenProfileType {
      * Sets the value of the tokenSignatureDecorator property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link TokenSignatureDecoratorType }
-     *     
+     *            allowed object is {@link TokenSignatureDecoratorType }
+     * 
      */
     public void setTokenSignatureDecorator(TokenSignatureDecoratorType value) {
         this.tokenSignatureDecorator = value;

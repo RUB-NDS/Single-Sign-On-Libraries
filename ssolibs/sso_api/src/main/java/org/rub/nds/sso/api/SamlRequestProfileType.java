@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for samlRequestProfileType complex type.
+ * <p>
+ * Java class for samlRequestProfileType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="samlRequestProfileType">
@@ -40,15 +41,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlRequestProfileType", propOrder = {
-    "id",
-    "authnrequestHeaderDec",
-    "issuer",
-    "relayState",
-    "assertionConsumerServiceURL",
-    "forceAuthn",
-    "destination"
-})
+@XmlType(name = "samlRequestProfileType", propOrder = { "id", "authnrequestHeaderDec", "issuer", "relayState",
+        "assertionConsumerServiceURL", "forceAuthn", "destination" })
 public class SamlRequestProfileType {
 
     @XmlElement(name = "ID", required = true)
@@ -64,10 +58,8 @@ public class SamlRequestProfileType {
     /**
      * Gets the value of the id property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getID() {
         return id;
@@ -77,9 +69,8 @@ public class SamlRequestProfileType {
      * Sets the value of the id property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setID(String value) {
         this.id = value;
@@ -88,10 +79,8 @@ public class SamlRequestProfileType {
     /**
      * Gets the value of the authnrequestHeaderDec property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAuthnrequestHeaderDec() {
         return authnrequestHeaderDec;
@@ -101,9 +90,8 @@ public class SamlRequestProfileType {
      * Sets the value of the authnrequestHeaderDec property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAuthnrequestHeaderDec(String value) {
         this.authnrequestHeaderDec = value;
@@ -112,10 +100,8 @@ public class SamlRequestProfileType {
     /**
      * Gets the value of the issuer property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getIssuer() {
         return issuer;
@@ -125,9 +111,8 @@ public class SamlRequestProfileType {
      * Sets the value of the issuer property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setIssuer(String value) {
         this.issuer = value;
@@ -136,10 +121,8 @@ public class SamlRequestProfileType {
     /**
      * Gets the value of the relayState property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getRelayState() {
         return relayState;
@@ -149,9 +132,8 @@ public class SamlRequestProfileType {
      * Sets the value of the relayState property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setRelayState(String value) {
         this.relayState = value;
@@ -160,10 +142,8 @@ public class SamlRequestProfileType {
     /**
      * Gets the value of the assertionConsumerServiceURL property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getAssertionConsumerServiceURL() {
         return assertionConsumerServiceURL;
@@ -173,9 +153,8 @@ public class SamlRequestProfileType {
      * Sets the value of the assertionConsumerServiceURL property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setAssertionConsumerServiceURL(String value) {
         this.assertionConsumerServiceURL = value;
@@ -184,10 +163,8 @@ public class SamlRequestProfileType {
     /**
      * Gets the value of the forceAuthn property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isForceAuthn() {
         return forceAuthn;
@@ -197,9 +174,8 @@ public class SamlRequestProfileType {
      * Sets the value of the forceAuthn property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setForceAuthn(Boolean value) {
         this.forceAuthn = value;
@@ -208,10 +184,8 @@ public class SamlRequestProfileType {
     /**
      * Gets the value of the destination property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getDestination() {
         return destination;
@@ -221,9 +195,8 @@ public class SamlRequestProfileType {
      * Sets the value of the destination property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setDestination(String value) {
         this.destination = value;

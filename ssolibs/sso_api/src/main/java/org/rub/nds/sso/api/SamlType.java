@@ -5,18 +5,19 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for samlType complex type.
+ * <p>
+ * Java class for samlType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="samlType">
@@ -38,17 +39,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlType", propOrder = {
-    "samlRequest",
-    "samlResponse",
-    "samlVerificationParameters",
-    "samlVerificationProfile",
-    "samlTokenVerificationChecks",
-    "samlAuthnReqVerificationChecks"
-})
-public class SamlType
-    extends SsoType
-{
+@XmlType(name = "samlType", propOrder = { "samlRequest", "samlResponse", "samlVerificationParameters",
+        "samlVerificationProfile", "samlTokenVerificationChecks", "samlAuthnReqVerificationChecks" })
+public class SamlType extends SsoType {
 
     protected String samlRequest;
     protected String samlResponse;
@@ -60,10 +53,8 @@ public class SamlType
     /**
      * Gets the value of the samlRequest property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSamlRequest() {
         return samlRequest;
@@ -73,9 +64,8 @@ public class SamlType
      * Sets the value of the samlRequest property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSamlRequest(String value) {
         this.samlRequest = value;
@@ -84,10 +74,8 @@ public class SamlType
     /**
      * Gets the value of the samlResponse property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSamlResponse() {
         return samlResponse;
@@ -97,9 +85,8 @@ public class SamlType
      * Sets the value of the samlResponse property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSamlResponse(String value) {
         this.samlResponse = value;
@@ -108,10 +95,8 @@ public class SamlType
     /**
      * Gets the value of the samlVerificationParameters property.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlVerificationParametersType }
-     *     
+     * @return possible object is {@link SamlVerificationParametersType }
+     * 
      */
     public SamlVerificationParametersType getSamlVerificationParameters() {
         return samlVerificationParameters;
@@ -121,9 +106,8 @@ public class SamlType
      * Sets the value of the samlVerificationParameters property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlVerificationParametersType }
-     *     
+     *            allowed object is {@link SamlVerificationParametersType }
+     * 
      */
     public void setSamlVerificationParameters(SamlVerificationParametersType value) {
         this.samlVerificationParameters = value;
@@ -132,10 +116,8 @@ public class SamlType
     /**
      * Gets the value of the samlVerificationProfile property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getSamlVerificationProfile() {
         return samlVerificationProfile;
@@ -145,9 +127,8 @@ public class SamlType
      * Sets the value of the samlVerificationProfile property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setSamlVerificationProfile(String value) {
         this.samlVerificationProfile = value;
@@ -156,10 +137,8 @@ public class SamlType
     /**
      * Gets the value of the samlTokenVerificationChecks property.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlTokenVerificationChecksType }
-     *     
+     * @return possible object is {@link SamlTokenVerificationChecksType }
+     * 
      */
     public SamlTokenVerificationChecksType getSamlTokenVerificationChecks() {
         return samlTokenVerificationChecks;
@@ -169,9 +148,8 @@ public class SamlType
      * Sets the value of the samlTokenVerificationChecks property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlTokenVerificationChecksType }
-     *     
+     *            allowed object is {@link SamlTokenVerificationChecksType }
+     * 
      */
     public void setSamlTokenVerificationChecks(SamlTokenVerificationChecksType value) {
         this.samlTokenVerificationChecks = value;
@@ -180,10 +158,8 @@ public class SamlType
     /**
      * Gets the value of the samlAuthnReqVerificationChecks property.
      * 
-     * @return
-     *     possible object is
-     *     {@link SamlAuthnRequestVerificationChecksType }
-     *     
+     * @return possible object is {@link SamlAuthnRequestVerificationChecksType }
+     * 
      */
     public SamlAuthnRequestVerificationChecksType getSamlAuthnReqVerificationChecks() {
         return samlAuthnReqVerificationChecks;
@@ -193,9 +169,9 @@ public class SamlType
      * Sets the value of the samlAuthnReqVerificationChecks property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link SamlAuthnRequestVerificationChecksType }
-     *     
+     *            allowed object is
+     *            {@link SamlAuthnRequestVerificationChecksType }
+     * 
      */
     public void setSamlAuthnReqVerificationChecks(SamlAuthnRequestVerificationChecksType value) {
         this.samlAuthnReqVerificationChecks = value;

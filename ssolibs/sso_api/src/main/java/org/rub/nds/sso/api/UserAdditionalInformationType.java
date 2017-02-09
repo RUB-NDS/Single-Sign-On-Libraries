@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import java.util.ArrayList;
@@ -14,11 +13,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for userAdditionalInformationType complex type.
+ * <p>
+ * Java class for userAdditionalInformationType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="userAdditionalInformationType">
@@ -35,9 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "userAdditionalInformationType", propOrder = {
-    "userInfo"
-})
+@XmlType(name = "userAdditionalInformationType", propOrder = { "userInfo" })
 public class UserAdditionalInformationType {
 
     protected List<UserInfoType> userInfo;
@@ -46,15 +45,16 @@ public class UserAdditionalInformationType {
      * Gets the value of the userInfo property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the userInfo property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the userInfo property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getUserInfo().add(newItem);
+     * getUserInfo().add(newItem);
      * </pre>
      * 
      * 

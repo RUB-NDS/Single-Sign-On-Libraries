@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,11 +12,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for authenticatedUserType complex type.
+ * <p>
+ * Java class for authenticatedUserType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="authenticatedUserType">
@@ -35,10 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "authenticatedUserType", propOrder = {
-    "userID",
-    "userAdditionalInformation"
-})
+@XmlType(name = "authenticatedUserType", propOrder = { "userID", "userAdditionalInformation" })
 public class AuthenticatedUserType {
 
     @XmlElement(required = true)
@@ -48,10 +46,8 @@ public class AuthenticatedUserType {
     /**
      * Gets the value of the userID property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * @return possible object is {@link String }
+     * 
      */
     public String getUserID() {
         return userID;
@@ -61,9 +57,8 @@ public class AuthenticatedUserType {
      * Sets the value of the userID property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *            allowed object is {@link String }
+     * 
      */
     public void setUserID(String value) {
         this.userID = value;
@@ -72,10 +67,8 @@ public class AuthenticatedUserType {
     /**
      * Gets the value of the userAdditionalInformation property.
      * 
-     * @return
-     *     possible object is
-     *     {@link UserAdditionalInformationType }
-     *     
+     * @return possible object is {@link UserAdditionalInformationType }
+     * 
      */
     public UserAdditionalInformationType getUserAdditionalInformation() {
         return userAdditionalInformation;
@@ -85,9 +78,8 @@ public class AuthenticatedUserType {
      * Sets the value of the userAdditionalInformation property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link UserAdditionalInformationType }
-     *     
+     *            allowed object is {@link UserAdditionalInformationType }
+     * 
      */
     public void setUserAdditionalInformation(UserAdditionalInformationType value) {
         this.userAdditionalInformation = value;

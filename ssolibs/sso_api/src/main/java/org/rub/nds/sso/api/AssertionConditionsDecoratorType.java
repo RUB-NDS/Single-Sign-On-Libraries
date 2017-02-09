@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import java.util.ArrayList;
@@ -14,11 +13,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for assertionConditionsDecoratorType complex type.
+ * <p>
+ * Java class for assertionConditionsDecoratorType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="assertionConditionsDecoratorType">
@@ -38,12 +39,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "assertionConditionsDecoratorType", propOrder = {
-    "setNotBefore",
-    "setNotAfter",
-    "timestampDuration",
-    "audienceRestriction"
-})
+@XmlType(name = "assertionConditionsDecoratorType", propOrder = { "setNotBefore", "setNotAfter", "timestampDuration",
+        "audienceRestriction" })
 public class AssertionConditionsDecoratorType {
 
     protected Boolean setNotBefore;
@@ -54,10 +51,8 @@ public class AssertionConditionsDecoratorType {
     /**
      * Gets the value of the setNotBefore property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isSetNotBefore() {
         return setNotBefore;
@@ -67,9 +62,8 @@ public class AssertionConditionsDecoratorType {
      * Sets the value of the setNotBefore property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setSetNotBefore(Boolean value) {
         this.setNotBefore = value;
@@ -78,10 +72,8 @@ public class AssertionConditionsDecoratorType {
     /**
      * Gets the value of the setNotAfter property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
+     * @return possible object is {@link Boolean }
+     * 
      */
     public Boolean isSetNotAfter() {
         return setNotAfter;
@@ -91,9 +83,8 @@ public class AssertionConditionsDecoratorType {
      * Sets the value of the setNotAfter property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
+     *            allowed object is {@link Boolean }
+     * 
      */
     public void setSetNotAfter(Boolean value) {
         this.setNotAfter = value;
@@ -102,10 +93,8 @@ public class AssertionConditionsDecoratorType {
     /**
      * Gets the value of the timestampDuration property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     * @return possible object is {@link Integer }
+     * 
      */
     public Integer getTimestampDuration() {
         return timestampDuration;
@@ -115,9 +104,8 @@ public class AssertionConditionsDecoratorType {
      * Sets the value of the timestampDuration property.
      * 
      * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *            allowed object is {@link Integer }
+     * 
      */
     public void setTimestampDuration(Integer value) {
         this.timestampDuration = value;
@@ -127,21 +115,21 @@ public class AssertionConditionsDecoratorType {
      * Gets the value of the audienceRestriction property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the audienceRestriction property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the audienceRestriction property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getAudienceRestriction().add(newItem);
+     * getAudienceRestriction().add(newItem);
      * </pre>
      * 
      * 
      * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
+     * Objects of the following type(s) are allowed in the list {@link String }
      * 
      * 
      */

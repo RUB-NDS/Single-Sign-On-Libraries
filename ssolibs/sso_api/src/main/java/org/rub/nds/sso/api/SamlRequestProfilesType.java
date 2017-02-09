@@ -5,7 +5,6 @@
 // Generated on: 2017.02.09 at 01:11:59 PM EET 
 //
 
-
 package org.rub.nds.sso.api;
 
 import java.util.ArrayList;
@@ -15,11 +14,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for samlRequestProfilesType complex type.
+ * <p>
+ * Java class for samlRequestProfilesType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within
+ * this class.
  * 
  * <pre>
  * &lt;complexType name="samlRequestProfilesType">
@@ -36,9 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "samlRequestProfilesType", propOrder = {
-    "samlRequestProfile"
-})
+@XmlType(name = "samlRequestProfilesType", propOrder = { "samlRequestProfile" })
 public class SamlRequestProfilesType {
 
     @XmlElement(required = true)
@@ -48,15 +47,16 @@ public class SamlRequestProfilesType {
      * Gets the value of the samlRequestProfile property.
      * 
      * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the samlRequestProfile property.
+     * This accessor method returns a reference to the live list, not a
+     * snapshot. Therefore any modification you make to the returned list will
+     * be present inside the JAXB object. This is why there is not a
+     * <CODE>set</CODE> method for the samlRequestProfile property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
+     * 
      * <pre>
-     *    getSamlRequestProfile().add(newItem);
+     * getSamlRequestProfile().add(newItem);
      * </pre>
      * 
      * 
