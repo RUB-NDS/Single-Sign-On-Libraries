@@ -18,14 +18,31 @@
  */
 package org.rub.nds.saml.samllib.verifier;
 
-import java.util.logging.Level;
+import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.xml.XMLConstants;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 import org.opensaml.common.SAMLObject;
+import org.opensaml.xml.Configuration;
+import org.opensaml.xml.io.Marshaller;
+import org.opensaml.xml.io.MarshallerFactory;
+import org.opensaml.xml.io.MarshallingException;
+import org.opensaml.xml.util.XMLHelper;
 import org.opensaml.xml.validation.ValidationException;
 import org.opensaml.xml.validation.ValidatorSuite;
 import org.rub.nds.saml.samllib.exceptions.SAMLVerifyException;
 import org.rub.nds.sso.api.VerificationProfileType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXException;
+import org.w3c.dom.Element;
+
 
 /**
  *
@@ -41,7 +58,7 @@ public class SchemaValidator implements SAMLVerifierInterface {
             _log.debug("Verify the XML-Schema ...");
 
             if (profile.getSamlTokenVerificationChecks().isVerifySchema()) {
-                if (profile.getSamlTokenVerificationParameters().getSamlSchema().isEmpty()
+                if (profile.getSamlTokenVerificationParameters().getSamlSchema() == null
                         && profile.getSamlTokenVerificationParameters().getSamlSchemaUrl() == null) {
                     ValidatorSuite schemaValidators = org.opensaml.Configuration
                             .getValidatorSuite("saml2-core-schema-validator");
@@ -50,10 +67,42 @@ public class SchemaValidator implements SAMLVerifierInterface {
                     schemaValidators.validate(samlObject);
                 }
                 if (profile.getSamlTokenVerificationParameters().getSamlSchemaUrl() != null) {
-                    System.out.println(profile.getSamlTokenVerificationParameters().getSamlSchemaUrl());
+                    for (String url : profile.getSamlTokenVerificationParameters().getSamlSchemaUrl()) {
+
+                        URL urlObj = new URL(url);
+                        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                        Schema schema = schemaFactory.newSchema(urlObj); 
+                        Validator validator = schema.newValidator();
+
+                        MarshallerFactory marshallerFactory = Configuration.getMarshallerFactory();
+                        Marshaller marshaller = marshallerFactory.getMarshaller(samlObject);
+                        Element element = marshaller.marshall(samlObject);
+                        StringReader reader = new StringReader(XMLHelper.prettyPrintXML(element));
+                        
+                        validator.validate(new StreamSource(reader));
+                    }
+                }
+                if (profile.getSamlTokenVerificationParameters().getSamlSchema() != null) {
+                    for (String file : profile.getSamlTokenVerificationParameters().getSamlSchema()) {
+
+                        File fileObj = new File(file);
+                        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                        Schema schema = schemaFactory.newSchema(fileObj); 
+                        Validator validator = schema.newValidator();
+
+                        MarshallerFactory marshallerFactory = Configuration.getMarshallerFactory();
+                        Marshaller marshaller = marshallerFactory.getMarshaller(samlObject);
+                        Element element = marshaller.marshall(samlObject);
+                        StringReader reader = new StringReader(XMLHelper.prettyPrintXML(element));
+                        
+                        validator.validate(new StreamSource(reader));
+                    }
                 }
             }
-        } catch (ValidationException ex) {
+        } catch (ValidationException | SAXException | MalformedURLException | MarshallingException  ex) {
+            _log.error("Schema validation failed! ");
+            throw new SAMLVerifyException("Schema validation failed! ", ex);
+        } catch (IOException ex) {
             _log.error("Schema validation failed! ");
             throw new SAMLVerifyException("Schema validation failed! ", ex);
         }
