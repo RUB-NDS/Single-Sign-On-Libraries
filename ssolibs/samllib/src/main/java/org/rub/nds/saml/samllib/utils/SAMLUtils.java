@@ -27,6 +27,8 @@ import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import javax.xml.xpath.*;
 import org.apache.xml.security.exceptions.Base64DecodingException;
 import org.joda.time.DateTime;
@@ -59,6 +61,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * SAML Utilities needed for the processing of SAML messages
@@ -440,6 +443,37 @@ public final class SAMLUtils {
         } catch (NullPointerException ex) {
             _log.error("No authenticated user was found in the token!", ex);
             throw new ManagerException("No authenticated user was found in the token!");
+        }
+    }
+
+    public static void parseXmlFile(String str2parse) throws WrongInputException {
+        // //get the factory
+        // DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        //
+        // try {
+        // //Using factory get an instance of document builder
+        // DocumentBuilder db = dbf.newDocumentBuilder();
+        // //parse using builder to get DOM representation of the XML file
+        // InputSource inputSource = new InputSource( new StringReader(
+        // str2parse ) );
+        // return db.parse(inputSource);
+        // } catch (ParserConfigurationException | SAXException | IOException
+        // pce) {
+        // throw new WrongInputException(pce.getMessage());
+        // }
+        // get a factory
+        SAXParserFactory spf = SAXParserFactory.newInstance();
+        try {
+
+            // get a new instance of parser
+            SAXParser sp = spf.newSAXParser();
+
+            InputSource inputSource = new InputSource(new StringReader(str2parse));
+            // parse the file and also register this class for call backs
+            sp.parse(inputSource, new DefaultHandler());
+
+        } catch (SAXException | ParserConfigurationException | IOException se) {
+            throw new WrongInputException(se.getMessage());
         }
     }
 }

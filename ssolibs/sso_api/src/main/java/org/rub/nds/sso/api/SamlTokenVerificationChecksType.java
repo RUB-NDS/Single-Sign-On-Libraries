@@ -53,12 +53,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "samlTokenVerificationChecksType", propOrder = { "verifySchema", "verifyXSW", "verifySAMLResponseID",
-        "verifySAMLResponseIssueInstant", "verifySAMLResponseSignatureTrusted", "verifySAMLResponseSignature",
-        "verifySAMLResponseInResponseTo", "verifySAMLAssertionID", "verifySAMLAssertionSignatureTrusted",
-        "verifySAMLAssertionSignature", "verifySAMLAssertionInResponseTo", "verifySAMLAssertionIssueInstant",
-        "verifySAMLAssertionSbjConfirmationTimestamps", "verifySAMLAssertionSbjConfirmationDestination",
-        "verifySAMLAssertionSbjInResponseTo", "verifySAMLAssertionConditionsTimestamps",
-        "verifySAMLAssertionConditionsAudience", "verifySAMLAssertionAuthnMethod", "verifyHolderOfKey" })
+        "verifySAMLResponseDestination", "verifySAMLResponseIssueInstant", "verifySAMLResponseSignatureTrusted",
+        "verifySAMLResponseSignature", "verifySAMLResponseInResponseTo", "verifySAMLAssertionID",
+        "verifySAMLAssertionSignatureTrusted", "verifySAMLAssertionSignature", "verifySAMLAssertionInResponseTo",
+        "verifySAMLAssertionIssueInstant", "verifySAMLAssertionSbjConfirmationTimestamps",
+        "verifySAMLAssertionSbjConfirmationDestination", "verifySAMLAssertionSbjInResponseTo",
+        "verifySAMLAssertionConditionsTimestamps", "verifySAMLAssertionConditionsAudience",
+        "verifySAMLAssertionAuthnMethod", "verifyHolderOfKey" })
 public class SamlTokenVerificationChecksType {
 
     protected Boolean verifySchema;
@@ -68,6 +69,7 @@ public class SamlTokenVerificationChecksType {
     protected Boolean verifySAMLResponseSignatureTrusted;
     protected Boolean verifySAMLResponseSignature;
     protected Boolean verifySAMLResponseInResponseTo;
+    protected Boolean verifySAMLResponseDestination;
     protected Boolean verifySAMLAssertionID;
     protected Boolean verifySAMLAssertionSignatureTrusted;
     protected Boolean verifySAMLAssertionSignature;
@@ -483,6 +485,14 @@ public class SamlTokenVerificationChecksType {
      */
     public void setVerifyHolderOfKey(Boolean value) {
         this.verifyHolderOfKey = value;
+    }
+
+    public Boolean isVerifySAMLResponseDestination() {
+        return verifySAMLResponseDestination;
+    }
+
+    public void setVerifySAMLResponseDestination(Boolean verifySAMLResponseDestination) {
+        this.verifySAMLResponseDestination = verifySAMLResponseDestination;
     }
 
 }

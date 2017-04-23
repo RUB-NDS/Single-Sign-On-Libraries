@@ -103,17 +103,20 @@ public class ResponseHeaderVerification implements SAMLVerifierInterface {
             }
         }
     }
-    
+
     private void verifyDestination(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
         if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseDestination() != null
                 && profile.getSamlTokenVerificationChecks().isVerifySAMLResponseDestination()) {
             try {
                 Response response = ((Response) samlObject);
-                if (!response.getDestination().equalsIgnoreCase(profile.getSamlTokenVerificationParameters().getDestination())) {
+                if (!response.getDestination().equalsIgnoreCase(
+                        profile.getSamlTokenVerificationParameters().getDestination())) {
                     _log.error("Destination in the Response is not valid. The current value is: "
-                            + response.getDestination() + " and the expected value is: " + profile.getSamlTokenVerificationParameters().getDestination());
+                            + response.getDestination() + " and the expected value is: "
+                            + profile.getSamlTokenVerificationParameters().getDestination());
                     throw new SAMLVerifyException("Destination in the Response is not valid. The current value is: "
-                            + response.getDestination() + " and the expected value is: " + profile.getSamlTokenVerificationParameters().getDestination());
+                            + response.getDestination() + " and the expected value is: "
+                            + profile.getSamlTokenVerificationParameters().getDestination());
                 }
             } catch (NullPointerException ex) {
                 throw new SAMLVerifyException(
