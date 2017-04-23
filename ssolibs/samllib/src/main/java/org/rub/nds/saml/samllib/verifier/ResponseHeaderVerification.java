@@ -47,6 +47,7 @@ public class ResponseHeaderVerification implements SAMLVerifierInterface {
         verifyIDs(samlObject, profile);
         verifyTimestamp(samlObject, profile);
         verifyInResponseTo(samlObject, profile);
+        verifyDestination(samlObject, profile);
     }
 
     private void verifyIDs(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
@@ -99,6 +100,24 @@ public class ResponseHeaderVerification implements SAMLVerifierInterface {
             } catch (NullPointerException ex) {
                 throw new SAMLVerifyException(
                         "AuthnRequest is null OR InResponseTo is empty! No verification is possible!");
+            }
+        }
+    }
+    
+    private void verifyDestination(SAMLObject samlObject, VerificationProfileType profile) throws SAMLVerifyException {
+        if (profile.getSamlTokenVerificationChecks().isVerifySAMLResponseDestination() != null
+                && profile.getSamlTokenVerificationChecks().isVerifySAMLResponseDestination()) {
+            try {
+                Response response = ((Response) samlObject);
+                if (!response.getDestination().equalsIgnoreCase(profile.getSamlTokenVerificationParameters().getDestination())) {
+                    _log.error("Destination in the Response is not valid. The current value is: "
+                            + response.getDestination() + " and the expected value is: " + profile.getSamlTokenVerificationParameters().getDestination());
+                    throw new SAMLVerifyException("Destination in the Response is not valid. The current value is: "
+                            + response.getDestination() + " and the expected value is: " + profile.getSamlTokenVerificationParameters().getDestination());
+                }
+            } catch (NullPointerException ex) {
+                throw new SAMLVerifyException(
+                        "AuthnRequest is null OR Destination is empty! No verification is possible!");
             }
         }
     }

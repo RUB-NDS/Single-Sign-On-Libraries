@@ -109,7 +109,7 @@ public class SubjectVerification implements SAMLVerifierInterface {
                 }
             }
         } catch (NullPointerException ex) {
-            throw new SAMLVerifyException("Some element is missing. NullPointerException: ", ex);
+            throw new SAMLVerifyException("Subject Destination cannot be verified. NullPointerException: ", ex);
         }
     }
 
